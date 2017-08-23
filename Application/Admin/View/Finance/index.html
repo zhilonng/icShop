@@ -1,0 +1,101 @@
+ <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>广州萌懂信息科技有限公司</title>
+    <link rel="shortcut icon" href="favicon.ico"> 
+    <link href="__PUBLIC__/css/bootstrap.min.css" rel="stylesheet">
+    <link href="__PUBLIC__/css/font-awesome.min.css" rel="stylesheet">
+    <link href="__PUBLIC__/css/animate.min.css" rel="stylesheet">
+    <link href="__PUBLIC__/css/style.min.css" rel="stylesheet">
+</head>
+<body class="gray-bg">
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>财务流水</h5>
+                    </div>
+                    <div class="ibox-content">
+                        <div class="ibox-content">
+                            <form class="form-inline" role="form" method="get">
+                                <div class="form-group">
+                                    <p class="form-control-static">日期:</p>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" name="start" class="form-control layer-date" id="start" placeholder="开始时间" value="{$Think.get.start}" >
+                                </div>
+                                <div class="form-group">
+                                    <p class="form-control-static">~</p>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" name="end" class="form-control layer-date" id="end" placeholder="结束时间" value="{$Think.get.end}" >
+                                </div>
+                                <button class="btn btn-primary" type="submit">查询</button>
+                            </form>
+                        </div>
+                        <div class="ibox-content">
+                            <div class="echarts" id="echarts-bar-chart"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="modal-form" class="modal fade" aria-hidden="true">
+        
+    </div>
+    <script src="__PUBLIC__/js/jquery.min.js"></script>
+    <script src="__PUBLIC__/js/bootstrap.min.js"></script>
+    <script src="__PUBLIC__/js/content.min.js"></script>
+    <script src="__PUBLIC__/js/plugins/layer/laydate/laydate.js"></script>
+    <script src="__PUBLIC__/js/plugins/echarts/echarts-all.js"></script>
+    <script type="text/javascript">
+        laydate({elem:"#start",event:"focus"});
+        laydate({elem:"#end",event:"focus"});
+        chart({$data});
+        function chart(vardata){
+            var t = echarts.init(document.getElementById("echarts-bar-chart")),
+            n = {
+                title: {
+                    text: "订单数和付款金额"
+                },
+                tooltip: {
+                    trigger: "axis"
+                },
+                legend: {
+                    data: ["订单数", "付款金额"]
+                },
+                grid: {
+                    x: 30,
+                    x2: 40,
+                    y2: 24
+                },
+                calculable: !0,
+                xAxis: [{
+                    type: "category",
+                    data: vardata.date
+                }],
+                yAxis: [{
+                    type: "value"
+                }],
+                series: [{
+                    name: "订单数",
+                    type: "bar",
+                    data: vardata.count
+                },
+                {
+                    name: "付款金额",
+                    type: "bar",
+                    data: vardata.amount
+                }]
+            };
+            t.setOption(n),
+            window.onresize = t.resize;
+        }
+        
+    </script>
+</body>
+</html>

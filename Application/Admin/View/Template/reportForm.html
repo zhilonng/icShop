@@ -1,0 +1,69 @@
+<div class="r_product">
+    <p style="text-align:right"><a href="javascript:;" title="删除产品" class="fa fa-close" onclick="delProduct(this,0)"></a></p>
+    <div class="clearfix">
+        <div class="col-md-2">
+            <label class="control-label">产品</label>
+        </div>
+        <div class="col-md-10">
+            <select class="form-control" name="{$rid}[product][]" onchange="change('{$type}','{$rid}',this)">
+                <foreach name="product" item="vo">
+                    <option value="{$vo.id}">{$vo.title}({$vo.category.cname})</option>
+                </foreach>
+            </select>
+        </div>
+    </div>
+    <div class="hr-line-dashed"></div>
+    <div class="clearfix">
+        <div class="col-md-2">
+            <label class="control-label">保险公司</label>
+        </div>
+        <div class="col-md-4">
+            <input id="{$type}-company-{$rid}" type="text" name="{$rid}[company][]" class="form-control" value="{$p.company}">
+        </div>
+        <div class="col-md-2">
+            <label class="control-label">产品性质</label>
+        </div>
+        <div class="col-md-4">
+            <input id="{$type}-property-{$rid}" type="text" name="{$rid}[property][]" class="form-control" value="{$p.property}">
+        </div>   
+    </div>
+    <div class="hr-line-dashed"></div>
+    <div class="clearfix">
+        <div class="col-md-2">
+            <label class="control-label">保障期限</label>
+        </div>
+        <div class="col-md-4">
+            <input id="{$type}-limit-{$rid}" type="text" name="{$rid}[limit][]" class="form-control" value="{$p.limit}">
+        </div>
+        <div class="col-md-2">
+            <label class="control-label">缴费时期</label>
+        </div>
+        <div class="col-md-4">
+            <input id="{$type}-payment-{$rid}" type="text" name="{$rid}[payment][]" class="form-control" value="{$p.payment}">
+        </div>   
+    </div>
+    <div class="hr-line-dashed"></div>
+    <div class="clearfix">
+        <div class="col-md-2">
+            <label class="control-label">保额</label>
+        </div>
+        <div class="col-md-4">
+            <input id="{$type}-insured-{$rid}" type="text" name="{$rid}[insured][]" class="form-control" value="{$p.insured}">
+        </div>
+        <div class="col-md-2">
+            <label class="control-label">保费</label>
+        </div>
+        <div class="col-md-4">
+            <input id="{$type}-premium-{$rid}" type="text" name="{$rid}[premium][]" class="form-control" value="{$p.premium}">
+        </div>   
+    </div>
+    <div class="hr-line-dashed"></div>
+    <div class="clearfix">
+        <div class="col-md-2">
+            <label class="control-label">产品说明</label>
+        </div>
+        <div class="col-md-10">
+            <textarea id="{$type}-desc-{$rid}" name="{$rid}[desc][]" id="" class="form-control">{$p.desc}</textarea>
+        </div>
+    </div>
+</div>

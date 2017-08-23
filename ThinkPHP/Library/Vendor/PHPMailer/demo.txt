@@ -1,0 +1,30 @@
+<?php
+// 实例化
+$pm = new \PHPMailer();
+
+// 服务器相关信息
+$pm->Host = 'smtp.163.com'; // SMTP服务器
+$pm->IsSMTP(); // 设置使用SMTP服务器发送邮件
+$pm->SMTPAuth = true; // 需要SMTP身份认证
+$pm->Username = 'linkunyuan'; // 登录SMTP服务器的用户名
+$pm->Password = 'lamson123'; // 登录SMTP服务器的密码
+
+// 发件人信息
+$pm->From = 'linkunyuan@163.com';
+$pm->FromName = '林坤源';
+
+// 收件人信息
+$pm->AddAddress('3460018805@qq.com', '老林'); // 添加一个收件人
+
+// 邮件内容
+$pm->CharSet = 'utf-8'; // 内容编码
+$pm->Subject = '这是一个测试'; // 邮件标题
+$pm->MsgHTML('欢迎来到<a href="http://www.itcast.cn" target="_blank">传智播客</a>！'); // 邮件内容
+// $this->AddAttachment($path); // 附件
+
+// 发送邮件
+if($pm->Send()){
+   echo 'ok';
+}else {
+   echo $pm->ErrorInfo;
+}

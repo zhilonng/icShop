@@ -1,0 +1,37 @@
+﻿/**
+ * 购物车样式
+ * @author 林坤源
+ * @link http://www.lamson.cc
+ */
+@import "style.css";
+/*------------- 购物车 -------------*/
+#cartTab{width:100%; border-collapse:collapse;}
+#cartTab thead th{height:40px; line-height:40px; color:#666; background:#FAFAFA;}
+#cartTab tbody td{padding:5px 0; text-align:center; border-top:#DDD 1px solid;}
+#cartTab .fst{border-left:#DDD 1px solid;}
+#cartTab .thumb{text-align:left;}
+#cartTab .thumb img{float:left; width:80px; height:auto; margin:0 20px;}
+#cartTab h2{line-height:2; font-size:1em; font-weight:normal;}
+#cartTab p{line-height:1.5;}
+#cartTab .lst{border-right:#DDD 1px solid;}
+#cartTab .lst a:hover{color:#F32613; cursor:pointer;}
+#cartTab .incdec a{display:inline-block; width:26px; height:30px; line-height:30px; text-align:center; color:#333; font:14px/30px Tahoma, Arial; cursor:pointer; background:#F5F5F5;}
+#cartTab .incdec a:hover{color:#FFF; background:#FF875A;}
+#cartTab .incdec input{width:20px; height:20px; padding:4px; font:12px/20px Arial; color:#777; outline:0 none; text-align:center; border:solid 1px #E6E9EE; background:#FFF;}
+#cartTab .price{color:#F32613;}
+#totalPrice{text-align:right!important; padding:20px 0!important;}
+#totalPrice em{margin:0 4px; font-size:22px; line-height:40px; font-family:Tahoma,arial; color:#F32613;}
+#totalPrice a, #totalPrice button{display:inline-block; height:40px; line-height:40px; padding:0 15px; margin-left:20px; font-size:20px; color:#FFF!important; cursor:default; border:none; background:#AAA;}
+#totalPrice a.enabled, #totalPrice button{cursor:pointer; background:#F32613;}
+
+/*------------- 结算 -------------*/
+.toOrder{margin-top:10px;}
+caption{font-size:16px; line-height:3; color:#333; text-align:left; text-indent:1em;}
+#consignee{border:#F32613 1px dashed; background:#FFFDF3;}
+#consignee table{width:100%;}
+#consignee th{width:15%; text-align:right; font-weight:normal;}
+#consignee td{padding:5px;}
+#consignee em{font-style:normal; color:#F32613; margin-right:4px;}
+#consignee input{height:30px; line-height:30px; border:#E6E9EE 1px solid; background:#FFF;}
+.toOrder #totalPrice a{float:left; cursor:pointer; background:#36BC9B;}
+

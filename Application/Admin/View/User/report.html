@@ -1,0 +1,683 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{$user.nickname}-妈咪研究院</title>
+    <link rel="shortcut icon" href="favicon.ico"> 
+    <link href="__PUBLIC__/css/bootstrap.min.css" rel="stylesheet">
+    <link href="__PUBLIC__/css/font-awesome.min.css" rel="stylesheet">
+    <link href="__PUBLIC__/css/animate.min.css" rel="stylesheet">
+    <link href="__PUBLIC__/css/style.min.css" rel="stylesheet">
+    <style type="text/css">
+    .report-title{
+        padding: 15px 10px;
+        margin: 10px 0px;
+        background: #1ab394;
+        color: #fff;
+        border-radius: 3px
+    }
+    .report-title h5{
+        display: inline;
+        font-size: 16px;
+    }
+    .report-title input{
+        color: #333;
+    }
+    .product .product-form{
+        padding: 15px 0;
+        
+        margin-bottom: 20px;
+    }
+    .r_product{
+      /*  padding: 15px;*/
+        margin-top: 20px
+        background: #f4f4f4;
+        border-radius: 5px;
+        -webkit-border-radius:5px;
+        -moz-border-radius:5px;
+    }
+    .uhd{
+        margin-bottom: 20px;
+        border-top: 4px solid #e7eaec;
+        padding: 10px ;
+        background: #fff
+    }
+    .uhd img{
+        display: block;
+        float: left;
+        margin-right: 10px;
+    }
+    .uhdinfo{float: left;}
+    .uhdinfo h1{
+        margin-top:0px;
+        font-size: 16px;
+    }
+.hr-line-dashed{line-height:100%;padding:0;margin:1px;}
+.col-md-2{text-align:right;}
+        .s_button{
+            position: fixed;
+            z-index: 999;
+            right: 3px;
+            top:190px;
+            background-color: rgb(26, 179, 148);
+            height: 25px;
+            line-height: 25px;
+            font-size: 14px;
+            color: #f1fbf4;
+            text-align: center;
+            cursor:pointer;
+        }
+        select:focus{
+            border-color: rgb(26, 179, 148);;
+            outline: 0;
+        }
+        .s_select{
+            border: 1px solid #e5e6e7;
+        }
+    </style>
+<!-- JS开始 -->
+
+
+    <script src="__PUBLIC__/js/jquery.min.js"></script>
+    <script src="__PUBLIC__/js/bootstrap.min.js"></script>
+    <script src="__PUBLIC__/js/content.min.js"></script>
+    <script type="text/javascript">
+        //选择填充数据  eisen
+     /*   var draggingObj=null; 
+        var diffX=50;
+        var diffY=0;
+        function down(e){
+            console.log(e)
+            var dialog=document.getElementById('float-windows-for-insurance-caculator');
+                if(e.target.offsetParent.className.indexOf('float-windows-for-insurance-caculator')!=-1){
+                    draggingObj=e.target.offsetParent;
+                    diffX=e.clientX-draggingObj.offsetLeft;
+                    diffY=e.clientY-draggingObj.offsetTop;
+                    dialog.style.left = diffX;
+                    dialog.style.top = diffY;
+                }
+            }
+            
+            function move(e){
+                var dialog=document.getElementById('float-windows-for-insurance-caculator');
+                if(draggingObj){
+                    dialog.style.left=(e.clientX-diffX)+'px';
+                    dialog.style.top=(e.clientY-diffY)+'px';
+                }
+            }
+            
+            function up(e){
+                draggingObj=null;
+                diffX=0;
+                diffY=0;
+            }
+            document.addEventListener('mousedown',down);
+            document.addEventListener('mousemove',move);
+            document.addEventListener('mouseup',up);*/
+        var URL=''
+        var URLL=''
+        function change(type,rid,op){
+            //alert(product_id)
+            var id={id:op.value};
+            $.ajax({
+                url:"{:U('user/ajaxProduct')}",
+                type:"get",
+                data:id,
+                success:function(data){
+                   // alert(data.url)
+                    if(data.status==1){
+                        $("#"+type+'-company-'+rid).val(data.company);
+                        $("#"+type+'-property-'+rid).val(data.property);
+                        $("#"+type+'-limit-'+rid).val(data.limit);
+                        $("#"+type+'-insured-'+rid).val(data.insured);
+                        $("#"+type+'-premium-'+rid).val(data.premium);
+                        $("#"+type+'-desc-'+rid).val(data.desc);
+                        $("#"+type+'-payment-'+rid).val(data.payment);
+                        //$("#"+'aaaaaaa'+product_id).attr('id','aaaaaaa'+op.value);
+                        //$("#"+type+'-caca-'+rid).text(data.url);
+                        //$("#"+type+'-aaaaaa-'+rid).text(data.url);
+                        $("#"+type+'-caca-'+rid).attr('data',data.url);
+                        $("#"+type+'-aaaaaa-'+rid).attr('data',data.url);
+                        //URL='http://'+decodeURI(data.url);
+                        //URLL='http://'+decodeURI(data.url);
+                    }
+                }
+            })
+        }
+
+        function closeInsuranceCaculatorWindows(){
+            $("#float-windows-for-insurance-caculator").css('display','none');
+            }
+        function changeconf(type,op){
+            var id={id:op.value};
+            $.ajax({
+                url:"{:U('Template/ajaxTemConf')}",
+                data:id,
+                success:function(data){
+                    if(data.status==1){
+                        $("#"+type).val(data.desc);
+                    }
+                }
+            })
+        }
+        //用户信息取出来的保费计算
+        function caculate(obj){
+             //alert('11'+ $('#aaaaaaa').attr('data'))
+             URLL='http://'+$(obj).attr('data');
+             //alert('1'+URLL);return false;
+             //$('#float-windows-for-insurance-caculator' ).css('display','block');
+             $('#iframe-insurance-caculator').attr('src',URLL);
+             $('#float-windows-for-insurance-caculator').show();
+             //alert($('#iframe-insurance-caculator').attr('src'))
+           /* window.open ( URLL, 'newwindow', 'height=600, width=700,  top=23,left=668, toolbar=no, menubar=no, scrollbars=yes, resizable=no,location=no, status=no');*/
+        }
+        //列表拉取以后的保费计算
+         function caculated(val){
+             URL='http://'+$(val).attr('data');
+            //return false;
+            //alert('2'+URL);return false;
+            //$('#float-windows-for-insurance-caculator' ).css('display','block');
+            $('#iframe-insurance-caculator').attr('src',URL);
+            $('#float-windows-for-insurance-caculator').show();
+            // alert($('#iframe-insurance-caculator').attr('src'))
+            /*window.open ( URL, 'newwindow', 'height=600, width=700,  top=23,left=668, toolbar=yes, menubar=yes, scrollbars=yes, resizable=yes,location=yes, status=yes');*/
+        }
+    
+        function myhide(){
+            $('.userinfo' ).hide();
+            $('.usertag' ).hide();
+        }
+        function myshow(){
+            //alert('1');
+            $('.userinfo' ).show();
+           // $('.userinfo' ).css('position','flex')
+            $('.usertag' ).show();
+            //$('.usertag').css('position','flex')
+        }
+        function s_button(){
+            $("#s_form").submit();
+            //$("#s_form").submit();
+    
+        }
+        var reportUrl = "{:U('user/reportForm')}";
+        var delProductUrl = "{:U('user/delProduct')}";
+        var changeAllUrl = "{:U('Template/ajaxAll')}";
+    </script>
+    <script src="__PUBLIC__/js/plugins/layer/layer.js"></script>
+    <script src="__PUBLIC__/js/report.js"></script>
+
+    <!-- JS结束 -->
+
+
+</head>
+
+<body class="gray-bg">
+
+<!--浮动框-->
+<div></div>
+
+<!--浮动按钮  eisen-->
+<div id="s_button" style="position:fixed;right:10px;top:200px;width:50px;height:50px;border-radius:100px;background-color:#ffff00;text-align:center;color:#666;z-index:999;line-height:15px;padding-top:10px;cursor:pointer;" onclick="s_button(this)">临时<br>保存</div>
+<div id="hide_button" style="position:fixed;right:10px;top:242px;width:50px;z-index:999;line-height:15px;padding-top:10px;"><button onclick="myhide(this)">隐藏</button></div>
+<div id="show_button" style="position:fixed;right:10px;top:266px;width:50px;z-index:999;line-height:15px;padding-top:10px;"><button onclick="myshow(this)">显示</button></div>
+
+    <div class="wrapper wrapper-content animated fadeInRight">
+
+        <div class="uhd col-sm-12 clearfix" style="height: 193px;display: flex;flex-wrap: wrap">
+
+        <div class="floatframe">
+        <div style="left:36px;top:36px;width:369px;height:50px;z-index:999;display: flex">
+        <div><img src="{$user.headimgurl }" alt="" width="50" height="50" ></div>
+
+        <div class="uhdinfo" style="margin-left: 11px;">
+            <h1>{$user.nickname}</h1>
+            <p>{$user.mobile}</p>
+        </div>
+        <div><select class="col-sm-2 s_select " style="height: 46px; width: 176px; margin-left: 39px; margin-top: 4px;"  onchange="window.location=this.value;">
+            <foreach name="t_all" item="vo">
+                <option value="{:U('template/changeall',array('id'=>$vo['id'],'uid'=>$uid))}" >{$vo.title}</option>
+            </foreach>
+        </select>
+        </div>
+
+    </div>
+    <!-- 用户标签模块1 -->
+    <div  class="usertag" style="float:left;margin-top:14px;width:369px;height:100px;background-color:#F0F0F0;font-size: 16px;border-radius:10px;padding: 6px;line-height: 1px; ">
+         <foreach name="tags" item="ta">
+        <div style="height: 20px;margin:0px 5px 0px 5px;float:left;padding-top: 10px">{$ta['tag']}</div>
+         </foreach>
+    </div>
+    <!-- 用户信息模块 -->
+    <div class="userinfo" style="float:left;margin-left:10px;margin-top:-50px;right:79px;top:30px;width:478px;height:165px;z-index:999;background-color:#F0F0F0;font-size: 16px;border-radius:10px;padding:9px;text-align:left;">
+        {$info}
+    </div>
+
+</div>
+
+        </div>
+        <div class="row">
+            <form id="s_form" action="{:U('user/report')}" method="post">
+                <input type="hidden" name="user_id" value="{$uid}">
+                
+                <div class="col-sm-8 pt20" style="width: 57.667%;">
+                    <div class="ibox float-e-margins">
+                        <div class="ibox-title">
+                            <h5>配置方案</h5>
+                        </div>
+                        <div class="ibox-content">
+                            <if condition="$father">
+                                <div class="report-title">
+                                    <h5>宝爸</h5>
+                                    <div class="ibox-tools">年龄：<input type="text" class="" size="5" name="age[{$father.id}]" value="{$father.age}">岁</div>
+                                </div>
+                                <div class="product">
+                                    <div class="form-horizontal product-form">
+
+                                        <foreach name="father.report" item="report">
+                                            <div class="r_product">
+                                                <p style="text-align:right"><a href="javascript:;" title="删除产品" class="fa fa-close" onclick="delProduct(this,{$report.id})"></a></p>
+                                                <div class="clearfix">
+                                                    <div class="col-md-2">
+                                                        <label class="control-label">产品</label>
+                                                    </div>
+                                                    <div class="col-md-10">
+                                                        <select class="form-control" name="r_product[{$report.id}]" onchange="change('f','{$report.id}',this)">
+                                                            <foreach name="product" item="vo">
+                                                                <option  value="{$vo.id}" <if condition="$vo['id'] eq $report['product_id']">selected</if>>{$vo.title}（{$vo.category.cname}）</option>
+                                                            </foreach>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="hr-line-dashed"></div>
+                                                <div class="clearfix">
+                                                    <div class="col-md-2">
+                                                        <label class="control-label">保险公司</label>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <input id="f-company-{$report.id}" type="text" name="r_company[{$report.id}]" class="form-control" value="{$report.company}">
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <label class="control-label">产品性质</label>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <input id="f-property-{$report.id}" type="text" name="r_property[{$report.id}]" class="form-control" value="{$report.property}">
+                                                    </div>   
+                                                </div>
+                                                <div class="hr-line-dashed"></div>
+                                                <div class="clearfix">
+                                                    <div class="col-md-2">
+                                                        <label class="control-label">保障期限</label>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <input id="f-limit-{$report.id}" type="text" name="r_limit[{$report.id}]" class="form-control" value="{$report.limit}">
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <label class="control-label">缴费时期</label>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <input id="f-payment-{$report.id}" type="text" name="r_payment[{$report.id}]" class="form-control" value="{$report.payment}">
+                                                    </div>   
+                                                </div>
+                                                <div class="hr-line-dashed"></div>
+                                                <div class="clearfix">
+                                                    <div class="col-md-2">
+                                                        <label class="control-label">保额</label>
+                                                    </div>
+                                                    <div class="col-md-4" >
+                                                        <input id="f-insured-{$report.id}" type="text" name="r_insured[{$report.id}]" class="form-control" value="{$report.insured}">
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <label class="control-label">保费</label>
+                                                    </div>
+                                                    <div class="col-md-4" style="display: flex;flex-wrap: wrap;" >
+                                                        <input id="f-premium-{$report.id}"  type="text" name="r_premium[{$report.id}]" class="form-control" value="{$report.premium}"  style="width:120px;">
+            <div style="float: left;margin: 7px 0 0 35px;"><a id="f-aaaaaa-{$report.id}" onclick="caculate(this)" data="{$report.url}">计算</a></div> 
+                                                    </div>  
+                                                </div>
+                                                <div class="hr-line-dashed"></div>
+                                                <div class="clearfix">
+                                                    <div class="col-md-2">
+                                                        <label class="control-label">产品说明</label>
+                                                    </div>
+                                                    <div class="col-md-10">
+                                                        <textarea id="f-desc-{$report.id}" name="r_desc[{$report.id}]" id="text" class="form-control" style="height:150px;">{$report.desc}</textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </foreach>
+
+                                    </div>
+                                    <button class="btn btn-default addProduct" data-rid="{$father.id}" type="button"><i class="fa fa-plus"></i> 添加产品</button>
+                                </div>
+                            </if>
+                            <if condition="$mather">
+                                <div class="report-title">
+                                    <h5>宝妈</h5>
+                                    <div class="ibox-tools">年龄：<input type="text" class="" size="5" name="age[{$mather.id}]" value="{$mather.age}">岁</div>
+                                </div>
+                                <div class="product">
+                                    <div class="form-horizontal product-form">
+                                        <foreach name="mather.report" item="report">
+                                            <div class="r_product" >
+                                                <p style="text-align:right"><a href="javascript:;" title="删除产品" class="fa fa-close" onclick="delProduct(this,{$report.id})"></a></p>
+                                                <div class="clearfix">
+                                                    <div class="col-md-2">
+                                                        <label class="control-label">产品</label>
+                                                    </div>
+                                                    <div class="col-md-10">
+                                                        <select class="form-control" name="r_product[{$report.id}]" onchange="change('m','{$report.id}',this)">
+                                                            <foreach name="product" item="vo">
+                                                                <option value="{$vo.id}" <if condition="$vo['id'] eq $report['product_id']">selected</if>>{$vo.title}（{$vo.category.cname}）</option>
+                                                            </foreach>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="hr-line-dashed"></div>
+                                                <div class="clearfix">
+                                                    <div class="col-md-2">
+                                                        <label class="control-label">保险公司</label>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <input id="m-company-{$report.id}" type="text" name="r_company[{$report.id}]" class="form-control" value="{$report.company}">
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <label class="control-label">产品性质</label>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <input id="m-property-{$report.id}" type="text" name="r_property[{$report.id}]" class="form-control" value="{$report.property}">
+                                                    </div>   
+                                                </div>
+                                                <div class="hr-line-dashed"></div>
+                                                <div class="clearfix">
+                                                    <div class="col-md-2">
+                                                        <label class="control-label">保障期限</label>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <input id="m-limit-{$report.id}" type="text" name="r_limit[{$report.id}]" class="form-control" value="{$report.limit}">
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <label class="control-label">缴费时期</label>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <input id="m-payment-{$report.id}" type="text" name="r_payment[{$report.id}]" class="form-control" value="{$report.payment}">
+                                                    </div>   
+                                                </div>
+                                                <div class="hr-line-dashed"></div>
+                                                <div class="clearfix">
+                                                    <div class="col-md-2">
+                                                        <label class="control-label">保额</label>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <input id="m-insured-{$report.id}" type="text" name="r_insured[{$report.id}]" class="form-control" value="{$report.insured}">
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <label class="control-label">保费</label>
+                                                    </div>
+                                                    <div class="col-md-4" style="display: flex;flex-wrap: wrap;" >
+                                                        <input id="m-premium-{$report.id}"  type="text" name="r_premium[{$report.id}]" class="form-control" value="{$report.premium}"  style="width:120px;">
+            <div style="float: left;margin: 7px 0 0 35px;"><a id="m-aaaaaa-{$report.id}" onclick="caculate(this)" data="{$report.url}">计算</a></div> 
+                                                    </div>    
+                                                </div>
+                                                <div class="hr-line-dashed"></div>
+                                                <div class="clearfix">
+                                                    <div class="col-md-2">
+                                                        <label class="control-label">产品说明</label>
+                                                    </div>
+                                                    <div class="col-md-10">
+                                                        <textarea id="m-desc-{$report.id}" name="r_desc[{$report.id}]" id="text" class="form-control" style="height:150px;">{$report.desc}</textarea>
+                                                    </div>
+                                                </div>
+                                                <div class="hr-line-dashed"></div>
+                                            </div>
+                                        </foreach>
+                                    </div>
+                                    <button class="btn btn-default addProduct" data-rid="{$mather.id}" type="button"><i class="fa fa-plus"></i> 添加产品</button>
+                                </div>
+                            </if>
+                            <if condition="$baby">
+                                <foreach name="baby" item="v" key="k">
+                                    <div class="report-title">
+                                        <h5>宝宝<if condition="$k"><if condition="$k gt 0">{$k+1}<else />{$k}</if></if></h5>
+                                        <div class="ibox-tools">年龄：<input type="text" class="" size="5" name="age[{$v.id}]" value="{$v.age}">岁</div>
+                                    </div>
+                                    <div class="product">
+                                        <div class="form-horizontal product-form">
+                                            <foreach name="v.report" item="report">
+                                                <div class="r_product">
+                                                    <p style="text-align:right"><a href="javascript:;" title="删除产品" class="fa fa-close" onclick="delProduct(this,{$report.id})"></a></p>
+                                                    <div class="clearfix">
+                                                        <div class="col-md-2">
+                                                            <label class="control-label">产品</label>
+                                                        </div>
+                                                        <div class="col-md-10">
+                                                            <select class="form-control" name="r_product[{$report.id}]" onchange="change('b','{$report.id}',this)">
+                                                                <foreach name="product" item="vo">
+                                                                    <option value="{$vo.id}" <if condition="$vo['id'] eq $report['product_id']">selected</if>>{$vo.title}（{$vo.category.cname}）</option>
+                                                                </foreach>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="hr-line-dashed"></div>
+                                                    <div class="clearfix">
+                                                        <div class="col-md-2">
+                                                            <label class="control-label">保险公司</label>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <input id="b-company-{$report.id}" type="text" name="r_company[{$report.id}]" class="form-control" value="{$report.company}">
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <label class="control-label">产品性质</label>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <input id="b-property-{$report.id}" type="text" name="r_property[{$report.id}]" class="form-control" value="{$report.property}">
+                                                        </div>   
+                                                    </div>
+                                                    <div class="hr-line-dashed"></div>
+                                                    <div class="clearfix">
+                                                        <div class="col-md-2">
+                                                            <label class="control-label">保障期限</label>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <input id="b-limit-{$report.id}" type="text" name="r_limit[{$report.id}]" class="form-control" value="{$report.limit}">
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <label class="control-label">缴费时期</label>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <input id="b-payment-{$report.id}" type="text" name="r_payment[{$report.id}]" class="form-control" value="{$report.payment}">
+                                                        </div>   
+                                                    </div>
+                                                    <div class="hr-line-dashed"></div>
+                                                    <div class="clearfix">
+                                                        <div class="col-md-2">
+                                                            <label class="control-label">保额</label>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <input id="b-insured-{$report.id}" type="text" name="r_insured[{$report.id}]" class="form-control" value="{$report.insured}">
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <label class="control-label">保费</label>
+                                                        </div>
+                                                       <div class="col-md-4" style="display: flex;flex-wrap: wrap;" >
+                                                        <input id="b-premium-{$report.id}"  type="text" name="r_premium[{$report.id}]" class="form-control" value="{$report.premium}"  style="width:120px;">
+            <div style="float: left;margin: 7px 0 0 35px;"><a id="b-aaaaaa-{$report.id}" onclick="caculate(this)" data="{$report.url}">计算</a></div> 
+                                                    </div>   
+                                                    </div>
+                                                    <div class="hr-line-dashed"></div>
+                                                    <div class="clearfix">
+                                                        <div class="col-md-2">
+                                                            <label class="control-label">产品说明</label>
+                                                        </div>
+                                                        <div class="col-md-10">
+                                                            <textarea id="b-desc-{$report.id}" name="r_desc[{$report.id}]" id="text" class="form-control" style="height:150px;">{$report.desc}</textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </foreach>
+
+                                        </div>
+                                        <button class="btn btn-default addProduct" data-rid="{$v.id}" type="button"><i class="fa fa-plus"></i> 添加产品</button>
+                                    </div>
+                                </foreach>
+                            </if>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4"  style="width: 42.333%;">
+                    <div class="ibox float-e-margins">
+                        <div class="ibox-title">
+                            <h5>家庭情况</h5>
+                        </div>
+                        <div class="ibox-content">
+                            
+                            <div class="form-group">
+                                <label style="font-size:16px;">家庭整体配置分析</label>
+                                <select class="col-sm-4 s_select" style="float: right;width: 40.333%;" onchange="changeconf('fam-conf',this)">
+                                    <foreach name="fam_t_conf" item="vo">
+                                        <option value="{$vo.id}">{$vo.title}</option>
+                                    </foreach>
+                                </select>
+                                <textarea name="family" id="fam-conf" class="form-control" style="height:200px;">{$family.desc}</textarea>
+                            </div>
+                            <div class="form-group" style="padding:10px;background-color:#eee;border-top:1px solid #999;line-height:150%;margin-top:10px;">
+                                <label style="font-size:16px;">宝爸</label>
+                                <if condition="father">
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <span>出生年月：</span>
+                                            {$father.birthday|date="Y年m月d日", ###}
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <span>社保：</span>
+                                            <if condition="$father['social']">有<else/>无</if>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <span>年收入：</span>
+                                            {$father.income} 万元 
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <span>职业类型：</span>
+                                            {$father.work|work}
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <span>病史：</span>
+                                            {$father.case|caseList}
+                                        </div>
+                                    </div>
+                                <else />
+
+                                </if>
+                            </div>
+                            <div class="form-group">
+                                <label style="font-size:16px;">宝爸的配置分析</label>
+                                <select class="col-sm-4 s_select" style="float: right;width: 40.333%;" onchange="changeconf('f-conf',this)">
+                                    <foreach name="f_t_conf" item="vo">
+                                        <option value="{$vo.id}">{$vo.title}</option>
+                                    </foreach>
+                                </select>
+                                <textarea name="rdesc[{$father.id}]" id="f-conf" class="form-control" style="height:200px;">{$father.desc}</textarea>
+                            </div>
+                            <div class="form-group" style="padding:10px;background-color:#eee;border-top:1px solid #999;line-height:150%;margin-top:10px;">
+                                <label style="font-size:16px;">宝妈</label>
+                                <if condition="mather">
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <span>出生年月：</span>
+                                            {$mather.birthday|date="Y年m月d日", ###}
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <span>社保：</span>
+                                            <if condition="$mather['social']">有<else/>无</if>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <span>年收入：</span>
+                                            {$mather.income} 万元 
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <span>职业类型：</span>
+                                            {$mather.work|work}
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <span>病史：</span>
+                                            {$mather.case|caseList}
+                                        </div>
+                                    </div>
+                                <else />
+
+                                </if>
+                            </div>
+                            <div class="form-group">
+                                <label style="font-size:16px;">宝妈的配置分析</label>
+                                <select class="col-sm-4 s_select" style="float: right;width: 40.333%;" onchange="changeconf('m-conf',this)">
+                                    <foreach name="m_t_conf" item="vo">
+                                        <option value="{$vo.id}">{$vo.title}</option>
+                                    </foreach>
+                                </select>
+                                <textarea name="rdesc[{$mather.id}]" id="m-conf" class="form-control" style="height:220px;">{$mather.desc}</textarea>
+                            </div>
+                            <if condition="$baby">
+                                <foreach name="baby" item="vo" key="key">
+                                    <div class="form-group" style="padding:10px;background-color:#eee;border-top:1px solid #999;line-height:150%;margin-top:10px;">
+                                        <label style="font-size:16px;">宝宝<if condition="$key"><if condition="$key gt 0">{$key+1}<else />{$key}</if></if></label>
+                                        <if condition="baby">
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <span>出生年月：</span>
+                                                    {$vo.birthday|date="Y年m月d日", ###}
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <span>社保：</span>
+                                                    <if condition="$vo['social']">有<else/>无</if>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <span>性别：</span>
+                                                    <if condition="$vo['sex']">女<else/>男</if>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <span>病史：</span>
+                                                    {$vo.case|caseList}
+                                                </div>
+                                            </div>
+                                        <else />
+
+                                        </if>
+                                    </div>
+                                    <div class="form-group">
+                                        <?php $b_key=$key ?>
+                                        <label style="font-size:16px;">宝宝<if condition="$key"><if condition="$key gt 0">{$key+1}<else />{$key}</if></if>的配置分析</label>
+                                        <select class="col-sm-4 s_select" style="float: right;width: 40.333%;" onchange="changeconf('b-conf-{$b_key}',this)">
+                                            <foreach name="b_t_conf" item="v">
+                                                <option value="{$v.id}">{$v.title}</option>
+                                            </foreach>
+                                        </select>
+                                        <textarea name="rdesc[{$vo.id}]" id="b-conf-{$b_key}" class="form-control" style="height:220px;">{$vo.desc}</textarea>
+                                    </div>
+                                </foreach>
+                            </if>
+                        </div>
+                    </div>
+                </div>
+         
+         
+
+
+            </div>
+                <div class="col-sm-12">
+                    <button class="btn btn-primary btn-rounded btn-block" type="submit">提交完成</button>
+                </div>
+            </form>
+
+        </div>
+
+    </div>
+  <div id="float-windows-for-insurance-caculator" class="float-windows-for-insurance-caculator" 
+            style="position:fixed;right:60px;top:0px;height:580px;width:400px;background:#eee;z-index: 999;display: none">
+             <div id="float-windows-for-insurance-caculator-close" onclick="closeInsuranceCaculatorWindows()" style="position:fixed;float:right; z-index: 999;font-size: 20px">关闭</div>
+            <div >
+            <iframe id="iframe-insurance-caculator" style="margin-top:15px;position: fixed;right:60px;top:15px;height:580px;width:400px;" src="">
+            </div> 
+         </div>
+
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="Robots" contect="none">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=yes"/>
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<script type="text/javascript" src="../Vendors/jquery/js/jquery.js"></script>
+<script src="../Common/js/lamson.js" id="LamSonJs" lang="zh-cn" data-controller="./" data-public="../" data-urlmodel="2"></script>
+<!--<script src="__COMMON__/js/lamson.js" id="LamSonJs" lang="zh-cn" data-controller="__CONTROLLER__" data-public="__PUBLIC__" data-urlmodel="{$Think.config.url_model}"></script>-->
+</head>
+<body>
+<i class="hide"><a href="" target="mainWin">文章列表</a> >> 添加文章</i>
+<form method="post" id="masterForm" action="?">
+<table cellspacing="1" class="tableForm batCate">
+	<caption><h4>添加文章</h4></caption>
+	<tbody>
+		<tr>
+			<th>所属分类</th>
+			<td id="catebox" colspan="3"></td>
+		</tr>
+		<tr>
+			<th><em>*</em>文章标题</th>
+			<td colspan="3"><input type="text" name="title" size="50" /></td>
+		</tr>
+		<tr class="lamFileWrapper lamFileThumbWrapper">
+			<th>缩略图<i>最佳宽高比1：1</i><i>建议宽度为300像素</i><i>最大不能超1Mb</i></th>
+			<td colspan="3">
+				<div class="lamFileBox" thumb="0"><input type="text" class="lamThumbTxt" readonly />
+					<button class="lamBtnView" type="button">浏览...</button>
+					<input type="file" name="thumb" class="lamUpload"  />
+					<input type="hidden" name="_thumb" value="" data-pkval="9" />
+				</div>
+				<img class="lamThumbImg" del="1" thumb="0" style="width:200px;height:120px;" src="__ADMIN__/images/thumbview.gif" />
+			</td>
+		</tr>
+		<tr>
+			<th>发表时间</th>
+			<td><input name="posttime" type="text" value="" style="width:180px;" onClick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" /></td>
+			<th>初始化点击量</th>
+			<td><input type="text" name="views" size="8" /></td>
+		</tr>
+		<tr>
+			<th>摘要<i>请不要超出140个字符</i></th>
+			<td colspan="3"><textarea name="summary" id="summary" onkeyup="char_cnt(this)" onblur="char_cnt(this)" style="width:60%; height:150px;"></textarea><br />您已经输入了<span id="summary_charcnt" class="cRed">0</span>个字符</td>
+		</tr>
+		<tr>
+			<th>文章内容</th>
+			<td colspan="3" class="editorPbox"><script id="editorBox" name="content" type="text/plain"></script></td>
+		</tr>
+	</tbody>
+</table>
+<p class="btnBox"><button id="sbm" type="submit">提 交</button><button id="rst" type="reset" class="btnSec" onClick="location.reload()">重 置</button><a href="" class="btnThd">列 表</a></p>
+<input type="hidden" name="id" value="9" />
+</form>
+<script type="text/javascript" src="js/webadmin.js"></script>
+<script type="text/javascript" src="../vendors/My97DatePicker/WdatePicker.js"></script>
+<script type="text/javascript" src="../vendors/ueditor/ueditor.config.js"></script>
+<script type="text/javascript" src="../vendors/ueditor/ueditor.all.min.js"></script>
+<script>
+// 加载百度编辑器
+editor = UE.getEditor('editorBox');
+</script>
+</body>
+</html>

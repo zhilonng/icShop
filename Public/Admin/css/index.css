@@ -1,0 +1,88 @@
+/**
+ * 后台首页样式
+ *
+ * @author 林坤源
+ * @link http://www.lamson.cc
+ */
+@charset "utf-8";
+*{margin:0; padding:0;}
+html{overflow-y:hidden;}
+body{font-size:13px; font-family:"\5FAE\8F6F\96C5\9ED1"; letter-spacing:2px; background:url(../images/head_bg.gif) repeat-x; min-width:1002px;/* 不可删除 */ overflow-y:hidden;}
+li{list-style:none;}
+a:link, a:visited, a:hover, a:active{color:#222; text-decoration:none;}
+a:hover{color:#F00; text-shadow:0 0 3px #585858;/* IE 10+, Firefox和Chrome, Safari会出现阴影 */}
+img{vertical-align:middle; border:none;}
+a, .pointer, input[type=image],input[type=submit],input[type=reset], input[type=button],  input[type=file], button{
+	cursor:pointer; text-decoration:none;
+	outline:none/* IE 8+, Firefox, Chrome, Safari 下去掉激活的虚线边框 */;
+}
+/***** Generic Classes 通用样式名 *****/
+.clearfix:after{content:"."; display:block; height:0; clear:both; visibility:hidden;}
+/* 清除浮动 */
+.clear{clear:both!important; float:none!important; font-size:0px!important; line-height:0px!important; height:0px!important;}
+.hide{display:none;}
+
+/***** Header 头部样式 *****/
+header{height:90px; overflow:hidden; color:#FFF; background:url(../images/head_bg.jpg) 0 0 no-repeat; background-size:100% 100%;}
+.logo{float:left; width:360px; height:74px; /* 此处的宽度不可删除 */ margin:5px 100px 5px 20px;}
+.info{position:fixed; top:15px; right:20px; text-align:center;}
+.info a{color:#FFF; margin:0 10px;}
+.info span{display:block; padding:8px 10px; margin-top:8px; border-radius:30px; background:rgba(5,84,122,.6);}
+.info b{color:#FF0; font-weight:normal;}
+
+/*导航*/
+nav{float:left; overflow:hidden;}
+nav ul{overflow:hidden;}
+nav li{float:left; padding:16px 14px 0; margin-right:5px;}
+nav a{display:block; padding:46px 0 6px; background:url(../images/ais.png) center 0 no-repeat;}
+nav a:link, nav a:visited{color:#FFF;}
+nav li:hover, nav .current{border-bottom:#67D100 5px solid; background:rgba(255,255,255,.2);}
+
+nav .ais6 a{background-position:center -68px;}
+nav .ais7 a{background-position:center -278px;}
+nav .ais8 a{background-position:center -205px;}
+nav .ais9 a{background-position:center -138px;}
+
+
+#more{background:none; width:40px; overflow:hidden;}
+#more a{text-indent:0; padding:0; background:none;}
+
+#swiBox{
+	position:absolute; left:0; top:54px; overflow:hidden;
+	border:#4A75A3 1px solid;
+	border-radius:4px; /* IE 9+, Firefox, Chrome, safari */
+}
+#swiBox li{
+	float:none; margin:0; padding:6px; white-space:nowrap;
+	background:linear-gradient(#FFF,#E5F6FE); /* IE 10+ */
+	background:-moz-linear-gradient(#FFF,#E5F6FE); /* Firefox 4.0+ */
+	background:-webkit-linear-gradient(#FFF,#E5F6FE); /* Safari 5.1+, Chrome 13.0+ */
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFFFFF', endColorstr='#E5F6FE', GradientType='0'); /* IE 9-*/
+}
+
+/* 侧边栏 */
+aside{position:absolute; left:0; z-index:8; width:212px; overflow-x:hidden; background:#F0F9FD;}
+a.actnav{display:block; margin:0px; height:42px; line-height:42px; font-size:14px; text-align:center; color:#FFF; background:#4198CA;}
+dfn{display:block; width:20px; height:22px; line-height:22px; background:url(../images/aside_bg.gif) right -49px no-repeat; cursor:pointer; position:absolute; top:100px; left:176px; z-index:10;}
+.dfn{background-position:right -105px; left:5px;}
+/*左菜单*/
+#menuBox{margin:0 1px;}
+#menuBox dl{}
+#menuBox dt{height:35px; line-height:35px; text-indent:40px; font-weight:bold; color:#000; cursor:pointer; border-bottom:#B9CAD3 1px solid; background:#D4E7F0 url(../images/aside_bg.gif) 10px 10px no-repeat;}
+#menuBox dt.newsMng{background-position:10px -96px;}
+#menuBox dd{overflow:hidden; line-height:28px;}
+#menuBox dd a{display:block; text-indent:20px; white-space:nowrap; overflow:hidden; border-left:#F0F9FD 3px solid;  background:url(../images/aside_bg.gif) 4px -35px no-repeat;}
+#menuBox dd a.left{width:56%; float:left;}
+#menuBox dd a.right{width:40%; float:right; text-align:left!important;}
+#menuBox dd a:hover, #menuBox dd a:active{color:#FFF!important; border-left-color:red; background-color:#3EAFE0; background-position:4px -61px;}
+
+/*加载中*/
+.loadingP{text-align:center; width:100%; padding-top:1px;}
+.loadingP img{display:block; margin:10px auto; text-align:center;}
+
+/* 右边 注意这里一定不能有浮动！！！！！ */
+#main{border-left:#B7D5DF 1px solid; margin-left:212px;}
+/*面包屑*/
+#breadCrumb{height:42px; line-height:42px; text-indent:34px; background:#EDF6FA url(../images/aside_bg.gif) -205px -141px no-repeat;}
+/* 框架 */
+#mainWin{width:100%; background:#FFF;}

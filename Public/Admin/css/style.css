@@ -1,0 +1,282 @@
+/**
+ * 后台样式
+ *
+ * @author 林坤源
+ * @version 5.3.2 最后修改时间 2015年11月20日
+ * @link http://www.lamsonphp.com
+ * @copyright Copyright &copy; 2006-2015, 林坤源
+ */
+@charset "utf-8";
+/* 全局CSS定义 */
+*{margin:0; padding:0; font-style:normal; text-decoration:none; list-style:none;}
+body,input,a,td,select,button,textarea,pre{font-size:13px; letter-spacing:2px; color:#444; font-family:"\5FAE\8F6F\96C5\9ED1";}
+p{margin:10px 0;}
+a:link, a:visited, a:hover, a:active{color:#0671B7;}
+a[href]:hover{color:#F00; text-shadow:0 0 3px #585858;/* IE 10+, Firefox和Chrome, Safari会出现阴影 */}
+img{vertical-align:middle; border:none;}
+select{margin-right:3px;}
+/* Firefox */
+@-moz-document url-prefix(){
+	select{padding:2px;}
+	option{height:20px; line-height:20px; padding:2px 0 0 4px;}
+}
+optgroup option{text-indent:2em;}
+input[type=checkbox], input[type=radio]{margin-right:3px;}
+a, .pointer, input[type=image],input[type=submit],input[type=reset], input[type=button],  input[type=file], button{
+	cursor:pointer; text-decoration:none;
+	outline:none/* IE 8+, Firefox, Chrome, Safari 下去掉激活的虚线边框 */;
+}
+/***** Generic Classes 通用样式名 *****/
+/* 清除浮动 */
+.clearfix:after{content:"."; display:block; height:0; clear:both; visibility:hidden;}
+.clear{clear:both!important; float:none!important; font-size:0px!important; line-height:0px!important; height:0px!important;}
+/* 清除浮动 */
+.hide{display:none;}
+.hideAbs{display:none!important;}
+.center{text-align:center;}
+.cRed, a.cRed, .verify, .verify *{color:#F00;}
+.cGreen{color:green;}
+
+/*加载中*/
+.loadingP{text-align:center; width:100%; padding:40px 0 10px;}
+.loadingP img{display:block; margin:10px auto; text-align:center;}
+
+/* 文件类型链接 */
+a.jpg,a.jpeg,a.gif,a.png,a.bmp,
+a.rar,a.zip,a.tar,a.bin,a.iso,
+a.pdf,a.txt,a.doc,a.docx,a.xls,a.xlsx,a.ppt,a.pptx,a.csv,
+a.mht{
+	background:url(../images/filetype.gif) 0 0 no-repeat;
+	padding:0 0 0 22px!important;	height:18px; line-height:18px; display:inline-block;
+}
+a.rar{background-position:0 -50px;}
+a.tar{background-position:0 -100px;}
+a.bin,a.iso{background-position:0 -150px;}
+a.pdf{background-position:0 -200px;}
+a.txt{background-position:0 -250px;}
+a.doc,a.docx{background-position:0 -300px;}
+a.xls,a.xlsx{background-position:0 -350px;}
+a.ppt,a.pptx{background-position:0 -400px;}
+a.csv{background-position:0 -450px;}
+a.jpg,a.jpeg,a.gif,a.png,a.bmp{background-position:0 -550px;}
+a.mht{background-position:0 -600px;}
+
+/* 美化复选框和单选按钮 */
+.btyBox label{white-space:nowrap; display:inline-block; cursor:pointer;}
+.btyBox .chkCheckboxBox, .btyBox .chkRadioBox{color:#229E1B; font-weight:bold;}
+.btyBox .chkCheckboxBox input, .btyBox .chkRadioBox input{filter:alpha(opacity=1); -moz-opacity:0.01; opacity:0.01;}
+.btyBox i{font-style:normal; margin-left:4px;}
+/* 美化复选框 */
+.btyBox .chkCheckboxBox{background:url(../images/positive.gif) 2px -48px no-repeat;}
+/* 美化单选按钮 */
+.btyBox .chkRadioBox{background:url(../images/positive.gif) center -22px no-repeat;}
+
+/* 美化按钮 */
+p.btnBox{text-align:center; margin:0; padding:25px 0; border-top:#FFF 1px solid;}
+.btnBox button, .btnBox a{display:inline-block; height:35px; line-height:35px; padding:0 35px; margin:0 10px; font-size:1.1em; color:#FFF; border-radius:4px; border:none; background:#3994C8;}
+.btnBox a:hover{color:#FFF;}
+.btnBox .btnSec{background:#D94E63;}
+.btnBox .btnThd{background:#029C6B;}
+.btnBox button[disabled]{color:#666666; cursor:not-allowed; background:#CED5D9;}
+
+/* 小按钮 */
+.addObgBtn, .addEleBtn, .delObgBtn, #searchForm button{height:24px; line-height:24px; padding:0 10px; color:#FFF; border:#3C7FB1 1px solid; border-radius:3px; background:#3994C8;}
+.delObgBtn{border-color:#D35963; color:#FF0; background:#D94E63;}
+
+/* 美化文件上传 */
+.lamFileBox{position:relative; margin-bottom:10px;}
+.lamFileAttachWrapper .lamFileBox{margin:0;}/* 非图片文件上传 */
+/* 浏览...   添加   移除 */
+.lamFileBox button{
+	border:#699ADC 1px solid; border-radius:4px;
+	color:#FFFFFF; text-align:center; width:64px; height:24px; line-height:22px; margin-left:4px;
+	position:relative; top:2px; [;top:1px;]; top:0px\9;
+	background-image:linear-gradient(#72BAF6,#6E9EE6); /* IE 10+ */
+	background-image:-moz-linear-gradient(#72BAF6,#6E9EE6); /* Firefox 4.0+ */
+	background-image:-webkit-linear-gradient(#72BAF6,#6E9EE6); /* Safari 5.1+, Chrome 13.0+ */
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#72BAF6', endColorstr='#6E9EE6', GradientType='0'); /* IE 9-*/
+}
+button.lamBtnAdd{
+	letter-spacing:4px; border-color:#6BBDDF;
+	background-image:linear-gradient(#62DCF3,#71C0E7); /* IE 10+ */
+	background-image:-moz-linear-gradient(#62DCF3,#71C0E7); /* Firefox 4.0+ */
+	background-image:-webkit-linear-gradient(#62DCF3,#71C0E7); /* Safari 5.1+, Chrome 13.0+ */
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#62DCF3', endColorstr='#71C0E7', GradientType='0'); /* IE 9-*/
+}
+button.lamBtnRemove{
+	letter-spacing:4px; border-color:#D35963;
+	background-image:linear-gradient(#FC7891,#E76A71); /* IE 10+ */
+	background-image:-moz-linear-gradient(#FC7891,#E76A71); /* Firefox 4.0+ */
+	background-image:-webkit-linear-gradient(#FC7891,#E76A71); /* Safari 5.1+, Chrome 13.0+ */
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#FC7891', endColorstr='#E76A71', GradientType='0'); /* IE 9-*/
+}
+/* 文本框 */
+.lamThumbTxt{width:370px; padding-left:4px;}
+/* 真正的文件域 */
+input.lamUpload{position:absolute; top:0px; *top:2px; left:0; height:24px; line-height:24px; width:445px;/* firefox的文件域不支持width，得用size，size="1"时为85像素，每个size之间相差7个像素的宽度 */ filter:Alpha(opacity=0);opacity:0; cursor:pointer;}
+
+/* 美化下拉菜单 */
+.sbHolder{border:solid 1px #5EB0DF; border-radius:3px; height:22px; position:relative; z-index:180; display:inline-block; margin-right:4px; text-align:left;}
+.sbSelector{display:block; height:22px; line-height:22px; text-indent:6px; white-space:nowrap; position:absolute; top:0; left:0; z-index:2;}
+.sbSelector:link, .sbSelector:visited{color:#164B76;}
+.sbSelector:hover{color:#090;}
+/* 箭头 */
+.sbToggle{display:block; width:20px; height:20px; line-height:20px; position:absolute; right:0; top:1px; z-index:3; text-align:center; border-left:#9CF 1px solid;}
+.sbToggle:hover{color:#090;}
+/* 选项打开时的箭头 */
+.sbToggleOpen{color:#F60!important;}
+/* 选项 */
+.sbOptions{background:#FFF; border:solid 1px #5EB0DF; border-radius:3px; position:absolute; left:-1px; top:30px; z-index:200; overflow-y:auto;}
+.sbOptions li{}
+.sbOptions a{display:block; height:23px; line-height:23px; white-space:nowrap; padding-left:6px;}
+.sbOptions a:link, .sbOptions a:visited{color:#164B76;}
+.sbOptions a:hover, .sbOptions a:focus, .sbOptions a.sbFocus{background:#3399FF!important; color:#FFF!important;}
+.sbOptions li.last a{border-bottom:none;}
+.sbOptions .sbDisabled{display:block; color:#999;}
+/* selected */
+.sbOptions li.sbSelected a{color:#FFF!important; background:#F90!important;}
+/* opgroup */
+.sbOptions .sbGroup{display:block; font-weight:bold; height:23px; line-height:23px; padding-left:6px;}
+/* opgroup options */
+.sbOptions .sbSub{padding-left:17px;}
+/* disabled */
+.sbHolderDisabled{}
+.sbHolderDisabled .sbSelector{}
+.sbHolderDisabled .sbToggle{}
+/* 模拟 disabled */
+.sbHolderImiDisabled{border:solid 1px #AAA;}
+.sbHolderImiDisabled *{color:#AAA!important; border-color:#AAA;}
+
+/* 下拉选择面板 */
+#selectrlerToinput{}
+#selectrlerToinput li{height:30px; line-height:30px; border-bottom:#DEDEDE 1px solid;}
+#selectrlerToinput li:hover{color:#FF526C; cursor:pointer; background:#FFFBC4;}
+
+/* 编辑器 */
+.editorPbox{height:590px; overflow:visible; vertical-align:top;}
+#editorBox{width:80%; height:85%;}
+
+/* 提示 */
+#lamTip{
+	position:absolute; left:-300px; display:none; z-index:1000; word-wrap:break-word; word-break:break-all;  padding:2px;
+	border:1px solid black; background-color:lightyellow;
+	box-shadow:2px 2px 2px rgba(0,0,0,.3);
+	filter:progid:DXImageTransform.Microsoft.Shadow(color = gray,direction = 135);
+}
+#lamTipPointer{position:absolute; left:-300px; z-index:1001; display:none;}
+#lamTip img{max-width:100%; height:auto;}
+
+/*帮助样式*/
+table q{width:14px; height:14px; vertical-align:middle; cursor:help; background:url(../images/answer1.gif); quotes:none; display:inline-block; margin-left:8px;}
+
+/* 搜索表单 */
+#searchForm{height:32px; margin:10px;}
+#searchForm table{text-align:right; margin:0 0 0 auto;}
+#searchForm td{padding:0 2px;}
+
+/* 表格的公共样式 */
+.tableForm, .tableList, #headTable{margin:0 auto; width:99%; background:#ddd; border-spacing:1px; clear:both;}
+.tableForm tr, .tableList tr{background-color:#fff;}
+caption{margin:20px 0; text-align:left; text-indent:10px; border-bottom:#D7D7D7 1px solid;}
+caption h4{float:left; font-size:18px; line-height:1.5; border-bottom:#66C9F3 1px solid;}
+#headTable thead th, .tableList thead th, #headTable thead td, .tableList thead td{padding:8px 4px; white-space:nowrap; background:#F0F5F7;}
+#headTable thead td, .tableList thead td, .tableList tbody th{text-align:left!important;  padding:8px 4px; font-weight:normal;}/* thead或tbody里面需要居左时可以使用此样式*/
+
+#headTable input[type=checkbox], #headTable input[type=radio], .tableList input[type=checkbox], .tableList input[type=radio]{margin:0px;}
+
+/* 表单样式 */
+input[type=text], input[type=password], textarea{height:26px; line-height:26px; margin-right:4px; border:#A7B5BC 1px solid;}
+textarea{height:auto; line-height:normal;}
+/* 获得焦点时 */
+input[type=text]:focus, input[type=password]:focus, textarea:focus{border:#F96 1px solid;}
+
+/* 表单页的表格样式 */
+.tableForm{background:#EEE;}
+.tableForm td, .tableForm th{line-height:150%; padding:10px 6px;}
+.tableForm th{width:18%; font-weight:bold; text-align:right;}
+.tableForm th em{margin:0 4px; color:red; font-style:normal;}
+.tableForm th i{font-size:12px; font-style:normal; font-weight:normal; display:block; color:#777;}
+/* 小标题 */
+.tableForm tr.subcaption{background:#F5F8FA; text-align:center; color:#077AC7; font-weight:bold;}
+.tableForm td.subcaption{background:#F5F8FA; color:#333; font-weight:bold;}
+
+/* 列表页的表格样式 */
+.tableList tbody tr{text-align:center;}
+.tableList tbody tr:nth-of-type(2n){background:#F5F8FA;}
+.tableList tbody tr:hover{background:#FFFBC4!important;}
+.tableList tbody td{padding:8px 4px;}
+.tableList .isact0{color:#aaa!important;}
+#listBox .hasThead{margin-top:-34px;}
+#listBox .hasThead thead th, #listBox .hasThead thead td{border-bottom:#99D3FB 2px solid;}
+
+/* ↓↓↓ 分类列表专用 ↓↓↓ */
+.hasFstCate{margin-top:-3px;}
+.tableList tbody tr.fstCate{background:#F0F9FD;}
+.tableList tbody tr.fstCate th, .tableList tbody tr.fstCate td{border:#D2D2D2 1px solid; border-left:none; border-right:none;}
+.tableList tbody s{color:#AAA; text-decoration:none; word-spacing:2px; padding-right:2px; cursor:row-resize;}
+/* 删除分类的专用样式 */
+#LamDialogsWrapperFstTd div{margin:15px auto; text-indent:10px;}
+#LamDialogsWrapperFstTd div input[type="radio"]{margin-right:6px;}
+/* ↑↑↑ 分类列表专用 ↑↑↑ */
+
+/* 管理单元 */
+.mngCell{white-space:nowrap;}
+.mngCell a{color:#999; cursor:not-allowed!important;}
+.mngCell a[href]:link, .mngCell a[href]:visited, .mngCell a[href]:hover, .mngCell a[href]:active{cursor:pointer!important;}
+.mngCell a.oprnEdit{color:#060!important;}
+.mngCell a.oprnDel{color:#960!important;}
+
+/* 删除时选中列的样式 */
+.tableList tbody tr.objToDel{background:#FFFF0B!important;}
+.tableList tbody tr.objToDel td, .tableList tbody tr.objToDel th, .tableList tbody tr.objToDel a{color:#F00!important; text-shadow:1px 1px 3px rgba(0,0,0,.8); /* IE 10+, Firefox, Chrome, Safari */}
+.tableList img{cursor:pointer;}
+.tableList em{color:red; font-style:normal;}
+
+.blankCate{height:49px; height:37px\9;}
+/* Firefox */
+@-moz-document url-prefix() {
+	.blankCate{height:38px;}
+}
+
+/* 表格中的选项卡 */
+#opnTab caption{margin-bottom:0;}
+#opnTab caption b{float:left; width:120px; height:40px; line-height:40px; margin-left:22px; cursor:pointer; text-align:center; font-weight:normal; color:#000; background:#F2F6F8;}
+#opnTab .cur{position:relative; top:1px; height:38px; line-height:36px; font-weight:bold; border:#EEE 1px solid; border-top:#66C9F3 3px solid; border-bottom:none; background:#FFF;}
+#opnTabList > table{display:none; margin-top:-2px;}
+/* Firefox */
+@-moz-document url-prefix(){
+	#opnTabList > table{margin-top:0;}
+}
+
+/* 缩略图 */
+.autoGrid img{width:70px; height:auto; max-height:70px;}
+.autoGrid a{background:none!important; padding:0!important;}
+
+/* 浮动窗口 */
+#opnTabList3 table:nth-child(2){overflow-y:auto;overflow-x:hidden;}
+#opnTabList3 li{float:left;width:30%;}
+
+/* 权限控制 */
+.pvWrap{padding:0!important;}
+.pvWrap .tableForm{width:100%; border:none;}
+.pvlist b{display:block;}/* 二级 */
+.pvlist ul{border-bottom:#EEE 1px dashed; margin:5px 0 15px;}
+.pvlist li{float:left; width:200px; white-space:nowrap; margin:6px 0;}/* 三级 */
+.pvlist input{margin-right:4px;}
+a.reSelect{font-weight:normal; color:#F90; cursor:pointer;}/* 反选 */
+
+/* 分页样式 */
+.pagination{margin-top:10px; padding:0 10px;}
+.pagination a{text-decoration:none; border:#8EB2D2 solid 1px; color:#000; background:#eaf4fa;}
+.pagination a:hover{color:#023054; border-color:#8EB2D2; background:#B8DFFB;}
+.pagination .pxofy{float:left; height:25px; margin-left:5px; *padding-top:1px; color:#6c6c6c;}	
+.pagination a, .pagination span{float:left; line-height:24px; padding:0 9px; border-radius:2px; margin-right:5px; font-family:Arial, Helvetica, sans-serif !important;}
+.pagination .current{cursor:default; color:#fff; border:#4ea052 solid 1px; background:#5ebc62;}
+.pagination .prev, .pagination .next{*line-height:22px;}
+.pagination .current.prev, .pagination .current.next{color:#B9B9B9;border-color:#D3D3D3;background:#fff;}
+.pagination .pagin-list{float:right;}
+.pagination .goto{float:right;margin-left:10px;}
+.pagination .goto .text{padding:0;}
+.pagination .goto input[type=text]{float:left;width:25px;height:22px;border:1px solid #8EB2D2;outline:none; text-align:center;}
+
+

@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="Robots" contect="none">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=yes"/>
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<script type="text/javascript" src="../Vendors/jquery/js/jquery.js"></script>
+<script src="../Common/js/lamson.js" id="LamSonJs" lang="zh-cn" data-controller="./" data-public="../" data-urlmodel="2"></script>
+<!--<script src="__COMMON__/js/lamson.js" id="LamSonJs" lang="zh-cn" data-controller="__CONTROLLER__" data-public="__PUBLIC__" data-urlmodel="{$Think.config.url_model}"></script>-->
+</head>
+<body>
+<i class="hide">文章列表</i>
+<form id="searchForm" data-noajax="1"><table><tr><td>关键字:<input type="text" name="keyword"  /></td><td><button type="submit">搜 索</button></td></tr></table></form>
+<div id="listBox">
+	<table cellspacing="1" class="tableList">
+		<thead>
+			<tr>
+				<th width="6%">ID</th>
+				<th>文章标题</th>
+				<th width="25%">发布时间</th>
+				<th width="10%">点击量</th>
+				<th width="14%">操作</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>1</td>
+				<th>这是第一篇文章</th>
+				<td >2016-09-09 2:30</td>
+				<td>20</td>
+				<td nowrap="nowrap" class="mngCell"><a href="" class="oprnEdit">编辑</a> <a href="" class="oprnDel" onClick="return ms_del(this)">删除</a></td>
+			</tr>
+			<tr>
+				<td>2</td>
+				<th>这是文这是文章这是文章章</th>
+				<td>2016-09-09 2:30</td>
+				<td>20</td>
+				<td nowrap="nowrap" class="mngCell"><a href="" class="oprnEdit">编辑</a> <a href="" class="oprnDel" onClick="return ms_del(this)">删除</a></td>
+			</tr>
+			<tr>
+				<td>3</td>
+				<th>这是第二篇文章</th>
+				<td>2016-09-09 2:30</td>
+				<td>20</td>
+				<td nowrap="nowrap" class="mngCell"><a href="" class="oprnEdit">编辑</a> <a href="" class="oprnDel" onClick="return ms_del(this)">删除</a></td>
+			</tr>
+			<tr>
+				<td>4</td>
+				<th>这是第三篇文章</th>
+				<td>2016-09-09 2:30</td>
+				<td>20</td>
+				<td nowrap="nowrap" class="mngCell"><a href="" class="oprnEdit">编辑</a> <a href="" class="oprnDel" onClick="return ms_del(this)">删除</a></td>
+			</tr>
+		</tbody>
+		<tfoot>
+			<tr><td colspan="5" id="LamPageBar"></td></tr>
+		</tfoot>
+	</table>
+</div>
+<div id="loadImg"></div>
+</body>
+<script type="text/javascript" src="js/webadmin.js"></script>
+</html>

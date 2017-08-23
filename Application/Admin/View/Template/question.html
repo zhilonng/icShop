@@ -1,0 +1,75 @@
+﻿ <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>产品管理-妈咪研究院</title>
+    <link rel="shortcut icon" href="favicon.ico"> <link href="__PUBLIC__/css/bootstrap.min.css" rel="stylesheet">
+    <link href="__PUBLIC__/css/font-awesome.min.css" rel="stylesheet">
+    <link href="__PUBLIC__/css/plugins/iCheck/custom.css" rel="stylesheet">
+    <link href="__PUBLIC__/css/animate.min.css" rel="stylesheet">
+    <link href="__PUBLIC__/css/style.min.css" rel="stylesheet">
+</head>
+<body class="gray-bg">
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title" style="padding: 14px 15px 40px 20px;">
+                        <h5>用户问题列表</h5>
+                        <button class="btn btn-primary" style="float:right" onclick="javascrtpt:window.location.href='{:U('template/addQuestion')}'">添加问题</button>
+                    </div>
+                    <div class="ibox-content">
+                        <div class="table-responsive">
+                            <table class="footable table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Id</th>
+                                        <th>问题短语</th>
+                                        <th>完整问题</th>
+                                        <th>操作</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <if condition="$list">
+                                        <foreach name="list" item="vo"> 
+                                            <tr>
+                                                <td>{$vo.id}</td>
+                                                <td>{$vo.tip}</td>
+                                                <td>{$vo.question}</td>
+                                                <td>
+                                                    <a href="{:U('template/editQuestion', array('id'=>$vo['id']))}">修改</a>
+                                                    <span>|</span>
+                                                    <a href="{:U('template/delQuestion', array('id'=>$vo['id']))}">删除</a>
+                                                </td>
+                                            </tr>
+                                        </foreach>
+                                    <else />
+                                        <tr>
+                                            <td colspan="6">暂无数据</td>
+                                        </tr>
+                                    </if>
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <td colspan="6">
+                                        </td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <script src="__PUBLIC__/js/jquery.min.js"></script>
+    <script src="__PUBLIC__/js/bootstrap.min.js"></script>
+    <script src="__PUBLIC__/js/content.min.js"></script>
+    <script src="__PUBLIC__/js/plugins/layer/laydate/laydate.js"></script>
+    <script type="text/javascript">
+
+    </script>
+</body>
+</html>

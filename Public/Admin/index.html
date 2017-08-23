@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="Robots" contect="none">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=yes"/>
+<title>网站后台管理系统</title>
+<link rel="stylesheet" type="text/css" href="css/index.css" />
+<script type="text/javascript" src="../Vendors/jquery/js/jquery.js"></script>
+<script src="../Common/js/lamson.js" id="LamSonJs" lang="zh-cn" data-controller="./" data-public="../" data-urlmodel="2"></script>
+<!--<script src="__COMMON__/js/lamson.js" id="LamSonJs" lang="zh-cn" data-controller="__CONTROLLER__" data-public="__PUBLIC__" data-urlmodel="{$Think.config.url_model}"></script>-->
+</head>
+<header>
+	<a class="logo" href="Prober/index.html" target="mainWin"><img src="images/logo.png" /></a>
+	<div class="info">
+		<a href="" target="_top">退出</a>|<a href="" target="_top" title="刷新后台缓存">刷新</a>|<a href="../Home/index.html" target="_blank">网站首页</a>
+		<span><b id="b"></b>欢迎您：<b>林坤源</b> 角色：<b>超级管理员</b></span>
+	</div>
+	<nav>
+		<ul>
+			<li class="ais7"><a href='javascript:void(0)' onclick='get_left_menu(7,this)'>商品管理</a></li><li class="ais6"><a href='javascript:void(0)' onclick='get_left_menu(6,this)'>内容管理</a></li><li class="ais8"><a href='javascript:void(0)' onclick='get_left_menu(8,this)'>订单管理</a></li><li class="ais9"><a href='javascript:void(0)' onclick='get_left_menu(9,this)'>会员管理</a></li><li class="ais1"><a href='javascript:void(0)' onclick='get_left_menu(1,this)'>系统管理</a></li>		</ul>
+		<ol id="swiBox" style="display:none">
+			<li id="more" onmouseover="show_more(this)"><a>>></a></li>
+		</ol>
+	</nav>
+</header>
+<aside>
+	<a class="actnav" href="javascript:void(0)" onclick="click_dt(this)" title="隐藏所有子菜单">功能菜单</a>
+	<div id="menuBox"></div>
+</aside>
+<aside style="height: 860px;">
+	<a class="actnav" href="javascript:void(0)" onclick="click_dt(this)" title="隐藏所有子菜单">功能菜单</a>
+	<div id="menuBox">
+		<dl>
+			<dt class="goodsMng">商品管理</dt>
+			<dd>
+				<a href="/Admin/Goods/index.html" class="left" target="mainWin" title="商品列表">商品列表</a>
+				<a href="/Admin/Goods/add.html" class="right" target="mainWin" title="添加商品">添加</a>
+				<a href="/Admin/Category/index.html" class="left" target="mainWin" title="商品分类列表">商品分类列表</a>
+				<a href="/Admin/Category/add.html" class="right" target="mainWin" title="添加商品分类">添加</a>
+				<a href="/Admin/GoodsType/index.html" class="left" target="mainWin" title="商品类型列表">商品类型列表</a>
+				<a href="/Admin/GoodsType/add.html" class="right" target="mainWin" title="添加商品类型">添加</a>
+				<a href="/Admin/Attribute/index.html" class="left" target="mainWin" title="商品属性列表">商品属性列表</a>
+				<a href="/Admin/Attribute/add.html" class="right" target="mainWin" title="添加商品属性">添加</a>
+			</dd>
+		</dl>
+	</div>
+</aside>
+<dfn></dfn>
+<div id="main">
+	<p id="breadCrumb">当前位置：<span id="curpstion">后台首页</span></p>
+	<iframe name="mainWin" id="mainWin" frameborder="0" src="Prober/index.html"></iframe>
+</div>
+<script type="text/javascript" src="js/index.js"></script>
+</html>

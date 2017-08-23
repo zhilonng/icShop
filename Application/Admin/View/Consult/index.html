@@ -1,0 +1,168 @@
+﻿ <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用户管理-妈咪研究院</title>
+    <link rel="shortcut icon" href="favicon.ico"> <link href="__PUBLIC__/css/bootstrap.min.css" rel="stylesheet">
+    <link href="__PUBLIC__/css/font-awesome.min.css" rel="stylesheet">
+    <link href="__PUBLIC__/css/plugins/iCheck/custom.css" rel="stylesheet">
+    <link href="__PUBLIC__/css/animate.min.css" rel="stylesheet">
+    <link href="__PUBLIC__/css/style.min.css" rel="stylesheet">
+</head>
+<body class="gray-bg">
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>咨询列表</h5>
+                    </div>
+                    <div class="ibox-content">
+                        <div class="ibox-content">
+                            <form class="form-inline" role="form" method="get" action="?">
+                            <div class="form-group">
+
+                                    <p class="form-control-static">日期:</p>
+
+                                </div>
+
+                                <div class="form-group">
+
+                                    <input type="text" name="start" class="form-control layer-date" id="start" placeholder="开始时间" value="{$Think.get.start}" style="width:110px">
+
+                                </div>
+
+                                <div class="form-group">
+
+                                    <p class="form-control-static">~</p>
+
+                                </div>
+
+                                <div class="form-group">
+
+                                    <input type="text" name="end" class="form-control layer-date" id="end" placeholder="结束时间" value="{$Think.get.end}"  style="width:110px">
+
+                                </div>
+
+
+                                <div class="form-group">
+                                    <p class="form-control-static">用户昵称：</p>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" name="nickname" class="form-control" placeholder="用户昵称" value="{$Think.get.nickname}">
+                                </div>
+                                <div class="form-group">
+                                    <p class="form-control-static" style="margin-top:7px">真实姓名：</p>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" name="realname" class="form-control" placeholder="真实姓名" value="{$Think.get.realname}">
+                                </div>
+                                <button class="btn btn-primary" type="submit">查询</button>
+                            </form>
+                             
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>编号</th>
+                                        <th>微信头像</th>
+                                        <th>微信昵称</th>
+                                        <th>真实姓名</th>
+                                        <th>问题</th>
+                                        <th>是否解答</th>
+                                        <th>典型问题</th>
+                                        <th>点赞</th>
+                                        <th>提问时间</th>
+                                        <th>操作</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <if condition="$list">
+                                        <foreach name="list" item="vo"> 
+                                            <tr>
+                                                <td>{$key+1}</td>
+                                                <td><img src="{$vo.user.headimgurl}" alt="" width="50"></td>
+                                                <td>{$vo.user.nickname}</td>
+                                                <td>{$vo.user.realname}</td>
+                                                <td>{$vo['content']}</td>
+                                                <td>{:$vo['reply_id']==0?未解答:已解答}</td>
+                                                <if condition="$vo.is_shownav eq 0">
+                                                    <if condition="$vo.reply_id eq 0">
+                                                        <td>未解答</td>
+                                                    <else />
+                                                        <td onclick="classic(this)" data="{$vo.id}" style="cursor: pointer;color:#72ACE3">设为典型</td>
+                                                    </if>    
+                                                <else />
+                                                    <td onclick="classic(this)" data="{$vo.id}" style="cursor: pointer;color:#72ACE3">取消典型</td>  
+                                                </if>  
+                                                <!-- <td style="cursor: pointer;color:#72ACE3">{:$vo['is_shownav']==0?非典型:设为典型}</td> -->
+                                                <td>{$vo.goods_times}人</td>
+                                                <td>{$vo.add_time|date="Y-m-d H:i:s",###}</td>
+                                                <td>
+                                                    <if condition="$vo.reply_id eq 0">
+                                                    <a href="{:U('consult/add', array('id'=>$vo['id']))}">解答</a>
+                                                        <span>|</span>
+                                                    <else />
+                                                     <a href="{:U('consult/add', array('id'=>$vo['id']))}">详情</a>
+                                                        <span>|</span>
+                                                    </if>
+                                                    <a href="{:U('consult/del', array('id'=>$vo['id']))}" onclick="return del()">删除</a>
+                                                </td>
+                                            </tr>
+                                        </foreach>
+                                    <else />
+                                        <tr>
+                                            <td colspan="9">暂无数据</td>
+                                        </tr>
+                                    </if>
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <td colspan="9">
+                                            {$page}
+                                        </td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <script src="__PUBLIC__/js/jquery.min.js"></script>
+    <script src="__PUBLIC__/js/bootstrap.min.js"></script>
+    <script src="__PUBLIC__/js/plugins/peity/jquery.peity.min.js"></script>
+    <script src="__PUBLIC__/js/content.min.js"></script>
+     <script src="__PUBLIC__/js/plugins/layer/laydate/laydate.js"></script>
+<script type="text/javascript">
+    function del(){
+            if(!confirm('真的要删除吗')){
+                return false;
+            } 
+    }
+    
+    function classic(obj)
+    {   
+        var id=$(obj).attr('data');
+        $.get("{:U('/Admin/Consult/ajaxShownav')}",{id:id},function(data){
+            console.log(data);
+                if(data=='success'){
+                    $(obj).html('取消典型')
+                    //$(obj).html('取赞');
+                }else{
+                    $(obj).html('设为典型')
+                    //$(obj).html('赞');
+                }
+            }) 
+            return false;
+    }
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>广州萌懂信息科技有限公司</title>
+    <link rel="shortcut icon" href="favicon.ico"> <link href="__PUBLIC__/css/bootstrap.min.css" rel="stylesheet">
+    <link href="__PUBLIC__/css/font-awesome.min.css" rel="stylesheet">
+    <link href="__PUBLIC__/css/animate.min.css" rel="stylesheet">
+    <link href="__PUBLIC__/css/style.min.css" rel="stylesheet">
+</head>
+<body class="gray-bg">
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>知识编辑</h5>
+                    </div>
+                    <div class="ibox-content">
+                        <form method="post" class="form-horizontal" action="{:U('article/edit')}">
+                            <input type="hidden" name="aid" value="{$data.aid}">
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">知识类别</label>
+                                <div class="col-sm-10">
+                                    <select class="form-control m-b" name="cid">
+                                        <foreach name="cate" item="vo">
+                                            <option value="{$vo.cid}" <if condition="$vo['cid'] eq $data['cid']">selected</if>>{$vo.html}{$vo.cname}</option>
+                                        </foreach>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="hr-line-dashed"></div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">知识标题</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" name="title" value="{$data.title}">
+                                </div>
+                            </div>
+                            <div class="hr-line-dashed"></div>
+                            
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">知识详情</label>
+                                <div class="col-sm-10">
+                                    <textarea name="content" id="content" cols="30" rows="10" style="height:300px">{$data.content|stripslashes}</textarea>
+                                </div>
+                            </div>
+                            <div class="hr-line-dashed"></div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">是否常用</label>
+                                <div class="col-sm-10">
+                                    <label class="radio-inline">
+                                        <input type="radio" name="status" id="inlineRadio1" value="0" <if condition="$data['status'] eq 0">checked</if>> 否
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="status" id="inlineRadio2" value="1" <if condition="$data['status'] eq 1">checked</if>> 是
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="hr-line-dashed"></div>
+                            <div class="form-group">
+                                <div class="col-sm-4 col-sm-offset-2">
+                                    <button class="btn btn-primary" type="submit">保存内容</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="__PUBLIC__/js/jquery.min.js"></script>
+    <script src="__PUBLIC__/js/bootstrap.min.js"></script>
+    <script src="__PUBLIC__/js/content.min.js"></script>
+    <script src="__PUBLIC__/js/ueditor/ueditor.config.js"></script>
+    <script src="__PUBLIC__/js/ueditor/ueditor.all.js"></script>
+    <script type="text/javascript">
+        UEDITOR_CONFIG.allowDivTransToP = false;
+        UEDITOR_CONFIG.maximumWords= 1000000000
+        var ue = UE.getEditor('content');
+    </script>
+</body>
+</html>

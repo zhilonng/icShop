@@ -1,0 +1,125 @@
+﻿.editor-reset {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: 14px/32px Helvetica, 'Hiragino Sans GB', Arial, sans-serif;
+  color: #000;
+  vertical-align: baseline;
+  box-sizing: border-box;
+  /* HTML5 display-role reset for older browsers */
+  /*li{list-style:none;}*/
+  /*title*/ }
+  .editor-reset div, .editor-reset span, .editor-reset applet, .editor-reset object, .editor-reset iframe,
+  .editor-reset h1, .editor-reset h2, .editor-reset h3, .editor-reset h4, .editor-reset h5, .editor-reset h6, .editor-reset p, .editor-reset blockquote, .editor-reset pre,
+  .editor-reset a, .editor-reset abbr, .editor-reset acronym, .editor-reset address, .editor-reset big, .editor-reset cite, .editor-reset code,
+  .editor-reset del, .editor-reset dfn, .editor-reset em, .editor-reset img, .editor-reset ins, .editor-reset kbd, .editor-reset q, .editor-reset s, .editor-reset samp,
+  .editor-reset small, .editor-reset strike, .editor-reset strong, .editor-reset tt, .editor-reset var,
+  .editor-reset b, .editor-reset u, .editor-reset i, .editor-reset center,
+  .editor-reset dl, .editor-reset dt, .editor-reset dd, .editor-reset ol, .editor-reset ul, .editor-reset li,
+  .editor-reset fieldset, .editor-reset form, .editor-reset label, .editor-reset legend,
+  .editor-reset caption,
+  .editor-reset article, .editor-reset aside, .editor-reset canvas, .editor-reset details, .editor-reset embed,
+  .editor-reset figure, .editor-reset figcaption, .editor-reset footer, .editor-reset header, .editor-reset hgroup,
+  .editor-reset menu, .editor-reset nav, .editor-reset output, .editor-reset ruby, .editor-reset section, .editor-reset summary,
+  .editor-reset time, .editor-reset mark, .editor-reset audio, .editor-reset video, .editor-reset input, .editor-reset button, .editor-reset textarea, .editor-reset select, .editor-reset optgroup, .editor-reset option {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    vertical-align: baseline; }
+  .editor-reset table, .editor-reset tbody, .editor-reset tfoot, .editor-reset thead, .editor-reset tr, .editor-reset th, .editor-reset td {
+    margin: 0;
+    padding: 0;
+    vertical-align: baseline;
+    font: 14px/32px Helvetica, 'Hiragino Sans GB', Arial, sans-serif;
+    color:#666; }
+  .editor-reset sub, .editor-reset sup {
+    margin: 0;
+    padding: 0;
+    border: 0; }
+  .editor-reset article, .editor-reset aside, .editor-reset details, .editor-reset figcaption, .editor-reset figure,
+  .editor-reset footer, .editor-reset header, .editor-reset hgroup, .editor-reset menu, .editor-reset nav, .editor-reset section {
+    display: block; }
+  .editor-reset ol, .editor-reset ul {
+    list-style: none; }
+  .editor-reset blockquote, .editor-reset q {
+    quotes: none; }
+  .editor-reset body, .editor-reset p, .editor-reset div {
+    word-wrap: break-word; }
+  .editor-reset blockquote:before, .editor-reset blockquote:after,
+  .editor-reset q:before, .editor-reset q:after {
+    content: '';
+    content: none; }
+  .editor-reset table {
+    border-collapse: collapse;
+    border-spacing: 0; }
+  .editor-reset em {
+    font-style: italic; }
+  .editor-reset del, .editor-reset ins {
+    text-decoration: none; }
+  .editor-reset caption, .editor-reset th {
+    text-align: left; }
+  .editor-reset q:before, .editor-reset q:after {
+    content: ''; }
+  .editor-reset sup, .editor-reset sub {
+    vertical-align: baseline; }
+  .editor-reset input, .editor-reset select {
+    vertical-align: middle; }
+  .editor-reset pre, .editor-reset code, .editor-reset kbd, .editor-reset samp, .editor-reset tt {
+    font-family: monospace;
+    font-size: 108%;
+    line-height: 100%; }
+  .editor-reset .txtboxcs {
+    border: solid 1px #ccc;
+    height: 22px; }
+  .editor-reset h1 {
+    font-size: 32px; }
+  .editor-reset h2 {
+    font-size: 26px; }
+  .editor-reset h3 {
+    font-size: 20px; }
+  .editor-reset h4 {
+    font-size: 14px; }
+  .editor-reset h5 {
+    font-size: 12px; }
+  .editor-reset h6 {
+    font-size: 10px; }
+  .editor-reset .mt10 {
+    margin-top: 10px; }
+  .editor-reset div {
+    margin: 5px 0;
+    line-height: 32px; }
+  .editor-reset p {
+    margin: 20px 0;
+    color: #666;
+    text-indent: 2rem; }
+  .editor-reset p.img {
+    text-indent: 0rem; }
+  .editor-reset .fl {
+    float: left; }
+  .editor-reset .fr {
+    float: right; }
+  .editor-reset .clear {
+    clear: both;
+    height: 0;
+    line-height: 0;
+    font-size: 0;
+    overflow: hidden; }
+  .editor-reset .usercontrol_tab input {
+    width: 268px; }
+  .editor-reset .usercontrol_tab .fl {
+    width: 200px;
+    height: 315px;
+    overflow: hidden; }
+  .editor-reset .tabbody {
+    height: 390px;
+    overflow: hidden; }
+  .editor-reset .tabbody span {
+    margin: 5px 3px;
+    text-align: center;
+    display: inline-block;
+    width: 40px;
+    height: 16px;
+    line-height: 16px;
+    cursor: pointer; }
+
+/*# sourceMappingURL=kind-editor-pub-reset.css.map */

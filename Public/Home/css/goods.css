@@ -1,0 +1,63 @@
+﻿/**
+ * 商品详情样式
+ * @author 林坤源
+ * @link http://www.lamson.cc
+ */
+@import "style.css";
+/*------------- 商品详情 -------------*/
+/* 画册 */
+.picture{float:left; width:360px; border:#EEE 1px solid;}
+.photo a{margin-right:10px;}
+.photo img{width:50px; height:50px;}
+.photo .mz-thumb-selected{border:#f40 1px solid;}
+.photo .mz-thumb-selected img{filter:none;}
+/* 通用内容 */
+.comcon{position:relative; float:left; width:892px; height:412px; border:#EEE 1px solid; border-left:none;}
+.comcon > h1{text-indent:2em; font-size:16px; line-height:3;}
+.comcon .meta{padding-left:2em; line-height:1.8; margin:10px;}
+.comcon .price{padding:10px 30px; margin:10px 0; color:#FFF; line-height:2.5; background:url(../images/goods_meta_bg.jpg) no-repeat; background-size:cover;}
+.comcon #totalPrice em{font-size:1.8em;}
+.comcon dl{overflow:hidden; line-height:2; margin-left:2em;}
+.comcon dt, .comcon dd{float:left; margin-right:10px;}
+.comcon dd label{margin-right:20px;}
+/* 详情内容、规格参数 */
+.detail{clear:both; padding-top:20px;}
+.detail .tabsNav{height:34px; border:#CCC 1px solid;}
+.detail .tabsNav li{float:left; width:120px; height:34px; line-height:34px; text-align:center; border-right:#CCC 1px solid; border-top:#FFF 2px solid;}
+.detail .tabsNav .cur{height:33px; line-height:33px; margin-top:-1px; border-top-color:#F32613; border-bottom:#FFF 1px solid;}
+.detail .tabsCon{}
+.detail .tabsCon div{display:none; padding:20px;}
+.detail .tabsCon .cur{display:block;}
+.detail .content{border:#CCC 1px solid; border-top:none;}
+/* 加入购物车 */
+.figure{float:left; width:65px; margin:15px 0 0 2em; position:relative;}
+.figure input{width:41px; height:41px; line-height:41px; padding:0; text-align:center; color:#333; font-family:Tahoma; font-size:16px; font-weight:600; border:solid 1px #E6E6E6;}
+.figure a{position:absolute; top:0; left:43px; display:block; width:20px; height:20px; cursor:pointer; border:#E6E6E6 1px solid; border-width:1px 1px 1px 0; background:#FFF  url(../images/icon.png) 6px -176px no-repeat;}
+.figure .decr{top:21px; background-position:-14px -176px;}
+.comcon .toCart{float:left; width:126px; height:42px; line-height:42px; margin:15px 0 0 5px; color:#FFF; font-size:16px; font-weight:bold; border:none; background:#F32613;}
+.comcon .toCart i{display:inline-block; width:17px; height:15px; margin-right:5px; position:relative; top:3px; background:url(../images/icon.png) 0 -210px no-repeat;}
+.comcon .toCart:hover{background:#CF0010;}
+/* 规格参数 */
+.spec{padding:20px 0!important;}
+.spec table{width:100%; background:#EDF8FE;}
+.spec th{width:15%; padding-right:10px; text-align:right; line-height:2.5; font-weight:normal; background:#fff;}
+.spec td{ padding-left:10px; line-height:2.5; background:#fff;}
+.spec .subTit th{text-align:center; font-weight:bold; background:#EDF8FE;}
+
+/* 购物车提示层 */
+#cartPopup{display:none; position:absolute; z-index:1; bottom:50px; left:260px; width:320px; height:120px; border:solid 1px #EDF8FE; box-shadow:0 0 3px rgba(153,153,153,0.25); background-color:#FFF;}
+#cartPopup p{margin:10px 0 5px 0; font:lighter 16px/20px "Microsoft Yahei"; color:#333; text-align:center;}
+#cartPopup p a{float:right; width:12px; height:12px; margin:-5px 5px 0 0; font:10px/12px Verdana; color:#999; text-align:center; cursor:pointer;}
+#cartPopup p a:hover{color:#333;}
+#cartPopup div{height:24px; line-height:24px; margin:10px 0; text-align:center;}   
+#cartPopup b, #cartPopup em{color:red;}
+.btns *{display:inline-block; height:24px; line-height:24px; padding:0 10px; margin:0 10px; color:#FFF; border:none; background:#36BC9B;} 
+.btns *:hover{color:#FF0;}
+.btns button{background:#CCC;}  
+    
+   
+    
+    
+    
+    
+    

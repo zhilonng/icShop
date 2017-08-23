@@ -1,0 +1,66 @@
+ <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>广州萌懂信息科技有限公司</title>
+    <link rel="shortcut icon" href="favicon.ico"> <link href="__PUBLIC__/css/bootstrap.min.css" rel="stylesheet">
+    <link href="__PUBLIC__/css/font-awesome.min.css" rel="stylesheet">
+    <link href="__PUBLIC__/css/animate.min.css" rel="stylesheet">
+    <link href="__PUBLIC__/css/style.min.css" rel="stylesheet">
+</head>
+<body class="gray-bg">
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>轮播管理</h5>
+                    </div>
+                    <div class="ibox-content">
+                        <div class="row">
+                            <div class="col-sm-4 m-b-xs">
+                                <a href="{:U('service/addLunbo')}" class="btn btn-primary " type="button"><i class="fa fa-plus"></i>&nbsp;&nbsp;<span class="bold">添加轮播</span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>图片</th>
+                                        <th>服务ID</th>
+                                        <th>是否显示</th>
+                                        <th>操作</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <foreach name="list" item="vo"> 
+                                        <tr>
+                                            <td><img src="{$vo.cover}" width="100" alt=""></td>
+                                            <td>{$vo.service_id}</td>
+                                            <td>
+                                                <if condition="$vo['is_show']"><i class="fa  fa-check"></i><else /> <i class="fa fa-remove"></i></if>
+                                            </td>
+                                            <td>
+                                                <a href="{:U('service/editLunbo', array('id'=>$vo['id']))}">修改</a>
+                                                <span>|</span>
+                                                <a href="{:U('service/delLunbo', array('id'=>$vo['id']))}">删除</a>
+                                            </td>
+                                        </tr>
+                                    </foreach>
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <script src="__PUBLIC__/js/jquery.min.js"></script>
+    <script src="__PUBLIC__/js/bootstrap.min.js"></script>
+    <script src="__PUBLIC__/js/content.min.js"></script>
+</body>
+</html>

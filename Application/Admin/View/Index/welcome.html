@@ -1,0 +1,119 @@
+ <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>广州市羿于臣贸易有限公司</title>
+    <link rel="shortcut icon" href="favicon.ico"> <link href="__PUBLIC__/css/bootstrap.min.css" rel="stylesheet">
+    <link href="__PUBLIC__/css/font-awesome.min.css" rel="stylesheet">
+    <link href="__PUBLIC__/css/plugins/iCheck/custom.css" rel="stylesheet">
+    <link href="__PUBLIC__/css/animate.min.css" rel="stylesheet">
+    <link href="__PUBLIC__/css/style.min.css" rel="stylesheet">
+</head>
+<body class="gray-bg">
+    <div class="wrapper wrapper-content">
+        <div class="row">
+            <div class="col-sm-3" >
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <span class="label label-success pull-right">单</span>
+                        <h5>总生产订单</h5>
+                    </div>
+                    <div class="ibox-content" style="cursor:pointer;" onclick="allorder()">
+                        <h1 class="no-margins">{$Order}</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <span class="label label-info pull-right">单</span>
+                        <h5>今日新增订单</h5>
+                    </div>
+                    <div class="ibox-content" style="cursor:pointer;" onclick="todayorder()">
+                        <h1 class="no-margins">{$todayCount}</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <span class="label label-info pull-right">单</span>
+                        <h5>今日出货记录</h5>
+                    </div>
+                    <div class="ibox-content" style="cursor:pointer;" onclick="todayproduct()">
+                        <h1 class="no-margins">{$todayProduct}</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <span class="label label-info pull-right">单</span>
+                        <h5>今日销售记录</h5>
+                    </div>
+                    <div class="ibox-content" style="cursor:pointer;" onclick="todaysale()">
+                        <h1 class="no-margins">{$todaysale}</h1>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="col-sm-3">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>用户</h5>
+                        <span class="label label-primary pull-right">人</span>
+                    </div>
+                    <div class="ibox-content">
+                        <h1 class="no-margins">{$userCount}</h1>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>服务器信息</h5>
+                    </div>
+                    <div class="ibox-content">
+                        <div class="table-responsive">
+                            <table class="table table-striped">
+                                <tbody>
+                                    <foreach name="data" item="vo" key="k">
+                                        <tr>
+                                            <td width="20%">{$k}：</td>
+                                            <td width="80%">{$vo}</td>
+                                        </tr>
+                                    </foreach>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="__PUBLIC__/js/jquery.min.js"></script>
+    <script src="__PUBLIC__/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        function allorder()
+        {
+            location.href='{:U("Admin/Order/index/today/2")}';
+        }
+        function todayorder()
+        {
+            location.href='{:U("Admin/Order/index/today/1")}';
+        }
+        function todayproduct()
+        {
+            location.href='{:U("Admin/Product/index/today/1")}';            
+        }
+        function todaysale()
+        {
+            location.href='{:U("Admin/Sale/index/today/1")}';            
+        }        
+    </script>
+</body>
+</html>

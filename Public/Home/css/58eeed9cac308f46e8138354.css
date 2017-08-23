@@ -1,0 +1,327 @@
+﻿
+
+.topWrap{background: url(../images/headbge.jpg) repeat-x center top;overflow:hidden;  height:223px;}
+.h_top{ height:31px; line-height:31px; overflow:hidden; font: 14px/35px "Microsoft Yahei";}
+.h_top span a{  display:inline-block; padding:0 21px;  font-size:14px; line-height:32px;}
+.h_top span a.dt{ padding-right:21px}
+.h_top span a.ly{ padding-right:0px;}
+.h_nr{ height:145px; margin-top:5px;}
+.h_logo span{ width:122px; height:127px; overflow:hidden;}
+.h_logo .pz h2 b{display:block; font-family:Microsoft YaHei; }
+.h_logo .pz h2 b.g1{ color:#bddf33;display:block; font-weight:bold; font-size:25px; word-spacing:5px; line-height:30px; }
+.h_logo .pz h2 b.g2{ color:#343434;display:block; font-weight:bold; font-size:19px; word-spacing:5px; line-height:35px;}
+.h_logo .pz{padding: 26px 0 0 42px;}
+.h_logo span img{ width:122px; height:127px; }
+.h_logo h1{ width:12px; height: 127px;  padding:0px 0 0 56px; }
+.h_logo h1 img{ width:12px; height: 127px; }
+.h_lx{ width:258px; height:79px; margin:15px -61px 0 0;background:url(../images/tel.jpg) no-repeat 99px 17px;padding-left: 165px;  color:#343434; line-height:28px; font: 14px/35px "Microsoft Yahei"; padding-top:18px;}
+.h_lx  span{  color:#bddf33;; display:block; margin-left:-6px; font-weight:bold;font: 34px/33px "Microsoft Yahei"}
+.h_nav{height:60px; overflow:hidden; background:#bade29; margin-top:-17px;}
+.h_nav ul li { float:left; height:60px; overflow:hidden;  background: url(../images/fgdh.jpg) no-repeat right center; padding:0 28px;}
+.h_nav ul li a{ display:inline-block; font-size: 16px; color:#343434; line-height:60px; height:60px;font-family:Microsoft YaHei;}
+.h_nav li a:hover , .h_nav .cur a { text-decoration:none; color:#fff;}
+.h_nav ul li.li_last{ background:none; margin-right: 0px;}
+.h_nav ul li.cur{ background:none;}
+.header, .content, .footer {width: 1200px;margin: 0 auto;}
+
+
+    .banner{ height:620px; overflow:hidden; position: relative;}
+.banner .bd{ width: 100% !important; margin: 0 auto; }
+.banner .bd div{ height:620px;}
+.banner a{  height:620px; display:block; }
+
+.banner .hd{ height:20px; overflow:hidden; position:absolute; left:46%; bottom:30px; z-index:1; }
+.banner .hd ul{ overflow:hidden; zoom:1; float:left;  }
+.banner .hd ul li{ float:left; margin-right:2px;  width:20px; height:20px; line-height:14px; text-align:center; background:#bddf33; cursor:pointer; border-radius: 100%;}
+.banner .hd ul li.on{ background:#333; color:#fff; opacity: .6;}
+    
+
+
+
+
+.footer{ height:403px; overflow:hidden; width: 100%;}
+.footen .bglogo{ height:216px; width:222px;}
+.footen .bglogo img{ width:162px; height:166px; padding:25px;}
+.footer .nr{ width:950px; overflow:hidden; height:64px; border-bottom:solid 1px #9c896f}
+.footer .nr p a{font-family:Microsoft YaHei; font-size:14px; color:#c1bcb6; padding-right:42px;}
+.footer .dh span{ display:block; width:195px; height:110px; float:left;}
+.footer .dh span img{ width:86px; height:86px; padding:12px;}
+
+.footer .footen{ margin-top:74px;}
+.footer.bbcontet{ margin-right:-17px;}
+.bbcontet .dbtj{ color:#c1bcb6; font-family:Microsoft YaHei; font-size:14px; margin-top:225px; font-family:ya}
+.bbcontet .dh{ margin-top:39px;}
+.bbcontet .dh .dhadd{ width:539px;}
+.bbcontet .dh div{color:#c1bcb6; font-family:Microsoft YaHei; font-size:14px; line-height:39px;}
+
+ .footer{background: url(../images/ftbg.jpg) no-repeat center center;width: 100%; height:548px}
+  .footer .fnav{ background:#bade29; height:60px; margin-top:488px;}
+    .footer .fnav a{font-size: 16px;color: #343434;line-height: 60px;height: 60px;font-family: Microsoft YaHei; padding:0 56px;}
+  .footer .fshw  .leftfooter p{ font-size: 14px;color: #fff;font-family: Microsoft YaHei;  padding-top:10px; height:42px;}
+  .footer .fshw  .leftfooter{ float:left; width:505px; margin-top:32px;}
+      .footer .fshw  .leftfooter .dltb{ width:428px; overflow:hidden;}
+    .footer .fshw  .leftfooter .dltb dl{ width:193px; height:46px; float:left;}
+       .footer .fshw  .leftfooter .dltb dl dt { float:left;}
+          .footer .fshw  .leftfooter .dltb dl dd{ float:right; font-size: 15px;color: #fff;font-family: Microsoft YaHei; text-align:left;  padding-top: 7px; width:156px;}
+                .footer .fshw  .leftfooter .dltb dl.last{ width:350px;}
+                    .footer .fshw  .leftfooter .dltb dl.last dd{ width:313px;}
+                          .footer .fshw  .leftfooter .dltb span{font-size: 14px;color: #999999;font-family: Microsoft YaHei}
+                                          .footer .fshw  .leftfooter .dltb  p{ margin-top:18px; height:100px;}
+                                
+
+
+
+
+
+        .rightorder h3 {
+            font-size: 30px;
+            color: #fff;
+            font-family: Microsoft YaHei;
+            height: 41px;
+        }
+        
+        .rightorder span {
+            font-size: 15px;
+            color: #fff;
+            font-family: Microsoft YaHei;
+            display: block;
+        }
+        
+        .rightorder {
+            float: right;
+            width: 628px;
+            margin-top: -566px;
+            margin-right: 48px;
+        }
+        
+        .rightorder .liywz {
+            height: 91px;
+            padding-top: 53px;
+            margin-left: 21px;
+        }
+        
+        .footer .rightorder ul {
+            overflow: hidden;
+        }
+        
+        .rightorder ul li {
+            float: left;
+            margin: 0 0 14px 0;
+            line-height: 0px;
+            color: #fc8d00;
+        }
+        
+        .rightorder ul li span {
+            display: inline-block;
+            font-size: 14px;
+            color: #fff;
+            font-family: "Microsoft Yahei";
+            line-height: 40px;
+            vertical-align: top;
+            text-align: center;
+            height: 40px;
+            width: 90px;
+            overflow: hidden;
+        }
+        
+        .rightorder ul .li01 {
+            margin-right: 16px;
+            width: 274px;
+            height: 43px;
+            overflow: hidden;
+        }
+        
+        .rightorder ul .li02 span {
+            width: 57px;
+        }
+        
+        .rightorder ul.li03 {
+            width: 248px;
+            height: 42px;
+            margin-right: 14px;
+        }
+        
+        .rightorder ul .li05 {
+            margin-right: 10px
+        }
+        
+        .rightorder ul .inp1 {
+            width: 154px;
+            padding-left: 10px;
+            height: 38px;
+            border: 0;
+            line-height: 40px;
+            overflow: hidden;
+            background: none;
+            font-size: 14px;
+            font-family: "Microsoft Yahei";
+            color: #595656;
+            outline: none;
+            border: 1px solid #999999;
+            background: none
+        }
+        
+        .rightorder ul .inp2 {
+            width: 237px;
+            padding-left: 10px;
+            height: 38px;
+            border: 0;
+            line-height: 24px;
+            overflow: hidden;
+            background: none;
+            resize: none;
+            color: #595656;
+            outline: none;
+            border: 1px solid #999999;
+        }
+        
+        .rightorder ul .inp3 {
+            width: 493px;
+            padding-left: 10px;
+            height: 38px;
+            font-size: 14px;
+            font-family: "Microsoft Yahei";
+            border: 1px solid #dcdcdc;
+            line-height: 40px;
+            overflow: hidden;
+            background: none;
+            color: #595656;
+            outline: none;
+            border: 1px solid #999999;
+        }
+        
+        .rightorder ul .inp4 {
+            width: 493px;
+            padding-left: 10px;
+            height: 67px;
+            font-size: 14px;
+            font-family: "Microsoft Yahei";
+            border: 1px solid #dcdcdc;
+            line-height: 40px;
+            overflow: hidden;
+            background: none;
+            color: #595656;
+            outline: none;
+            border: 1px solid #999999;
+        }
+        
+        .rightorder ul .btn1 {
+            display: inline-block;
+            background: url(../images/tjs.jpg) no-repeat left top;
+            width: 142px;
+            height: 44px;
+            border: 0;
+            margin-left: 77px;
+        }
+        
+        .rightorder ul .btn2 {
+            display: inline-block;
+            background: url(../images/czs.jpg) no-repeat left top;
+            width: 142px;
+            height: 44px;
+            margin-left: 16px;
+            border: 0;
+        }
+        
+        .rightorder ul .nobot {
+            margin-right: 0;
+        }
+        .rightorder .li05 input{ vertical-align:top;}
+    
+
+        .client-2 {
+            position: fixed;
+            right: 0px;
+            top: 50%;
+            z-index: 9999;
+        } 
+.client-2 ul {
+            width: 77px;
+        } 
+.client-2 li a {
+            text-decoration: none;
+        } 
+.client-2 li {
+            background: #bddf33;
+            margin-top: 1px;
+            padding: 9px 0;
+            height: 56px;
+            width: 77px;
+        } 
+.client-2 li i {
+            background: url(../images/fx.png) no-repeat;
+            display: block;
+            width: 30px;
+            height: 27px;
+            margin: 0px auto;
+            text-align: center;
+        } 
+.client-2 li p {
+            height: 20px;
+            line-height: 20px;
+            overflow: hidden;
+            text-align: center;
+            color: #fff;
+        } 
+.client-2 .my-kefu-qq i {
+            background-position: 4px 5px;
+        } 
+.client-2 .my-kefu-tel i {
+            background-position: 0 -21px;
+        } 
+.client-2 .my-kefu-liuyan i {
+            background-position: 4px -53px;
+        } 
+.client-2 .my-kefu-weixin i {
+            background-position: -34px 4px;
+        } 
+.client-2 .my-kefu-weibo i {
+            background-position: -30px -22px;
+        } 
+.client-2 .my-kefu-ftop {
+            display: none;
+            background-color:#bddf33;
+        } 
+.client-2 .my-kefu-ftop i {
+            width: 33px;
+            height: 35px;
+            background-position: -27px -51px;
+        } 
+.client-2 .my-kefu-left {
+            float: left;
+            width: 77px;
+            height: 47px;
+            position: relative;
+        } 
+.client-2 .my-kefu-tel-right {
+            font-size: 20px;
+            color: #fff;
+            float: left;
+            height: 24px;
+            line-height: 22px;
+            padding-left: 15px;
+            border-left: 1px solid #fff;
+            margin-top: 8px;
+        } 
+.client-2 .my-kefu-right {
+            width: 20px;
+        } 
+.client-2 .my-kefu-tel-main {
+            color: #fff;
+            margin-top: 9px;
+            height: 47px;
+            width: 247px;
+        } 
+.client-2 .my-kefu-main {
+            width: 97px;
+            position: relative;
+        } 
+.client-2 .my-kefu-weixin-pic {
+            position: absolute;
+            left: -130px;
+            top: -24px;
+            display: none;
+            z-index: 333;
+        }
+        .my-kefu-weixin-pic img{width:115px;height:115px;}
+    

@@ -1,0 +1,296 @@
+﻿/*共用css，模板里只能模板设计小组人员才能修改*/
+/*模板设计小组人员修改以后注意本地备份一下*/
+/*最新更新人员：钟复民2016-08-10*/   
+/* 清除内外边距 */
+@charset "utf-8";
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, /* structural elements 结构元素 */
+dl, dt, dd, ul, ol, li, /* list elements 列表元素 */
+pre, /* text formatting elements 文本格式元素 */
+fieldset, lengend, button, input, textarea, /* form elements 表单元素 */
+th, td { /* table elements 表格元素 */
+    margin: 0;
+    padding: 0;
+}
+
+input,textarea {border: 2 none; box-shadow: none; outline: none;}
+
+/* 设置默认字体 */
+body,
+button, input, select, textarea {
+    font: 14px/22px "Microsoft YaHei";color: #666;
+} 
+h1 {font-size: 18px;}
+h2 {font-size: 16px;}
+h3 {font-size: 14px;}
+h4, h5, h6 {font-size: 100%;}
+* h1,* h2,* h3,* h4,* h5,* h6{margin: 0px;} /*覆盖bootstrape对标题加的默认外边距*/
+
+address, cite, dfn, em, i, var {font-style: normal;} /* 斜体扶正 */
+
+/* 重置列表元素 */
+ul, ol {list-style: none;}
+
+/* 重置文本格式元素 */
+a {text-decoration: none; color: #666; word-wrap:break-word;}/*英文换行*/
+a:hover {text-decoration: none; color:#bddf33;}
+
+
+/* 重置表单元素 */
+legend {color: #000;} /* for ie6 */
+fieldset, img {border: none;} /* img 搭车：让链接里的 img 无边框 */
+/* 注：optgroup 无法扶正 */
+button, input, select, textarea {
+    font-size: 100%; /* 使表单元素在 ie 下能继承字体大小 */
+}
+
+/* 重置表格元素 */
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* 让非ie浏览器默认也显示垂直滚动条，防止因滚动条引起的闪烁 */
+html {overflow-y: scroll;}
+
+/*设置浮动*/
+.fl {float: left;}
+.fr {float: right;}
+.pr{position: relative;}
+.pa{position: absolute;}
+
+/*字体大小*/
+.fz12{font-size: 12px;}
+.fz14{font-size: 14px;}
+.fz16{font-size: 16px;}
+.fz18{font-size: 18px;}
+.fz20{font-size: 20px;}
+.fz22{font-size: 22px;}
+.clear{clear: both;height: 0;}
+.blk-main .clearlist{ clear:both;height:0;padding:0;margin:0;border:0;width:100% ;float:none;}
+
+
+
+
+/*添加字体*/
+ 
+.blk{margin-bottom: 25px;}
+/*Main模板*/
+.blk-main{width: 1200px; margin: 0 auto;}
+/*小模块*/
+.blk-xs{width: 270px;}
+/*中模块*/
+.blk-sm{width: 900px;}
+/*小版块*/
+.blk{margin-bottom: 30px;}
+
+.p-trbl{padding:30px;}
+.p-trl{padding:30px;padding-bottom:0;}
+
+/*数据更新中的样式*/
+.nodata {background:url("images/nodata.png") no-repeat 58px 20px #fff;margin: 10px 0;padding:80px 0 80px 220px;border:1px solid #eee;text-transform: capitalize;}
+
+/*结束数据更新中的样式*/
+
+/*清除浮动*/
+.clearafter:after { content:"."; display:block; height:0; visibility:hidden; clear:both; }
+.blk-main .listclear,.clear{clear:both;height:0;padding:0;margin:0;border:0;width:100%;float:none;}
+
+
+/*通栏模块与main模块配套,因为需要重置white-space属性*/
+.blk-md{width: 100%;clear: both;}
+
+/*分类描述*/
+.p1-describe{background: #faf9f8;border: 1px solid #d3d3d3;color: #333;margin-bottom: 35px;overflow: hidden;padding:14px;}
+/*详情内容*/
+.endit-content{ line-height:28px;}
+.endit-content p{margin:15px 0;}
+.endit-content img{max-width:100%;}
+.endit-content #map img,.endit-content #platform img{max-width: inherit;}
+.p2-about-list-con2 #map img,.p2-about-list-con2 #platform img {max-width: inherit;}
+.p4-info-content-2-text #map img,.p4-info-content-2-text #platform img {max-width: inherit;}
+.endit-content em,.endit-content i{font-style: italic;}
+.endit-content .img-p{text-indent: 0px; padding-top: 14px; margin: 0px; text-align: center;}
+.endit-content .img-container{}
+/*描述编辑器内容*/
+.endit-desc{line-height: 26px;padding:15px 0; overflow: hidden;}
+
+/*第一套模版标题样式*/
+
+.p1-titlel-1{height:50px; background:#faf9f8; margin-bottom:40px;}
+.p1-titlel-1 h3{height: 42px; font-size: 18px; line-height: 18px; color: #333; background: #fff; border-bottom: 1px solid #d3d3d3;}
+.p1-titlel-1 span{display: inline-block; border-bottom: 1px solid #910800;height: 41px;}
+.p1-titlel-1 span a{color: #333;}
+
+.p1-info-list-content-2-fy{ overflow: hidden; text-align: center;}
+.p1-info-list-content-2-fy a,.p1-info-list-content-2-fy span{height: 40px; padding: 0 14px; line-height: 40px; display:inline-table; vertical-align:  top; border: 1px 
+
+solid #eee; box-sizing: border-box; overflow: hidden;margin-left:5px;}
+.p1-info-list-content-2-fy .laypage_curr{background:#910800;color:#fff;}
+.p1-info-list-content-2-fy a:hover{border:1px solid #910800;color:#910800;}
+.blk-main .p1-info-list-content-2-fy  .laypage_next{background: url(../images/p1-bj.png) no-repeat -105px -92px;border:0;padding-left:15px;border:1px solid #fff;display:inline-block;}
+.blk-main .p1-info-list-content-2-fy  .laypage_next:hover{border:1px solid #fff;}
+.blk-main .p1-info-list-content-2-fy  .laypage_prev{background: url(../images/p1-bj.png) no-repeat -80px -92px;border:0;padding-left:15px;border:1px solid #fff;display:inline-block;}
+.blk-main .p1-info-list-content-2-fy  .laypage_prev:hover{border:1px solid #fff;}
+
+
+/*第二套模版标题样式*/
+
+
+.p2-title1{border-top: solid 1px #e1e1e1; font-size: 18px;height: 52px;line-height: 52px;position: relative;}
+.p2-title1:before{content: "";position: absolute;width: 7.3%;height: 1px;background:#910800;left: 0;top:-1px;}
+.p2-title1 a{color: #353535}
+
+.p2-title2{height: 50px;line-height: 50px;position: relative;font-size: 16px;color: #333;}
+.p2-title2:before {content: "";position: absolute;width: 25px;height: 2px;background:#910800;left: 0;bottom: 0;}
+
+.p2-titlel1{top:-31px;right: 0;height: 22px;}
+.p2-titlel1 li{width: 11px;height: 11px;border-radius: 11px;background: #e3e3e3;float: left;margin:0 0 0 9px;}
+.p2-titlel1 li.cur{background:#910800;cursor: pointer;}
+
+.p2-title3{font-size: 18px;line-height:38px;color: #789753;font-weight: normal;text-align: center;height: 104px;position: relative;}
+.p2-title3 span{display: block;font-family: "Times New Roman";font-size: 38px;line-height: 48px;color: #c8c8c8;text-transform: uppercase;}
+.p2-title3:before,.p2-title3:after{content: "";position: absolute;width: 2.8%;height: 1px;background: #a9a9a9;top:67px;}
+.p2-title3:before{left:41.2%;}
+.p2-title3:after{right:41.2%;}
+
+.p2-page {
+    clear: both;
+    padding: 48px 0 0;
+    text-align: center;
+}
+
+.p2-page .laypage_next,.p2-page .laypage_prev {
+    width: 118px;
+    height: 38px;
+    line-height: 38px;
+    border: solid 1px #000;
+    border-radius: 3px;
+    display: inline-block;
+    color: #000;
+    padding:0;
+}
+.p2-page a {
+    font-style: normal;
+    color: #bbb;
+    padding: 0 10px;
+}
+.p2-page span{padding: 0 10px;}
+ 
+
+/*第四套模版样式*/
+.p4-titlel-1{max-height: 106px; font-size: 20px;  font-weight: normal;color: #242424; line-height:52px; margin-bottom: 24px; overflow:hidden;}
+.p4-titlel-1 em{display: block;height: 1px;background: #eee;}
+.p4-titlel-1 span{width:36px; height: 2px; background: #bddf33; display: block;}
+
+.p4-titlel-2{height: 55px;font-size: 20px; color: #fff; line-height: 55px;padding-left:18px;background:#bddf33;}
+.p4-titlel-2 span{display: block;font-weight: normal;max-width: 80%; white-space: nowrap;text-overflow: ellipsis; overflow:hidden;text-align:center;}
+.p4-page{text-align:center;}
+.p4-page .laypageskin_yahei .laypage_curr{background-color:#bddf33;}
+.p4-page  .laypageskin_yahei a, .p4-page .laypageskin_yahei span{background-color: #eee;}
+
+
+/*结束*/
+
+/*第十一套模版样式*/
+.p11-viskins, .p11-viskins-li li,.p11-title{background:url(../images/VISkins-p11.png) no-repeat; }
+.p11-524d4c{ background-color: #524d4c; }
+.p11-383636{ background-color: #383636; }
+.p11-313030{ background-color: #313030; }
+.p11-3f3c3b{ background-color: #3f3c3b; }
+.p11-494544{ background-color: #494544; }
+.p11-575352{ border-color: #575352; }
+.p11-4f4c4b{ border-color: #4f4c4b; } 
+.p11-b313030{ border-color: #313030; } 
+.p11-title{height: 80px; font-size: 22px; font-weight: bold; line-height: 80px; padding-left: 30px; color: #e29923; }
+
+.p11-page{ height: 50px; font-size: 0; margin-bottom: 20px; text-align: center; }
+.p11-page .laypage_curr{background: #e29923; border-color: #e29923;}
+.p11-page a,.p11-page span{ font-size: 14px; line-height:48px; display: inline-block; padding: 0 22px; margin: 0; vertical-align: top; background: #494544; border:1px solid #575352; cursor: pointer;} 
+
+.p11-page a:hover {
+    color:#fff;
+}
+.p11-describe{margin-bottom: 40px;overflow: hidden;} 
+.p11-describe .p11-title{background-position: -1px -178px;}
+.p11-describe .p11-describe-con{border-width: 1px; border-style: solid; padding: 15px; overflow: hidden;}
+
+/*样式结束*/
+
+
+
+
+
+/*搜索板块结束*/
+
+/*表单弹框*/
+.nsw-modal {
+  width: 100%;
+  height: 100%;
+  background: rgba(225, 225, 225, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99999; }
+
+.modal-dialog {
+  position: fixed;
+  color:#000000;
+  top: 150px;
+  width: 400px;
+  border-radius: 3px;
+  min-height: 155px;
+  overflow: hidden;
+  z-index: 99998;
+  margin-left: -200px;
+  left: 50%; }
+  .modal-dialog .css-icon {
+    background-image: url("../images/modal-icons.png"); }
+  .modal-dialog .modal-head {
+    height: 30px;
+    line-height: 30px;
+    padding: 0px 20px;
+    background: #F6EFEF;
+    font-size: 14px; }
+    .modal-dialog .modal-head .modal-logo {
+      width: 15px;
+      height: 15px;
+      background-position: 1px 0px;
+      margin: 8px 5px 0 0;
+      float: left; }
+    .modal-dialog .modal-head .close {
+      float: right;
+      width: 15px;
+      height: 15px;
+      background-position: -14px 0px;
+      margin-top: 8px; }
+  .modal-dialog .modal-body {
+    width: 100%;
+    min-height: 125px;
+    background: #ffffff; }
+    .modal-dialog .modal-body .modal-body-left {
+      width: 140px;
+      float: left; }
+      .modal-dialog .modal-body .modal-body-left .icon {
+        width: 64px;
+        height: 64px;
+        margin: 30px 0 0 48px; }
+      .modal-dialog .modal-body .modal-body-left .success-message {
+        background-position: 0px -14px; }
+      .modal-dialog .modal-body .modal-body-left .warming-message {
+        background-position: 0px -78px; }
+    .modal-dialog .modal-body .modal-body-right {
+      width: 260px;
+      float: right;
+      padding-top: 20px; }
+      .modal-dialog .modal-body .modal-body-right .close-btn {
+        color: #000;
+        text-align: center;
+        width: 90px;
+        display: inline-block;
+        height: 24px;
+        line-height: 24px;
+        background: #818079; }
+      .modal-dialog .modal-body .modal-body-right p {
+        line-height: 30px; }
+
+/*# sourceMappingURL=modal.css.map */

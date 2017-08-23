@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="Robots" contect="none">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=yes"/>
+<title>欢迎登录后台管理系统</title>
+<link rel="stylesheet" type="text/css" href="css/login.css" />
+<script type="text/javascript" src="../Vendors/jquery/js/jquery.js"></script>
+<script src="../Common/js/lamson.js" id="LamSonJs" lang="zh-cn" data-controller="./" data-public="../" data-urlmodel="2"></script>
+<!--<script src="__COMMON__/js/lamson.js" id="LamSonJs" lang="zh-cn" data-controller="__CONTROLLER__" data-public="__PUBLIC__" data-urlmodel="{$Think.config.url_model}"></script>-->
+</head>
+<body>
+<header>    
+    <span>欢迎登录后台管理系统</span>    
+    <div>
+		<a href="/">首页</a>
+    </div>    
+</header>
+<div class="main">
+	<h1 class="logo"></h1>
+	<form method="post" action="?" id="masterForm">
+		<table>
+			<caption>用户登录<span>User Login</span></caption>
+			<tr>
+				<td><input type="text" name="username" id="username" maxlength="18" placeholder="请输入用户名" /></td>
+			</tr>
+			<tr>
+				<td><input type="password" name="password" id="password" placeholder="请输入密码" maxlength="20" /></td>
+			</tr>
+			<tr>
+				<td><input type="text" name="verifyCode" id="verifyCode" placeholder="验证码" maxlength="4" dataType="Require" /><img src="" onclick="" title="点击可换一张" id="yzimg" /></td>
+			</tr>
+		</table>
+		<button type="submit">登录</button>
+	</form>
+</div>
+
+<div id="cloud1"></div>
+<div id="cloud2"></div>
+
+<footer>
+	<p>Copyright &copy; <span id="year"></span> 技术支持：<a href="http://www.lamson.cc" target="_blank">Lamson</a></p>
+	<p>在<a href="http://www.firefox.com.cn/download/" target="_blank">Firefox</a>、 <a href="http://www.google.cn/intl/zh-CN/chrome/browser/" target="_blank">Chrome</a>、 <a href="http://windows.microsoft.com/zh-CN/internet-explorer/downloads/ie" target="_blank">IE9+</a> 浏览器下使用此后台系统可获得最佳浏览效果</p>
+</footer>
+</body>
+<script>
+window==window.top || (window.top.location=window.location);
+$(function(){
+	$(window).resize(function(){  
+    	$('.loginbox').css({'position':'absolute','left':($(window).width()-692)/2});
+    }).resize();
+	
+	$('#year').html(new Date().getFullYear());
+	
+	// Cloud Float...
+    var offset1 = 450;
+	var offset2 = 0;
+	var offsetbg = 0;
+    
+    var $cloud1 = $("#cloud1");
+	var $cloud2 = $("#cloud2");
+    var mainwidth = $("body").outerWidth();
+
+    /// 飘动
+    setInterval(function flutter(){
+        if(offset1 >= mainwidth){offset1 = -580;}
+        if(offset2 >= mainwidth){offset2 = -580;}
+        offset1 += 1.1;
+		offset2 += 1;
+        $cloud1.css("left", offset1);
+		$cloud2.css("left", offset2);
+    }, 70);
+});
+</script>
+</html>

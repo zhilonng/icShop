@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>广州萌懂信息科技有限公司</title>
+    <link rel="shortcut icon" href="favicon.ico"> <link href="__PUBLIC__/css/bootstrap.min.css" rel="stylesheet">
+    <link href="__PUBLIC__/css/font-awesome.min.css" rel="stylesheet">
+    <link href="__PUBLIC__/css/animate.min.css" rel="stylesheet">
+    <link href="__PUBLIC__/css/style.min.css" rel="stylesheet">
+</head>
+<body class="gray-bg">
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>添加轮播</h5>
+                    </div>
+                    <div class="ibox-content">
+                        <form method="post" class="form-horizontal" action="{:U('service/editLunbo')}"  enctype="multipart/form-data">
+                            <input type="hidden" name="id" value="{$data.id}">
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">封面</label>
+                                <div class="col-sm-8">
+                                    <input type="file" id="exampleInputFile" name="cover">
+                                </div>
+                                <div class="col-sm-2">
+                                    <img src="{$data.cover}" width="100" alt="">
+                                </div>
+                            </div>
+                            <div class="hr-line-dashed"></div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">服务ID</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" name="service_id" value="{$data.service_id}">
+                                </div>
+                            </div>
+                            <div class="hr-line-dashed"></div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">是否显示</label>
+
+                                <div class="col-sm-10">
+                                    <label class="radio-inline">
+                                        <input type="radio" name="is_show" id="inlineRadio1" value="0" <if condition="$data['is_show'] eq 0">checked</if>> 否
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="is_show" id="inlineRadio2" value="1" <if condition="$data['is_show'] eq 1">checked</if>> 是
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="hr-line-dashed"></div>
+                            <div class="form-group">
+                                <div class="col-sm-4 col-sm-offset-2">
+                                    <button class="btn btn-primary" type="submit">保存内容</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="__PUBLIC__/js/jquery.min.js"></script>
+    <script src="__PUBLIC__/js/bootstrap.min.js"></script>
+    <script src="__PUBLIC__/js/content.min.js"></script>
+</body>
+</html>

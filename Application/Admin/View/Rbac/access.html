@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>广州萌懂信息科技有限公司</title>
+    <link rel="shortcut icon" href="favicon.ico"> <link href="__PUBLIC__/css/bootstrap.min.css" rel="stylesheet">
+    <link href="__PUBLIC__/css/font-awesome.min.css" rel="stylesheet">
+    <link href="__PUBLIC__/css/animate.min.css" rel="stylesheet">
+    <link href="__PUBLIC__/css/plugins/sweetalert/sweetalert.css" rel="stylesheet">
+    <link href="__PUBLIC__/css/style.min.css" rel="stylesheet">
+    <link href="__PUBLIC__/css/node.css" rel="stylesheet">
+</head>
+<body class="gray-bg">
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="row">
+            <div class="col-sm-12">
+                <div id="warp">
+                    <a href="{:U('rbac/role')}" class="add-app">返回</a>
+                    <form action="{:U('rbac/setAccess')}" method="post">    
+                        <foreach name="node" item="app">
+                            <div class="app">
+                                <p>
+                                    <strong>{$app.title}</strong>
+                                    <input type="checkbox" name="access[]" value="{$app.id}_1" level='1' <if condition="$app['access']">checked</if>>
+                                </p>
+                                <foreach name="app.child" item="action">
+                                    <dl>
+                                        <dt>
+                                            <strong>{$action.title}</strong>
+                                            <input type="checkbox" name="access[]" value="{$action.id}_2" level='2' <if condition="$action['access']">checked</if>>
+                                        </dt>
+                                        <foreach name="action.child" item="method">
+                                            <dd>
+                                                <span>{$method.title}</span>
+                                                <input type="checkbox" name="access[]" value="{$method.id}_3" level='3' <if condition="$method['access']">checked</if>>
+                                            </dd>
+                                        </foreach>
+                                    </dl>
+                                </foreach>
+                            </div>
+                        </foreach>
+                        <input type="hidden" name="rid" value="{$rid}" />
+                        <button class="btn btn-primary" style="margin:20px auto;">提交</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="__PUBLIC__/js/jquery.min.js"></script>
+    <script src="__PUBLIC__/js/bootstrap.min.js"></script>
+    <script src="__PUBLIC__/js/content.min.js"></script>
+    <script src="__PUBLIC__/js/plugins/layer/layer.js"></script>
+    <script type="text/javascript">
+        var delNodeUrl = "{:U('rbac/delNode')}"
+        $(function(){
+            $('input[level =1]').click(function(){
+                var inputs = $(this).parents('.app').find('input');
+                $(this).is(':checked') ? inputs.prop('checked',true) : inputs.prop('checked',false);
+            })
+            $('input[level =2]').click(function(){
+                var inputs = $(this).parents('dl').find('input');
+                $(this).is(':checked') ? inputs.prop('checked',true) : inputs.prop('checked',false);
+            })
+        })
+    </script>
+</body>
+</html>

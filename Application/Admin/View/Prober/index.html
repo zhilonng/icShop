@@ -1,0 +1,327 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="Robots" contect="none">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=yes"/>
+<title>服务器和系统信息</title>
+<style type="text/css">
+body{_width:96%; margin:auto;}
+body,div,p,ul,form,h1 { margin:0px; padding:0px;}
+div,a,td,input,areatext{font-family:"\5FAE\8F6F\96C5\9ED1",helvetica,Arial; font-size: 12px; color: #333;}
+div{margin-left:auto; margin-right:auto;}
+.clear{clear:both; font-size:0px; line-height:0px; width:0px; height:0px; overflow:hidden; visibility:hidden; float:none!important;}
+.hide{display:none;}
+li{list-style-type:none;}
+input{border: 1px solid #999999; background:#f5f5f5;}
+a{text-decoration:none; color:#5599ff;}
+fieldset{border:3px double #9FACB7; margin:15px; padding:10px;}
+legend{background:#5599ff; color:#FFFFFF; padding:5px 10px; font-size:14px;}
+.w60{width:60%!important;}
+.w35{width:35%!important;}
+.w28{width:28%!important;}
+.w20{width:20%!important;}
+.cellDiv{border-bottom:#C9C9C9 1px solid; background:#FFFFFF;}
+.cellDiv div{float:left; text-align:left; text-indent:4px; overflow:hidden!important; line-height:26px;border-right:#C9C9C9 1px solid;}
+.cellDiv div.np_rig{border-right:none;}
+.resYes{font-weight: bold; color: #33CC00;} 
+.resNo{font-weight: bold; color: #CC3300;}
+</style>
+</head>
+<i class="hide">运行环境信息</i>
+<fieldset>
+	<legend>服务器特性</legend>
+	<?php if($sysre=='show'){?>
+	<div class="cellDiv">
+		<div class="w35">服务器处理器 CPU</div>
+		<div class="w60 np_rig">CPU个数：<?php echo ++$sysinfo['cpu']['num']?> <?php echo $sysinfo['cpu']['detail']?></div>
+		<div class="clear"></div>
+	</div>
+	<?php }?>
+	<div class="cellDiv">
+		<div class="w35">服务器时间</div>
+		<div class="w60 np_rig"><?php echo date('Y年n月j日 H:i:s')?>&nbsp;北京时间：<?php echo gmdate('Y年n月j日 H:i:s',time()+8*3600)?></div>
+		<div class="clear"></div>
+	</div>
+	<?php if($sysre=='show'){?>
+	<div class="cellDiv">
+		<div class="w35">服务器运行时间</div>
+		<div class="w60 np_rig"><?php echo $sysinfo['uptime']?></div>
+		<div class="clear"></div>
+	</div>
+	<?php }?>
+	<div class="cellDiv">
+		<div class="w35">服务器域名/IP地址</div>
+		<div class="w60 np_rig"><?php echo $_SERVER['SERVER_NAME']?>(<?php echo @gethostbyname($_SERVER['SERVER_NAME'])?>)</div>
+		<div class="clear"></div>
+	</div>
+	<div class="cellDiv">
+		<div class="w35">服务器操作系统</div>
+		<div class="w60 np_rig"><?php echo $os[0]?>&nbsp;内核版本：<?php echo $os[2]?></div>
+		<div class="clear"></div>
+	</div>
+	<div class="cellDiv">
+		<div class="w35">主机名称</div>
+		<div class="w60 np_rig"><?php echo $os[1]?></div>
+		<div class="clear"></div>
+	</div>
+	<div class="cellDiv">
+		<div class="w35">服务器解译引擎</div>
+		<div class="w60 np_rig"><?php echo $_SERVER['SERVER_SOFTWARE']?></div>
+		<div class="clear"></div>
+	</div>
+	<div class="cellDiv">
+		<div class="w35">Web服务端口</div>
+		<div class="w60 np_rig"><?php echo $_SERVER['SERVER_PORT']?></div>
+		<div class="clear"></div>
+	</div>
+	<div class="cellDiv">
+		<div class="w35">服务器管理员</div>
+		<div class="w60 np_rig"><?php echo $_SERVER['SERVER_ADMIN']?></div>
+		<div class="clear"></div>
+	</div>
+	<div class="cellDiv">
+		<div class="w35">目前还有空余空间&nbsp;diskfreespace</div>
+		<div class="w60 np_rig"><?php echo round((@disk_free_space('.')/(1024*1024)),2)?> M</div>
+		<div class="clear"></div>
+	</div>
+	<?php if('show'==$sysre){?>
+	<div class="cellDiv">
+		<div class="w35">内存使用状况</div>
+		<div class="w60 np_rig">
+			物理内存：共<?php echo $sysinfo['memTotal']?>M, 已使用
+			<?php echo $sysinfo['memUsed']?>
+			M, 空闲
+			<?php echo $sysinfo['memFree']?>
+			M, 使用率
+			<?php echo $sysinfo['memPercent']?>
+			%
+			<?php echo $sysinfo['memPercent']?>
+			SWAP区：共
+			<?php echo $sysinfo['swapTotal']?>
+			M, 已使用
+			<?php echo $sysinfo['swapUsed']?>
+			M, 空闲
+			<?php echo $sysinfo['swapFree']?>
+			M, 使用率
+			<?php echo $sysinfo['swapPercent']?>
+			%
+			<?php echo $sysinfo['swapPercent']?>
+		</div>
+		<div class="clear"></div>
+	</div>
+	<div class="cellDiv">
+		<div class="w35">系统平均负载</div>
+		<div class="w60 np_rig"><?php echo $sysinfo['loadAvg']?></div>
+		<div class="clear"></div>
+	</div>
+	<?php }?>
+</fieldset>
+<div class="blank12"></div>
+<fieldset>
+	<legend>PHP基本特性</legend>
+	<div class="cellDiv">
+		<div class="w35">PHP运行方式</div>
+		<div class="w60 np_rig"><?php echo strtoupper(php_sapi_name())?></div>
+		<div class="clear"></div>
+	</div>
+	<div class="cellDiv">
+		<div class="w35">PHP版本</div>
+		<div class="w60 np_rig"><?php echo PHP_VERSION?></div>
+		<div class="clear"></div>
+	</div>
+	<div class="cellDiv">
+		<div class="w35">运行于安全模式</div>
+		<div class="w60 np_rig"><?php echo _getCon('safe_mode')?></div>
+		<div class="clear"></div>
+	</div>
+	<div class="cellDiv">
+		<div class="w35">支持ZEND编译运行</div>
+		<div class="w60 np_rig"><?php echo (get_cfg_var('zend_optimizer.optimization_level')||get_cfg_var('zend_extension_manager.optimizer_ts')||get_cfg_var('zend_extension_ts')) ?YES:NO?></div>
+		<div class="clear"></div>
+	</div>
+	<div class="cellDiv">
+		<div class="w35">允许使用URL打开文件&nbsp;allow_url_fopen</div>
+		<div class="w60 np_rig"><?php echo _getCon('allow_url_fopen')?></div>
+		<div class="clear"></div>
+	</div>
+	<div class="cellDiv">
+		<div class="w35">允许动态加载链接库&nbsp;enable_dl</div>
+		<div class="w60 np_rig"><?php echo _getCon('enable_dl')?></div>
+		<div class="clear"></div>
+	</div>
+	<div class="cellDiv">
+		<div class="w35">显示错误信息&nbsp;display_errors</div>
+		<div class="w60 np_rig"><?php echo _getCon('display_errors')?></div>
+		<div class="clear"></div>
+	</div>
+	<div class="cellDiv">
+		<div class="w35">自动定义全局变量&nbsp;register_globals</div>
+		<div class="w60 np_rig"><?php echo _getCon('register_globals')?></div>
+		<div class="clear"></div>
+	</div>
+	<div class="cellDiv">
+		<div class="w35">程序最多允许使用内存量&nbsp;memory_limit</div>
+		<div class="w60 np_rig"><?php echo _getCon('memory_limit')?></div>
+		<div class="clear"></div>
+	</div>
+	<div class="cellDiv">
+		<div class="w35">POST最大字节数&nbsp;post_max_size</div>
+		<div class="w60 np_rig"><?php echo _getCon('post_max_size')?></div>
+		<div class="clear"></div>
+	</div>
+	<div class="cellDiv">
+		<div class="w35">允许最大上传文件&nbsp;upload_max_filesize</div>
+		<div class="w60 np_rig"><?php echo _getCon('upload_max_filesize')?></div>
+		<div class="clear"></div>
+	</div>
+	<div class="cellDiv">
+		<div class="w35">程序最长运行时间&nbsp;max_execution_time</div>
+		<div class="w60 np_rig"><?php echo _getCon('max_execution_time')?>	秒</div>
+		<div class="clear"></div>
+	</div>
+	<div class="cellDiv">
+		<div class="w35">magic_quotes_gpc</div>
+		<div class="w60 np_rig"><?php echo (1===get_magic_quotes_gpc())?YES:NO?></div>
+		<div class="clear"></div>
+	</div>
+	<div class="cellDiv">
+		<div class="w35">magic_quotes_runtime</div>
+		<div class="w60 np_rig"><?php echo (1===get_magic_quotes_runtime())?YES:NO?></div>
+		<div class="clear"></div>
+	</div>
+	<div class="cellDiv">
+		<div class="w35">被禁用的函数&nbsp;disable_functions</div>
+		<div class="w60 np_rig"><?php echo ''==$disfuns ? '无' : str_replace(',','<br />',$disfuns)?></div>
+		<div class="clear"></div>
+	</div>
+	<div class="cellDiv">
+		<div class="w35">PHP信息&nbsp;PHPINFO</div>
+		<div class="w60 np_rig"><?php echo (false!==eregi('phpinfo',$disfuns))? NO : '<a href="' . U('phpinfo') . '" target="_blank" class="static">PHPINFO</a>'?></div>
+		<div class="clear"></div>
+	</div>
+</fieldset>
+<div class="blank12"></div>
+<fieldset>
+	<legend>PHP组件支持</legend>
+	<div class="cellDiv">
+		<div class="w28">拼写检查 ASpell Library</div>
+		<div class="w20"><?php echo _isFun('aspell_check_raw')?></div>
+		<div class="w28">高精度数学运算 BCMath</div>
+		<div class="w20 np_rig"><?php echo _isFun('bcadd')?></div>
+		<div class="clear"></div>
+	</div>
+	<div class="cellDiv">
+		<div class="w28">历法运算 Calendar</div>
+		<div class="w20"><?php echo _isFun('cal_days_in_month')?></div>
+		<div class="w28">DBA数据库</div>
+		<div class="w20 np_rig"><?php echo _isFun('dba_close')?></div>
+		<div class="clear"></div>
+	</div>
+	<div class="cellDiv">
+		<div class="w28">dBase数据库</div>
+		<div class="w20"><?php echo _isFun('dbase_close')?></div>
+		<div class="w28">DBM数据库</div>
+		<div class="w20 np_rig"><?php echo _isFun('dbmclose')?></div>
+		<div class="clear"></div>
+	</div>
+	<div class="cellDiv">
+		<div class="w28">FDF表单资料格式</div>
+		<div class="w20"><?php echo _isFun('fdf_get_ap')?></div>
+		<div class="w28">FilePro数据库</div>
+		<div class="w20 np_rig"><?php echo _isFun('filepro_fieldcount')?></div>
+		<div class="clear"></div>
+	</div>
+	<div class="cellDiv">
+		<div class="w28">Hyperwave数据库</div>
+		<div class="w20"><?php echo _isFun('hw_close')?></div>
+		<div class="w28">图形处理 GD Library</div>
+		<div class="w20 np_rig"><?php echo _isFun('gd_info')?> (版本：<span class="resYes"><?php echo $gdversion?></span>)</div>
+		<div class="clear"></div>
+	</div>
+	<div class="cellDiv">
+		<div class="w28">IMAP电子邮件系统</div>
+		<div class="w20"><?php echo _isFun('imap_close')?></div>
+		<div class="w28">Informix数据库</div>
+		<div class="w20 np_rig"><?php echo _isFun('ifx_close')?></div>
+		<div class="clear"></div>
+	</div>
+	<div class="cellDiv">
+		<div class="w28">LDAP目录协议</div>
+		<div class="w20"><?php echo _isFun('ldap_close')?></div>
+		<div class="w28">MCrypt加密处理</div>
+		<div class="w20 np_rig"><?php echo _isFun('mcrypt_cbc')?></div>
+		<div class="clear"></div>
+	</div>
+	<div class="cellDiv">
+		<div class="w28">哈稀计算 MHash</div>
+		<div class="w20"><?php echo _isFun('mhash_count')?></div>
+		<div class="w28">mSQL数据库</div>
+		<div class="w20 np_rig"><?php echo _isFun('msql_close')?></div>
+		<div class="clear"></div>
+	</div>
+	<div class="cellDiv">
+		<div class="w28">SQL Server数据库</div>
+		<div class="w20"><?php echo _isFun('mssql_close')?></div>
+		<div class="w28">MySQL数据库</div>
+		<div class="w20 np_rig"><?php echo _isFun('mysql_close')?> (版本：<span class="resYes"><?php echo $mysqlversion?></span>)</div>
+		<div class="clear"></div>
+	</div>
+	<div class="cellDiv">
+		<div class="w28">SyBase数据库</div>
+		<div class="w20"><?php echo _isFun('sybase_close')?></div>
+		<div class="w28">Yellow Page系统</div>
+		<div class="w20 np_rig"><?php echo _isFun('yp_match')?></div>
+		<div class="clear"></div>
+	</div>
+	<div class="cellDiv">
+		<div class="w28">Oracle数据库</div>
+		<div class="w20"><?php echo _isFun('ora_close')?></div>
+		<div class="w28">Oracle 8 数据库</div>
+		<div class="w20 np_rig"><?php echo _isFun('OCILogOff')?></div>
+		<div class="clear"></div>
+	</div>
+	<div class="cellDiv">
+		<div class="w28">PREL相容语法 PCRE</div>
+		<div class="w20"><?php echo _isFun('preg_match')?></div>
+		<div class="w28">PDF文档支持</div>
+		<div class="w20 np_rig"><?php echo _isFun('pdf_close')?></div>
+		<div class="clear"></div>
+	</div>
+	<div class="cellDiv">
+		<div class="w28">Postgre SQL数据库</div>
+		<div class="w20"><?php echo _isFun('pg_close')?></div>
+		<div class="w28">SNMP网络管理协议</div>
+		<div class="w20 np_rig"><?php echo _isFun('snmpget')?></div>
+		<div class="clear"></div>
+	</div>
+	<div class="cellDiv">
+		<div class="w28">VMailMgr邮件处理</div>
+		<div class="w20"><?php echo _isFun('vm_adduser')?></div>
+		<div class="w28">WDDX支持</div>
+		<div class="w20 np_rig"><?php echo _isFun('wddx_add_vars')?></div>
+		<div class="clear"></div>
+	</div>
+	<div class="cellDiv">
+		<div class="w28">压缩文件支持(Zlib)</div>
+		<div class="w20"><?php echo _isFun('gzclose')?></div>
+		<div class="w28">XML解析</div>
+		<div class="w20 np_rig"><?php echo _isFun('xml_set_object')?></div>
+		<div class="clear"></div>
+	</div>
+	<div class="cellDiv">
+		<div class="w28">FTP</div>
+		<div class="w20"><?php echo _isFun('ftp_login')?></div>
+		<div class="w28">ODBC数据库连接</div>
+		<div class="w20 np_rig"><?php echo _isFun('odbc_close')?></div>
+		<div class="clear"></div>
+	</div>
+	<div class="cellDiv">
+		<div class="w28">Session支持</div>
+		<div class="w20"><?php echo _isFun('session_start')?></div>
+		<div class="w28">Socket支持</div>
+		<div class="w20 np_rig"><?php echo _isFun('socket_accept')?></div>
+		<div class="clear"></div>
+	</div>
+</fieldset>
+</html>

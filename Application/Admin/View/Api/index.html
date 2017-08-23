@@ -1,0 +1,35 @@
+<if condition="! IS_AJAX">
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script src="__VENDORS__/jquery/js/jquery.js"></script>
+</head>
+<body>
+  <div id="con">
+</if>
+     <foreach name="lists" item="list">
+         <p>{$list['cat_id']}--{$list['cat_name']}</p>
+     </foreach>
+    <div id="page">{$pagelist}</div>
+
+<if condition="! IS_AJAX">
+  </div>
+</body>
+<script>
+/*    $('#page a').click(function(){
+        $.get(this.href,function(data){
+            //alert(data);
+            $('#con' ).html(data);
+        })
+         return false;
+    })*/
+    $(document ).on("click",'#page a',function(){
+        $.get(this.href,function(data){
+            $('#con' ).html(data);
+        })
+        return false;
+    })
+</script>
+</html>
+</if>

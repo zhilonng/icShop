@@ -1,0 +1,172 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no" />
+<title>我的客户</title>
+<style>
+html, body {margin:0 auto;background-color:#ddd;font-family:"Microsoft YaHei",Arial,sans-serif;font-size:14px;}
+ul{margin:0;padding:0;list-style:none;}
+.myul{clear:both;padding-bottom:10px;height:30px;}
+.myul li{padding:5px 15px;background-color:#444;color:#fff;font-size:14px;float:left;border-radius:5px;margin:0 5px;}
+.myul li.sel{background-color:#ffe600;color:#333;}
+</style>
+</head>
+<body>
+<script src="__PUBLIC__/js/jquery.min.js"></script>
+<script src="__PUBLIC__/js/bootstrap.min.js"></script>
+<script src="__PUBLIC__/js/content.min.js"></script>
+<script src="__PUBLIC__/js/plugins/layer/layer.js"></script>
+<script src="__PUBLIC__/js/plugins/layer/laydate/laydate.js"></script>
+<link href="__PUBLIC__/css/style.min.css" rel="stylesheet">
+<style>
+	#h_tab div{float:left;margin-right:10px;padding:0 30px;height:100%;text-align:center;line-height:28px;border-radius:5px;border:1px solid #aaa;cursor:pointer}
+	#h_tab .h_tab_sel{color:#333;font-weight:800;background-color:#fff;}
+	.item_div{width:100%;height:100px;margin-bottom:20px;border-left:1px solid #bbb;border-right:1px solid #aaa;border-top:1px solid #ccc;border-bottom:1px solid #888;background-color:#fff;border-radius:10px; cursor: pointer;}
+</style>
+
+	<div style="position:fixed;left:0;top:0;width:100%;color:#333;background-color:#69738C;padding:10px; z-index:100">
+		<div style="font-size:14px;color:#eee;" id="h_tab">
+		<div class="h_tab_sel">我的客户</div>
+		<div >所有客户</div>
+		<div >我的订单</div>
+		<div >所有订单</div>
+		</div>
+	</div>
+<div style="padding:10px">
+
+
+	<div style="color:#333;margin:0 auto;margin-top:50px;">
+
+		<div style="width:100%;margin-bottom:10px;clear:both;clear:both;width:100%;">
+			<form class="form-inline" role="form" method="get">
+
+			<ul style="border-bottom:1px solid #ccc;" class="myul">
+				<li style="background-color:#fff;border:1px solid #ccc;color:#333;padding:0;margin-left:0;">
+					<input style="width:100px;;border:0;border-radius:20px;padding:5px;text-align:center;" name="start"  id="start" placeholder="开始时间"></input>~
+					<input style="width:100px;;border:0;border-radius:20px;padding:5px;text-align:center;" name="end" id="end" placeholder="结束时间"></input>
+					</li>
+			<li style="background-color:#fff;border:1px solid #ccc;color:#333;padding:0;"><input style="width:100px;;border:0;border-radius:20px;padding:5px;text-align:center;" name="username" placeholder="微信昵称" value="{$Think.get.username}"></input></li>
+			<li style="background-color:#fff;border:1px solid #ccc;color:#333;padding:0;"><input style="width:100px;;border:0;border-radius:20px;padding:5px;text-align:center;" name="nickname" placeholder="真实姓名" value="{$Think.get.nickname}"></input></li>
+			<li style="background-color:#fff;border:1px solid #ccc;color:#333;padding:0;"><input style="width:100px;;border:0;border-radius:20px;padding:5px;text-align:center;" name="mobile" placeholder="手机号码" value="{$Think.get.mobile}"></input></li>
+			<li style="background-color:#fff;border:1px solid #ccc;color:#333;padding:0;">
+				    <select  style="width:100px;;border:0;border-radius:20px;padding:5px;text-align:center;" id="admin_id" name="admin_id">
+								<option value="">全部专家</option>
+                <foreach  name="admin" item="vo"> 
+                    <option value="{$vo.admin_id}">{$vo.nickname}</option>
+                </foreach>
+            </select>
+				</li>
+			<li style="background-color:#fff;border:1px solid #ccc;color:#333;padding:0;">
+
+        </li>
+
+			<button class="btn btn-primary" type="submit" style="width:60px;;border:0;border-radius:5px;padding:5px;text-align:center;margin-left:20px">查询</button>
+		</form>
+		<form class="form-inline" role="form" method="get" id="form2">
+				<input type="hidden" id="userstatus" name="usersstatus" value=""></input>
+				<input type="hidden" id="usertitle" name="usertitle" value=""></input>
+				<input type="hidden" id="service" name="service" value=""></input>
+			</form>
+			</ul>
+			<ul style="margin-top:10px;" id="s_tab" class="myul"><li class="sel" data="0">全部状态</li><li data="1">未填写家庭状况</li><li data="2">未配置方案</li><li data="3">未预约</li><li data="4">未购买</li><li data="5">已购买</li></ul>
+			<ul style="border-bottom:1px solid #ccc;" id="t_tab" class="myul"><li class="sel" data="0">全部标签</li><li data="1">即将生日</li><li data="2">方案满周</li><li data="3">方案满月</li><li data="4">方案满季</li><li data="5">重要客户</li><li data="6">有其他保单</li>
+		         	<select style="width:100px;;border:0;border-radius:5px;padding:5px;text-align:center;float:left;background-color:#444;color:#fff;" id="service_sel" >
+		         		<option value="0" selected="selected">选择活动</option>
+		            <option value="1">全部活动</option>
+		            <foreach  name="service" item="vo"> 
+		                <option value="{$vo.id}">{$vo.title}</option>
+		            </foreach>
+		         </select></ul>
+			<ul style="height:20px;padding:10px 0;">共找到{$count}个客户</ul>
+		</div>
+		<foreach name="list" item="vo">
+		<div class="item_div" onClick="newopen({$vo.user_id})">
+			<div style="position:absolute;width:100px;line-height:100px;text-align:center;height:100px;border-right:1px solid #e9e9e9;">
+				<img src="{$vo.user.headimgurl}" style="width:100px;height:100px;border-radius:9px 0 0 9px;"></div>
+			<div style="margin-left:100px;text-align:center;">
+				<div style="width:100%;line-height:40px;height:40px;border-bottom:1px solid #e9e9e9;color:#666;">
+					<div style="float:left;width:150px;border-right:1px solid #eee;font-size:16px;color:#333;">{$vo.user.realname}</div>
+					<div style="float:left;width:150px;border-right:1px solid #eee;">&nbsp;{$vo.city_name}</div>
+					<div style="float:left;width:120px;border-right:1px solid #eee;">收入（{$vo.income}万）</div>
+					<div style="float:left;width:100px;border-right:1px solid #eee;">宝宝（{$vo.bb_count}）</div>
+					<if condition="($vo['healthy'] eq 1)">
+					<div style="float:left;width:90px;border-right:1px solid #eee;color:#f24d4d;">健告异常</div>
+					<else/>
+						<div style="float:left;width:90px;border-right:1px solid #eee;">健告正常</div>
+				</if>
+					<div style="float:left;width:120px;border-right:1px solid #eee;color:#04BE02;">参与活动（
+						<if condition="($vo['service_id'])">
+						{$vo.service_id}
+							<else/>无</if>
+						）</div>
+					<div style="float:right;margin-right:20px;color:#999;">专家：{$vo.admin.nickname}</div>
+				</div>
+					<div style="width:100%;line-height:25px;height:25px;font-size:10px;background-color:#f6f6f6;color:#999;">
+						<div style="float:left;width:100px;border-right:1px solid #eee;">编号：{$vo.user_id}</div>
+						<div style="float:left;width:150px;border-right:1px solid #eee;">注册时间：{$vo.user.add_time|date="Y-m-d",###}</div>
+						<div style="float:left;width:150px;border-right:1px solid #eee;">购买服务：{$vo.user.service_time|date="Y-m-d",###}</div>
+					<div style="float:left;width:150px;border-right:1px solid #eee;">首次方案：{$vo.add_time|date="Y-m-d",###}</div>
+					<div style="float:left;width:150px;border-right:1px solid #eee;">方案更新：{$vo.update_time|date="Y-m-d",###}</div>
+					<div style="float:left;width:200px;border-right:1px solid #eee;">最后登录：{$vo.user.lastlogin|date="Y-m-d",###}</div>
+					</div>
+					<div style="width:100%;line-height:33px;border-top:1px solid #e9e9e9;">
+						<div style="float:left;width:120px;border-right:1px solid #eee;background-color:#ffe600;">{$vo.status|getFamilyStatus}</div>
+					<div style="float:left;width:120px;border-right:1px solid #eee;color:#fff;background-color:#6699FF;">方案保单（{$vo.policy_count}）</div>
+					<div style="float:left;width:80px;border-right:1px solid #eee;color:#fff;background-color:#6699FF;">¥{$vo.policy_money}</div>
+					<div style="float:left;width:120px;border-right:1px solid #eee;color:#fff;background-color:#f24d4d;">预约保单（{$vo.order_count}）</div>
+					<div style="float:left;width:80px;border-right:1px solid #eee;color:#fff;background-color:#f24d4d;">¥{$vo.order_money}</div>
+					<div style="float:left;width:120px;border-right:1px solid #eee;color:#fff;background-color:#04BE02;">购买保单（{$vo.insure_count}）</div>
+					<div style="float:left;width:80px;border-right:1px solid #eee;color:#fff;background-color:#04BE02;">¥{$vo.insure_money}</div>
+					<div style="float:left;width:120px;border-right:1px solid #eee;color:#fff;background-color:#999;">其他保单（{$vo.other_count}）</div>
+					<div style="float:left;width:80px;border-right:1px solid #eee;color:#fff;background-color:#999;">¥{$vo.other_money}</div>
+						<div style="float:right;margin-right:20px;color:#999;"></div>
+							</div></div>
+		</div>
+		</foreach> 
+		
+		{$page}
+		
+
+	</div>
+</div>
+</body>
+</html>
+
+<script type="text/javascript">
+        laydate({elem:"#start",event:"focus"});
+
+        laydate({elem:"#end",event:"focus"});
+	$("#h_tab div").click(function(){
+		
+  		$("#h_tab div").removeClass('h_tab_sel');
+			$(this).addClass('h_tab_sel');
+	});
+	$("#s_tab li").click(function(){
+  		$("#s_tab li").removeClass('sel');
+			$(this).addClass('sel');
+			$("#userstatus").val($(this).attr("data"));
+				$("#form2").submit();
+	});
+	$("#t_tab li").click(function(){
+  		$("#t_tab li").removeClass('sel');
+			$(this).addClass('sel');
+			$("#usertitle").val($(this).attr("data"));
+			$("#form2").submit();
+	});
+	$("#service_sel").change(function(){
+
+			$("#service").val($(this).val());
+			$("#form2").submit();
+	});
+	
+	
+	function newopen(id)
+	{
+		var url ="/Admin/user/report/id/"+id;
+		window.open(url,"new_report");
+		
+	}
+</script>

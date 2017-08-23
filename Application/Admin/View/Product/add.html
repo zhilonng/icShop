@@ -1,0 +1,163 @@
+﻿<!DOCTYPE html>
+<html>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>服装管理</title>
+    <link rel="shortcut icon" href="favicon.ico"> <link href="__PUBLIC__/css/bootstrap.min.css" rel="stylesheet">
+    <link href="__PUBLIC__/css/font-awesome.min.css" rel="stylesheet">
+    <link href="__PUBLIC__/css/animate.min.css" rel="stylesheet">
+    <link href="__PUBLIC__/css/style.min.css" rel="stylesheet">
+    <style type="text/css">
+    #album-list{ padding: 20px 0px 20px  0%;}
+    #album-list li{float: left; width: 20%;text-align: center;border:1px solid #ccc;max-height: 200px;overflow: hidden;margin-right: 10px;border-radius: 5px;padding:10px;}
+    #album-list li img{width: 100%;max-height: 150px;}
+    #album-list li p{ padding: 10px 0px;}
+    em{color: red};
+
+    </style>
+</head>
+<body class="gray-bg">
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title" >
+                        <h5>添加出货记录
+                    </div>
+                    <div class="ibox-content">
+                        <form method="post" class="form-horizontal" id="masterForm" action="?" onkeydown="if(event.keyCode==13)return false;" enctype="multipart/form-data" >
+                        <input type="hidden" name="product_user_id" value='{$Think.session.username}'></input>
+                            <!-- 订单工厂 -->
+                            <div class="form-group append">
+                                <label class="col-sm-2 control-label"><em>*</em>产品款号</label>
+                                <div class="col-sm-4">
+                                     <input type="text" placeholder="此项必须填写" name="order_style_number" class="form-control" onblur="sel_detail(this)">
+                                </div>     
+                            </div>
+                    <div class="copy">
+                       <div class="hr-line-dashed"></div>
+                        <div class='form-group after'>
+                            <div class='selbox'> 
+                                    <label class='col-sm-2 control-label'><em>*</em>对应颜色尺码</label>
+                                <div class='col-sm-4'>
+                                    <select style='width:390px'  class='form-control' id="select" name='product_detail_id[]'>
+                                        <option value='0'>请选择...</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                            <!-- 工厂结束 -->
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label"><em>*</em>本次出货数</label>
+                                <div class="col-sm-4">
+                                    <input type="text" placeholder="此项必须填写" name="product_quantity[]" class="form-control"   value="{$list.product_quantity}">
+                                </div>
+                            </div>
+                    
+                                <div class="form-group">
+                                <label class="col-sm-2 control-label"></label>
+                                <div class="col-sm-4">
+                                    <a onclick="return copy_row(this)">[+]</a>
+                                </div>
+                                </div>
+                </div>
+                <!-- copy结束 -->
+                            <div class="hr-line-dashed"></div>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label now_num" style="width: 30%">已经添加1种</label>
+                                <a  class="check" style="margin-left: 5%" onclick="checkall()">点击检查颜色尺码</a>
+                                <div style="margin-left: 10%" id="check">
+                                </div>
+
+                            </div> 
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">出货备注</label>
+                                <div class="col-sm-4">
+                                    <input type="text"  name="product_remark" class="form-control"   value="{$list.product_remark}">
+                                </div>
+                            </div> 
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">出货时间</label>
+                                <div class="col-md-4">
+                                    <input type="text" placeholder="此项必须填写" name="product_addtime" class="form-control" id="start" value="{$date}" >
+                                </div>
+                            </div>   
+                            <div class="hr-line-dashed"></div>
+                            <div class="form-group">
+                                <div class="col-sm-4 col-sm-offset-2">
+                                    <button class="btn btn-primary" type="submit">保存内容</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="__PUBLIC__/js/jquery.min.js"></script>
+    <script src="__PUBLIC__/js/bootstrap.min.js"></script>
+    <script src="__PUBLIC__/js/content.min.js"></script>
+    <script src="__PUBLIC__/js/plugins/layer/layer.js"></script>
+    <script src="__PUBLIC__/js/plugins/layer/laydate/laydate.js"></script>
+    <script type="text/javascript">
+    $('[name="order_factory"]').val({$list.order_factory});
+    $('[name="order_category"]').val({$list.order_category});
+    $('[name="order_zhensuo"]').val([{$list.order_zhensuo}]);
+    $('[name="order_xiuyin"]').val([{$list.order_xiuyin}]);
+
+     laydate({elem:"#start",event:"focus"});
+    function copy_row(obj){
+        var $tr=$(obj).parents('.copy');
+        if(obj.innerHTML=='[+]'){
+            var $clone=$tr.clone(true);
+            $clone.find('a' ).html('[-]');
+            var $last=$('.copy:last');
+            $last.after($clone);
+            var num=$('.copy').size();
+            $('.now_num').html('当前添加'+num+'种');
+        }else{
+            if(confirm('确定删除吗?')){
+                $tr.remove();
+                var num=$('.copy').size();
+                $('.now_num').html('当前添加'+num+'种');
+
+            }
+        }
+    }
+    function sel_detail(obj){
+        if(!$(obj).val()){
+            alert('请填写款号!');
+            return false;
+        }
+         $.post("{:U('/Admin/Product/sel_detail')}",{style_id:obj.value},function(data){
+            if(data=='error'){
+                alert('没有找到该款式,请确认');
+                return false;
+            }
+            $('#select').empty();
+            var addselelct="<option value=''>请选择</option>";
+            $('#select').append(addselelct);
+           $.each(data,function(k,v){
+                var option="<option value="+v.id+" data="+v.data+">"+v.info+"</option>";
+                $('#select').append(option);
+
+           })
+        });
+    }
+        function checkall()
+    {
+        $('#check').empty();
+        var total=0;
+        $('.copy').each(function(k,v){
+            color=$(v).find($('select[name="product_detail_id[]"]')).find('option:selected').attr('data');
+            num=parseInt($(v).find($('input[name="product_quantity[]"]')).val());
+            var str='</br>'+color+'|出货:'+num;
+            total+=num;
+            $('#check').append(str)
+        })
+        $('#check').after('<label class="col-md-2 control-label total">共添加了'+total+'件</label>');
+
+    }
+    </script>
+</body>
+</html>

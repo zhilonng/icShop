@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>广州萌懂信息科技有限公司</title>
+    <link rel="shortcut icon" href="favicon.ico"> <link href="__PUBLIC__/css/bootstrap.min.css" rel="stylesheet">
+    <link href="__PUBLIC__/css/font-awesome.min.css" rel="stylesheet">
+    <link href="__PUBLIC__/css/animate.min.css" rel="stylesheet">
+    <link href="__PUBLIC__/css/style.min.css" rel="stylesheet">
+</head>
+<body class="gray-bg">
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>添加菜单</h5>
+                    </div>
+                    <div class="ibox-content">
+                        <form method="post" class="form-horizontal" action="{:U('wechat/addMenu')}">
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">上级菜单</label>
+
+                                <div class="col-sm-10">
+                                    <select class="form-control m-b" name="pid">
+                                        <option value="0">一级菜单</option>
+                                        <foreach name="menu" item="vo">
+                                            <option value="{$vo.id}">{$vo.name}</option>
+                                        </foreach>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="hr-line-dashed"></div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">菜单类型</label>
+
+                                <div class="col-sm-10">
+                                    <select class="form-control m-b" name="type" id="type">
+                                        <option value="scancode_push">扫码推事件</option>
+                                        <option value="view">跳转URL</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="hr-line-dashed"></div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">菜单名称</label>
+
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" name="name" value="">
+                                </div>
+                            </div>
+                            <div id="box" style="display:none">
+                                <div class="hr-line-dashed"></div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">跳转链接</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" name="url" value="">
+                                        <span class="help-block m-b-none">请以http开头填写完整url地址，否则菜单会生成不了</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="hr-line-dashed"></div>
+                            <div class="form-group">
+                                <div class="col-sm-4 col-sm-offset-2">
+                                    <button class="btn btn-primary" type="submit">保存内容</button>
+                                    <a href="javascript:history.go(-1);" class="btn btn-white"k>取消</a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="__PUBLIC__/js/jquery.min.js"></script>
+    <script src="__PUBLIC__/js/bootstrap.min.js"></script>
+    <script src="__PUBLIC__/js/content.min.js"></script>
+    <script type="text/javascript">
+    $(function(){
+        $('#type').change(function(){
+            if($(this).val() == 'view'){
+                $('#box').show();
+            }else{
+                $('#box').hide();
+            }
+        })
+    })
+    </script>
+</body>
+</html>

@@ -1,0 +1,116 @@
+﻿ <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>知识管理-妈咪研究院</title>
+    <link rel="shortcut icon" href="favicon.ico"> <link href="__PUBLIC__/css/bootstrap.min.css" rel="stylesheet">
+    <link href="__PUBLIC__/css/font-awesome.min.css" rel="stylesheet">
+    <link href="__PUBLIC__/css/plugins/iCheck/custom.css" rel="stylesheet">
+    <link href="__PUBLIC__/css/animate.min.css" rel="stylesheet">
+    <link href="__PUBLIC__/css/style.min.css" rel="stylesheet">
+</head>
+<body class="gray-bg">
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>红包发放列表</h5>
+                        <h5 style="margin-left: 20px;cursor: pointer" onclick="javascript:window.location='/Admin/article/index';">返回知识列表</h5>
+                        <h5 style="margin-left: 20px" >共有{$count}人填写问卷</h5>
+                    </div>
+                    <div class="ibox-content">
+                        <div class="ibox-content">
+                            <form class="form-inline" action="?" role="form" method="get">
+                                 <div class="form-group">
+                                    <p class="form-control-static">微信名称:</p>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" id="nickname" name="nickname" class="form-control" placeholder="微信名称" value="{$Think.get.nickname}">
+                                </div>                                  
+                                <div class="form-group" style="margin-top:7px">
+                                    <p class="form-control-static">客户姓名:</p>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" name="username" id="username" class="form-control" placeholder="客户姓名" value="{$Think.get.username}">
+                                </div>
+                                <button class="btn btn-primary" type="submit">查询</button>
+                            </form>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="footable table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>序号</th>
+                                        <th>问卷填写时间</th>
+                                        <th>头像</th>
+                                        <th>用户昵称</th>
+                                        <th>用户姓名</th>
+                                        <th>建议</th>
+                                        <th>联系方式</th>
+                                        <th>是否修改方案</th>
+                                        <th>红包金额</th>
+                                        <th>操作</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <if condition="$list">
+                                        <foreach name="list" item="vo"> 
+                                            <tr>
+                                                <td>{$vo.id}</td>
+                                                <td>{$vo.add_time|date="Y-m-d H:i:s",###}</td>
+                                                <td><img src="{$vo.user.headimgurl}" alt="" width="40"></td>
+                                                <td>{$vo.user.nickname}</td>
+                                                <td>{$vo.user.realname}</td>
+                                                <td>{$vo.suggest}</td>
+                                                <td><?php
+                                                switch($vo['q8']){
+                                                case 3:echo('电子邮件');break;
+                                                case 0:echo ('微信服务号'); break;
+                                                case 1:echo ('电话'); break;
+                                                case 2:echo ('专家团队微信个人号'); break;
+                                                }
+                                                 ?></td>
+                                                <td>{$vo['q10']==1?需要:不需要}</td>
+                                                <td>{$vo.price}元</td>
+                                                <td>
+                                                    <a href="{:U('article/hongbaoDetail', array('id'=>$vo['id']))}">查看详情</a>
+                                                </td>
+                                            </tr>
+                                        </foreach>
+                                    <else/>
+                                        <tr>
+                                            <td colspan="5">暂无数据</td>
+                                        </tr>
+                                    </if>
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <td colspan="5">
+                                            {$page}
+                                        </td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <script src="__PUBLIC__/js/jquery.min.js"></script>
+    <script src="__PUBLIC__/js/bootstrap.min.js"></script>
+    <script src="__PUBLIC__/js/content.min.js"></script>
+    <script src="__PUBLIC__/js/plugins/layer/laydate/laydate.js"></script>
+    <script type="text/javascript">
+        laydate({elem:"#start",event:"focus"});
+        laydate({elem:"#end",event:"focus"})
+        function hongbao()
+        {
+            window.location="{:U('article/hongbao')}"
+        }
+    </script>
+</body>
+</html>

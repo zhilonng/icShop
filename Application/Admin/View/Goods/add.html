@@ -1,0 +1,112 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="Robots" contect="none">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=yes"/>
+<link rel="stylesheet" type="text/css" href="__ADMIN__/css/style.css" />
+<script type="text/javascript" src="__VENDORS__/jquery/js/jquery.js"></script>
+<script src="__COMMON__/js/lamson.js" id="LamSonJs" lang="zh-cn" data-controller="__CONTROLLER__" data-public="__PUBLIC__" data-urlmodel="{$Think.config.url_model}"></script>
+<!--<script src="__COMMON__/js/lamson.js" id="LamSonJs" lang="zh-cn" data-controller="__CONTROLLER__" data-public="__PUBLIC__" data-urlmodel="{$Think.config.url_model}"></script>-->
+</head>
+<body>
+<i class="hide"><a href="{:U('index')}" target="mainWin">保险类型列表</a> >> {$acttxt
+    }保险类型</i>
+<form method="post" id="masterForm" action="?">
+<table cellspacing="1" class="tableForm batCate">
+	<caption><h4>{$acttxt}保险类型</h4></caption>
+	<tbody>
+		<tr>
+			<th><em>*</em>保险类型名称</th>
+			<td><input type="text" name="goods_type_name" size="50"  value="{$data['goods_type_name']}"/></td>
+		</tr>
+        <tr>
+            <th><em>*</em>所属保险公司</th>
+            <td><select name="goods_type_company" id="cat_id" onchange="get_attr_group(this)"/>
+                <option value="">请选择</option>
+                <foreach name="company" item="v">
+                    <option value="{$v['company_id']}">{$v.company_name}</option>
+                    </foreach>
+                    </slect></td>
+        </tr>
+        <tr>
+            <th><em>*</em>保险产品类型</th>
+            <td><select name="goods_type_category" id="cat_id" onchange="get_attr_group(this)"/>
+                <option value="">请选择</option>
+                <foreach name="category" item="v">
+                    <option value="{$v['category_id']}">{$v.category_name}</option>
+                    </foreach>
+                    </slect></td>
+        </tr>
+        <tr>
+            <th><em>*</em>产品最低价格</th>
+            <td><input type="text" name="goods_type_price" size="20" placeholder="不知道可以先设置为0" value="{$data['goods_type_price']}"/></td>
+        </tr>
+		<!-- <tr>
+			<th>属性分组</i></th>
+			<td><select name="attr_group" id="attr_group">
+                <option value="">请选择</option></select></td>
+		</tr> -->
+        <tr>
+            <th><em>*</em>产品是否为固定价格</th>
+            <td class="attr_type">
+                <foreach name="Think.config.PRICE_ONLY" item="value">
+                <label><input type="radio" name="goods_type_priceOnly"  value="{$key}">{$value}</label>
+                </foreach>
+            </td>
+        </tr>
+
+        <tr>
+            <th><em>*</em>产品方案代码</th>
+            <td><input type="text" name="goods_caseCode" size="20" placeholder="请填写方案代码" value="{$goods['goods_casecode']}"/></td>
+        </tr>
+        <tr>
+            <th>产品计划</th>
+            <td><input type="text" name="goods_ageLimit" size="20" placeholder="如没有请勿填写" value="{$goods['goods_agelimit']}"/></td>
+        </tr>
+       <!--  <tr>
+            <th>可选值列表:</th>
+            <td class="attr_values">
+                <textarea name="attr_values" disabled="disabled" id="attr_values"  cols="40" rows="5"></textarea>
+            </td>
+        </tr> -->
+	</tbody>
+</table>
+<p class="btnBox"><button id="sbm" type="submit">提 交</button><button id="rst" type="reset" class="btnSec" onClick="location.reload()">重 置</button><a href="{:U('index')}" class="btnThd">取消{$acttxt}</a></p>
+<input type="hidden" name="goods_type_id" value="{$data['goods_type_id']}" />
+</form>
+<!--<script type="text/javascript" src="js/webadmin.js"></script>
+<script type="text/javascript" src="../vendors/My97DatePicker/WdatePicker.js"></script>
+<script type="text/javascript" src="../vendors/ueditor/ueditor.config.js"></script>
+<script type="text/javascript" src="../vendors/ueditor/ueditor.all.min.js"></script>-->
+<script>
+$("input[name='enabled']").val([{$lists['enabled'] !='' ? $lists['enabled']:1}]);
+$('#cat_id' ).val({$data['cat_id']})//设置默认选中的Cat_id值
+get_attr_group($('#cat_id')[0], "{$data['attr_group']}");//直接调用下面的函数
+
+    function get_attr_group(obj,val){
+        var $ag=$('#attr_group');
+        if(obj.value){
+            $.get("{:U('GoodsType/getAttrGroup')}",{cat_id:obj.value},function(data){
+               $ag.html(data);
+                console.log(data);
+                if(val){
+                    $ag.val(val);
+                }
+            })
+        }else{
+            $ag.html('<option value="">请选择</option>');
+        }
+    }
+$('[name=goods_type_company]').val({$data['goods_type_company']?:0});
+$('[name=goods_type_category]').val({$data['goods_type_category']?:0});
+$('[name=goods_type_priceOnly]').val([{$data['goods_type_priceonly']}]);
+$('input[name=attr_input_type]').val([{$data['attr_input_type']?:0}] ).filter(':checked').click();
+    function set_attr_group(obj)
+    {
+        //当attr_input_type等于1时开启输入框 不等于1加上disabled属性
+        $('#attr_values' ).prop('disabled',obj.value!=1)
+    }
+</script>
+</body>
+</html>

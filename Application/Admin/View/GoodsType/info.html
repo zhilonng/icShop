@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="Robots" contect="none">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=yes"/>
+<link rel="stylesheet" type="text/css" href="__ADMIN__/css/style.css" />
+<script type="text/javascript" src="__VENDORS__/jquery/js/jquery.js"></script>
+<script src="__COMMON__/js/lamson.js" id="LamSonJs" lang="zh-cn" data-controller="__CONTROLLER__" data-public="__PUBLIC__" data-urlmodel="{$Think.config.url_model}"></script>
+<!--<script src="__COMMON__/js/lamson.js" id="LamSonJs" lang="zh-cn" data-controller="__CONTROLLER__" data-public="__PUBLIC__" data-urlmodel="{$Think.config.url_model}"></script>-->
+</head>
+<body>
+<i class="hide"><a href="{:U('index')}" target="mainWin">商品类型列表</a> >> {$acttxt
+    }商品类型</i>
+<form method="post" id="masterForm" action="?">
+<table cellspacing="1" class="tableForm batCate">
+	<caption><h4>{$acttxt}商品类型</h4></caption>
+	<tbody>
+		<tr>
+			<th><em>*</em>商品类型名称</th>
+			<td><input type="text" name="cat_name" size="50"  value="{$lists['cat_name']}" datatype="Require" msg="请填写商品类型名称"/></td>
+		</tr>
+		<tr>
+			<th>属性分组<i>每行一个商品属性组</i></th>
+			<td><textarea name="attr_group" id="attr_group"  style="width:60%;height:150px;">{$lists['attr_group']}</textarea></td>
+		</tr>
+        <tr>
+            <th>是否启用</th>
+            <td class="enabled">
+                <label><input type="radio" name="enabled"  value="1">启用</label>
+                <label><input type="radio" name="enabled"  value="0">禁用</label>
+            </td>
+        </tr>
+	</tbody>
+</table>
+<p class="btnBox"><button id="sbm" type="submit">提 交</button><button id="rst" type="reset" class="btnSec" onClick="location.reload()">重 置</button><a href="{:U('index')}" class="btnThd">取消{$acttxt}</a></p>
+<input type="hidden" name="cat_id" value="{$lists.cat_id}" />
+</form>
+<!--<script type="text/javascript" src="js/webadmin.js"></script>
+<script type="text/javascript" src="../vendors/My97DatePicker/WdatePicker.js"></script>
+<script type="text/javascript" src="../vendors/ueditor/ueditor.config.js"></script>
+<script type="text/javascript" src="../vendors/ueditor/ueditor.all.min.js"></script>-->
+<script>
+$("input[name='enabled']").val([{$lists['enabled'] !='' ? $lists['enabled']:1}])
+</script>
+</body>
+</html>

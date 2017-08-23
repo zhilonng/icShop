@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="Robots" contect="none">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=yes"/>
+<link rel="stylesheet" type="text/css" href="__ADMIN__/css/style.css" />
+<script type="text/javascript" src="__VENDORS__/jquery/js/jquery.js"></script>
+<style>
+    .tableList em{color:orangered;font-style:normal;}
+</style>
+<script src="__COMMON__/js/lamson.js" id="LamSonJs" lang="zh-cn"
+        data-controller="__CONTROLLER__" data-public="__PUBLIC__" data-urlmodel="{$Think.config.url_model}"></script>
+<!--<script src="__COMMON__/js/lamson.js" id="LamSonJs" lang="zh-cn" data-controller="__CONTROLLER__" data-public="__PUBLIC__" data-urlmodel="{$Think.config.url_model}"></script>-->
+</head>
+<body>
+<i class="hide">商品列表</i>
+<form id="searchForm" method="get" action="?" data-noajax="1"><table>
+      </td><td>关键字:<input type="text" name="keyword" value="{$Think.get.keyword}" /></td><td><button type="submit">搜 索</button></td></tr></table></form>
+<div id="listBox">
+	<table cellspacing="1" class="tableList">
+		<thead>
+			<tr>
+                <th class="">排序</th>
+                <th class="">昵称</th>
+                <th class="">用户头像</th>
+                <th class="">用户性别</th>
+                <th class="">注册时间</th>
+                <th class="">操作</th>
+			</tr>
+		</thead>
+		<tbody>
+        <foreach name="lists" item="vo">
+			<tr>
+                <td>{$key+1} </td>
+                <td>{$vo.user_name}</td>
+                <td><img src="{$vo.user_avatar}" style="height:30px;width:30px"></td>
+                <td>{:C("USER_INDEX_SEX.$vo[user_sex]")}</td>
+                <td><span>{$vo.user_addtime|time_format}</span></td>
+				<td nowrap="nowrap" class="mngCell"><a href="{:U('edit',array('goods_id'=>$v['goods_id']))}"  class="oprnEdit">编辑</a>
+                <a href="{:U('delete',array('goods_id'=>$v['goods_id']))}"  class="oprnDel" >删除</a></td>
+    <!--            <a href="__CONTROLLER__/delete/cat_id/{$v.cat_id}" delId={$v['cat_id']} class="oprnDel"  onClick="return ms_del(this)" >删除</a></td>-->
+			</tr>
+        </foreach>
+		</tbody>
+	</table>
+    <tfoot>
+    <tr ><td colspan="5" id="LamPageBar"  ><div class="pagination" style="float: right">{$show}</div></td></tr>
+    </tfoot>
+<script>
+    $('#cat_id' ).val({$_GET['cat_id']});
+    /*$('.oprnEdit' ).click(function(){
+    })*/
+   /* $(function(){
+        $('#cat_id').val({$_GET['cat_id']});
+    });*/
+</script>
+    </div>
+<div id="loadImg"></div>
+</body>
+<script type="text/javascript" src="js/webadmin.js"></script>
+</html>

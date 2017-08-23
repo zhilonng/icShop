@@ -1,0 +1,220 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no" />
+<title>我的客户</title>
+<style>
+html, body {margin:0 auto;background-color:#f4f4f4;font-family:"Microsoft YaHei",Arial,sans-serif;font-size:14px;}
+ul{margin:0;padding:0;list-style:none;}
+.myul{clear:both;padding-bottom:10px;height:30px;}
+.myul li{padding:5px 15px;background-color:#444;color:#fff;font-size:14px;float:left;border-radius:5px;margin:0 5px;}
+.myul li.sel{background-color:#ffe600;color:#333;}
+.ssel{padding:5px 15px;background-color:#444;color:#fff;font-size:14px;float:left;border-radius:5px;margin:0 5px;}
+.sel{background-color:#ffe600;color:#333;}
+.pagination{height:60px;}
+</style>
+</head>
+<body>
+<script src="__PUBLIC__/js/jquery.min.js"></script>
+<script src="__PUBLIC__/js/bootstrap.min.js"></script>
+<script src="__PUBLIC__/js/content.min.js"></script>
+<script src="__PUBLIC__/js/plugins/layer/layer.js"></script>
+<script src="__PUBLIC__/js/plugins/layer/laydate/laydate.js"></script>
+
+<link href="__PUBLIC__/css/style.min.css" rel="stylesheet">
+<style>
+	#h_tab div{float:left;margin-right:10px;padding:0 30px;height:100%;text-align:center;line-height:28px;border-radius:5px;border:1px solid #aaa;cursor:pointer}
+	#h_tab .h_tab_sel{color:#333;font-weight:800;background-color:#fff;}
+	.item_div{width:100%;height:100px;margin-bottom:20px;border-left:1px solid #bbb;border-right:1px solid #aaa;border-top:1px solid #ccc;border-bottom:1px solid #888;background-color:#fff;border-radius:10px; cursor: pointer;}
+</style>
+
+
+<div style="padding:10px">
+
+
+	<div style="color:#333;margin:0 auto;margin-top:0px;">
+
+		<div style="width:100%;margin-bottom:10px;clear:both;clear:both;width:100%;">
+			<form class="form-inline" role="form" method="get" id="form2">
+
+			<ul style="border-bottom:1px solid #ccc;" class="myul">
+				<li style="background-color:#fff;border:1px solid #ccc;color:#333;padding:0;margin-left:0;">
+					<input style="width:100px;;border:0;border-radius:20px;padding:5px;text-align:center;" name="start"  id="start" placeholder="开始时间" value="{$Think.get.start}"></input>~
+					<input style="width:100px;;border:0;border-radius:20px;padding:5px;text-align:center;" name="end" id="end" placeholder="结束时间" value="{$Think.get.end}"></input>
+					</li>
+			<li style="background-color:#fff;border:1px solid #ccc;color:#333;padding:0;"><input style="width:100px;;border:0;border-radius:20px;padding:5px;text-align:center;" name="nickname" placeholder="微信昵称" value="{$Think.get.nickname}"></input></li>
+			<li style="background-color:#fff;border:1px solid #ccc;color:#333;padding:0;"><input style="width:100px;;border:0;border-radius:20px;padding:5px;text-align:center;" name="username" placeholder="真实姓名" value="{$Think.get.username}"></input></li>
+			<li style="background-color:#fff;border:1px solid #ccc;color:#333;padding:0;"><input style="width:100px;;border:0;border-radius:20px;padding:5px;text-align:center;" name="mobile" placeholder="手机号码" value="{$Think.get.mobile}"></input></li>
+			<if condition="($admins) eq 1">
+			<li style="background-color:#fff;border:1px solid #ccc;color:#333;padding:0;">
+				    <select  style="width:100px;;border:0;border-radius:20px;padding:5px;text-align:center;" id="admin_id" name="admin_id">
+								<option value="">全部专家</option>
+                <foreach  name="admin" item="vo"> 
+                    <option value="{$vo.admin_id}">{$vo.nickname}</option>
+                </foreach>
+            </select>
+				</li>
+			</if>
+			<li style="background-color:#fff;border:1px solid #ccc;color:#333;padding:0;">
+				    <select  style="width:100px;;border:0;border-radius:20px;padding:5px;text-align:center;" id="income" name="income">
+								<option value="">全部收入</option> 
+                    <option value="1">1-7万</option>
+                    <option value="2">7-15万</option>
+                    <option value="3">15-25万</option>
+                    <option value="4">25-50万</option>
+                    <option value="5">50-100万</option>
+                    <option value="6">100万以上</option>
+            </select>
+				</li>
+			<li style="background-color:#fff;border:1px solid #ccc;color:#333;padding:0;">
+
+        </li>
+				<input type="hidden" id="userstatus" name="userstatus" value="{$Think.get.userstatus}"></input>
+				<input type="hidden" id="usertitle" name="usertitle" value="{$Think.get.usertitle}"></input>
+				<input type="hidden" id="service" name="service" value=""></input>
+			<button class="btn btn-primary" type="submit" style="width:60px;;border:0;border-radius:5px;padding:5px;text-align:center;margin-left:20px">查询</button>
+		</form>
+		</ul>
+			
+			<ul style="margin-top:10px;" id="s_tab" class="myul"><li class="sel" data="0">全部状态</li><li data="1">未填写家庭状况</li><li data="2">未配置方案</li><li data="3">未预约</li><li data="4">未购买</li><li data="5">已购买</li></ul>
+			<ul style="border-bottom:1px solid #ccc;" id="t_tab" class="myul"><li class="sel" data="0">全部标签</li><li data="1">即将生日</li><li data="2">方案满周</li><li data="3">方案满月</li><li data="4">方案满季</li><li data="5">重要客户</li><li data="6">有其他保单</li>
+		         	<select class="ssel" id="service_sel" name="service_sel" >
+		         		<option value="0" selected="selected">选择活动</option>
+		            <option value="1">全部活动</option>
+		            <foreach  name="service" item="vo"> 
+		                <option value="{$vo.id}">{$vo.title}</option>
+		            </foreach>
+		         </select></ul>
+			<ul style="height:20px;padding:10px 0;">共找到{$count}个客户</ul>
+		</div>
+		<foreach name="list" item="vo">
+		<div class="item_div">
+			<div style="position:absolute;width:100px;line-height:100px;text-align:center;height:100px;border-right:1px solid #e9e9e9;"  onClick="newopen({$vo.user_id})">
+				<img src="{$vo.user.headimgurl}" style="width:100px;height:100px;border-radius:9px 0 0 9px;"></div>
+			<div style="margin-left:100px;text-align:center;">
+				<div style="width:100%;line-height:40px;height:40px;border-bottom:1px solid #e9e9e9;color:#666;">
+					
+					<div style="float:left;width:150px;border-right:1px solid #eee;font-size:16px;color:#333;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">{$vo.user.nickname}</div>
+					<div style="float:left;width:100px;border-right:1px solid #eee;font-size:16px;color:#333;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">{$vo.user.realname}</div>
+					<div style="float:left;width:150px;border-right:1px solid #eee;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">&nbsp;{$vo.city_name}</div>
+					<div style="float:left;width:120px;border-right:1px solid #eee;">收入（{$vo.income}万）</div>
+					<div style="float:left;width:100px;border-right:1px solid #eee;">宝宝（{$vo.bb_count}）</div>
+					<if condition="($vo['healthy'] eq 1)">
+					<div style="float:left;width:90px;border-right:1px solid #eee;color:#f24d4d;">健告异常</div>
+					<else/>
+						<div style="float:left;width:90px;border-right:1px solid #eee;">健告正常</div>
+				</if>
+					<div style="float:left;width:120px;border-right:1px solid #eee;color:#04BE02;">参与活动（
+						<if condition="($vo['service_id'])">
+						{$vo.service_id}
+							<else/>无</if>
+						）</div>
+					<div style="float:right;margin-right:20px;color:#999;">专家：{$vo.admin.nickname}</div>
+				</div>
+					<div style="width:100%;line-height:25px;height:25px;font-size:10px;background-color:#f6f6f6;color:#999;">
+                    <div style="float:left;width:180px;border-right:1px solid #eee;font-weight:800;color:#333;">购买服务：{$vo.service_time|date="Y-m-d",###}</div>
+						<div style="float:left;width:100px;border-right:1px solid #eee;">编号：{$vo.user_id}</div>
+						<div style="float:left;width:150px;border-right:1px solid #eee;">注册时间：{$vo.user.add_time|date="Y-m-d",###}</div>
+						
+					<div style="float:left;width:150px;border-right:1px solid #eee;">首次方案：{$vo.add_time|date="Y-m-d",###}</div>
+					<div style="float:left;width:150px;border-right:1px solid #eee;">方案更新：{$vo.update_time|date="Y-m-d",###}</div>
+					<div style="float:left;width:200px;border-right:1px solid #eee;">最后登录：{$vo.user.lastlogin|date="Y-m-d",###}</div>
+					</div>
+					<div style="width:100%;line-height:33px;border-top:1px solid #e9e9e9;">
+						<div style="float:left;width:120px;border-right:1px solid #eee;background-color:#ffe600;">{$vo.status|getFamilyStatus}</div>
+					<div style="float:left;width:120px;border-right:1px solid #eee;color:#fff;background-color:#6699FF;" >方案保单（{$vo.policy_count}）</div>
+					<div style="float:left;width:80px;border-right:1px solid #eee;color:#fff;background-color:#6699FF;">¥{$vo.policy_money}</div>
+					<div style="float:left;width:120px;border-right:1px solid #eee;color:#fff;background-color:#f24d4d;" class="J_menuItem" href="/Admin/order/index/uid/{$vo.user_id}" name='{$vo.user.nickname}' num='{$vo.order_count}'>预约保单（{$vo.order_count}）</div>
+					<div style="float:left;width:80px;border-right:1px solid #eee;color:#fff;background-color:#f24d4d;">¥{$vo.order_money}</div>
+					<div style="float:left;width:120px;border-right:1px solid #eee;color:#fff;background-color:#04BE02;" class="J_menuItem" href="/Admin/order/index/uid/{$vo.user_id}" name='{$vo.user.nickname}' num='{$vo.insure_count}'>购买保单（{$vo.insure_count}）</div>
+					<div style="float:left;width:80px;border-right:1px solid #eee;color:#fff;background-color:#04BE02;">¥{$vo.insure_money}</div>
+					<div style="float:left;width:120px;border-right:1px solid #eee;color:#fff;background-color:#999;">其他保单（{$vo.other_count}）</div>
+					<div style="float:left;width:80px;border-right:1px solid #eee;color:#fff;background-color:#999;">¥{$vo.other_money}</div>
+						<div style="float:right;margin-right:20px;color:#999;"></div>
+							</div></div>
+		</div>
+		</foreach> 
+		
+		{$page}
+		
+
+	</div>
+</div>
+</body>
+</html>
+
+<script type="text/javascript">
+        laydate({elem:"#start",event:"focus"});
+
+        laydate({elem:"#end",event:"focus"});
+        
+        $(function(){
+            $('[name="admin_id"]' ).val('{$Think.get.admin_id}');
+            $('[name="income"]' ).val('{$Think.get.income}');
+            
+            //$('.total_premium').html('共'+{$total_premium}+'元');
+            var userstatus = '{$Think.get.userstatus}';
+            var usertitle = '{$Think.get.usertitle}';  
+            var service = '{$Think.get.service}';
+            if(service.length>0)
+            {
+            	$("#t_tab li").removeClass('sel');
+            	$("#service_sel").addClass('sel');
+            	$('[name="service_sel"]' ).val('{$Think.get.service}');
+            }
+            else
+            {
+            		if(usertitle.length>0)
+            		{
+            			$("#t_tab li").removeClass('sel');
+            			$("#t_tab li[data='"+usertitle+"']").addClass('sel');
+            		}
+            }
+             if(userstatus.length>0)
+             {
+             	$("#s_tab li").removeClass('sel');
+             	$("#s_tab li[data='"+userstatus+"']").addClass('sel');
+             }     
+        })
+	$(".J_menuItem").click(function(){
+		
+var o = $(this).attr("href"),
+            m = 99,
+            l = "保单_"+$(this).attr("name");
+			if($(this).attr("num")>0)
+			window.top.window.mItem(o,m,l);
+	});
+	$("#h_tab div").click(function(){
+		
+  		$("#h_tab div").removeClass('h_tab_sel');
+			$(this).addClass('h_tab_sel');
+	});
+	$("#s_tab li").click(function(){
+  		$("#s_tab li").removeClass('sel');
+			$(this).addClass('sel');
+			$("#userstatus").val($(this).attr("data"));
+				$("#form2").submit();
+	});
+	$("#t_tab li").click(function(){
+  		$("#t_tab li").removeClass('sel');
+			$(this).addClass('sel');
+			$("#usertitle").val($(this).attr("data"));
+			$("#form2").submit();
+	});
+	$("#service_sel").change(function(){
+
+			$("#service").val($(this).val());
+			$("#form2").submit();
+	});
+	
+	
+	function newopen(id)
+	{
+		var url ="/Admin/user/report/id/"+id;
+		window.open(url,"new_report");
+		
+	}
+</script>
