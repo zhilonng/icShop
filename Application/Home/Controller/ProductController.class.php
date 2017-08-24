@@ -6,4 +6,8 @@ class ProductController extends CommonController
     {
         $this->display();
     }
+    public function index()
+    {
+    	$this->display();
+    }
 }
