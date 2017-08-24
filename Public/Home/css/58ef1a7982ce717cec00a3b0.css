@@ -30,14 +30,9 @@
             line-height: 0;
             text-align:center;
         }
-        .ty-banner-1 img{
-            visibility: hidden;
-        }
         .ty-banner-1 img.show{
             visibility: visible;
         }
-    
-
             .p4-search-1 {
                 background: #e5e5e5;
                 height: 82px;

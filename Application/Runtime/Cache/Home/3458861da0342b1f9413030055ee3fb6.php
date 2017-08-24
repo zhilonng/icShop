@@ -18,12 +18,13 @@
 <link href="/Public/Home/css/58ef1a7a82ce717cec00a3d5.css" rel="stylesheet">
  <body> 
   <!--头部--> 
+<div class="topWrap"> 
 <div class="header"> 
   <div class="h_top"> 
    <span class="fr"> <a class="sc" href="javascript:addFavorite2();" rel="sidebar">收藏本站</a> 
                      <a class="dt" href="/sitemap.html" target="_blank" title="网站地图">网站地图</a> 
                      <a class="ly" href="/Tools/leaveword.html" title="在线留言">在线留言</a>
-  </span> 欢迎进入XX节能环保科技有限公司官网! 
+  </span> 欢迎进入诺亚节能环保科技有限公司官网! 
   </div> 
   <div class="h_nr"> 
    <div class="h_logo"> 
@@ -37,7 +38,7 @@
    </div> 
    <div class="h_lx fr">
     全国服务热线：
-    <span>0760-89889777</span>
+    <span>0760-xxxx</span>
    </div> 
   </div> 
  </div> 
@@ -55,19 +56,19 @@
        <a href="<?php echo U('Product/index');?>" title="产品中心">产品中心</a>
 </li> 
    <li>
-       <a href="<?php echo U('Article/GongChengAnLi');?>" title="工程案例">工程案例</a>
+       <a href="<?php echo U('Article/anLi');?>" title="工程案例">工程案例</a>
 </li> 
    <li>
-       <a href="<?php echo U('Product/ZengZhi');?>" title="增值服务">增值服务</a>
+       <a href="<?php echo U('Product/zengZhi');?>" title="增值服务">增值服务</a>
 </li> 
    <li>
-       <a href="<?php echo U('Article/XinWen');?>" title="新闻·百科">新闻·百科</a>
+       <a href="<?php echo U('Article/news');?>" title="新闻·百科">新闻·百科</a>
 </li> 
    <li>
-       <a href="<?php echo U('Help/About');?>" title="关于迦南">关于迦南</a>
+       <a href="<?php echo U('Help/about');?>" title="关于诺亚">关于诺亚</a>
 </li> 
    <li>
-       <a href="<?php echo U('Help/Connected');?>" title="联系迦南">联系迦南</a>
+       <a href="<?php echo U('Help/connect');?>" title="联系诺亚">联系诺亚</a>
 </li>
    </ul> 
   </div> 
@@ -80,7 +81,7 @@
 <div class="ty-banner-1">
     
         <a href="/product/index.html" title="迦南环保——节能环保系统">
-            <img alt="迦南环保——节能环保系统" src="/resource/images/8b119ffbe26741fa8e0ec02d4f97da8b_74.jpg" title="迦南环保——节能环保系统">
+            <img alt="迦南环保——节能环保系统" src="/Public/Home/picture/8b119ffbe26741fa8e0ec02d4f97da8b_74.jpg" title="迦南环保——节能环保系统">
         </a>
         
     
@@ -396,7 +397,7 @@ window.location.href =base+'product/index' + '_' + space + '.html'
  <div class="content fshw"> 
   <div class="leftfooter"> 
    <a href="/" title="xx环保"><img src="/Public/Home/picture/8b119ffbe26741fa8e0ec02d4f97da8b_17.jpg"></a>
-   <p>XXX环保科技有限公司 版权所有</p> 
+   <p>诺亚环保科技有限公司 版权所有</p> 
    <div class="dltb">
     <dl>
      <dt>
@@ -440,14 +441,14 @@ window.location.href =base+'product/index' + '_' + space + '.html'
     </dl> 
     <div class="clear"></div> 
     <span> 技术支持：xx网（xxxx）百度统计 备案号：<a href="http://www.miitbeian.gov.cn/" target="_blank">暂无</a></span> 
-    <p><img alt="迦南环保" src="/Public/Home/picture/43f83a3cfcce4082a97361924f3e455c_28.jpg" title="xx环保"></p> 
+    <p><img alt="迦南环保" src="/Public/Home/picture/43f83a3cfcce4082a97361924f3e455c_28.jpg" title="诺亚环保"></p> 
    </div> 
   </div> 
  </div> 
  <div class="fnav"> 
   <div class="content fla"> 
   
-     <a href="/helps/JiaNanGongSiJian.html">关于迦南</a>
+     <a href="/helps/JiaNanGongSiJian.html">关于诺亚</a>
 
      <a href="/product/VOC.html">VOCS催化燃烧装置</a>
 
@@ -515,7 +516,7 @@ window.location.href =base+'product/index' + '_' + space + '.html'
                     <i></i>
                     <p>400电话</p>
                 </div>
-                <div class="my-kefu-tel-right" phone400="">0760-89889777</div>
+                <div class="my-kefu-tel-right" phone400="">0760-xxxx</div>
             </div>
         </li>
         <li class="my-kefu-liuyan">

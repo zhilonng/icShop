@@ -90,254 +90,50 @@
 
     
 
-        .p4-product-3 {
-            position: relative;
-            margin-bottom: 35px;
-            overflow: hidden;
-        } 
-.p4-product-3 .p4-titlel-1 {
-            margin-bottom: 24px;
-        } 
-.p4-prod-showcase-img {
-            overflow: hidden;
-            position: relative;
-        } 
-.p4-prod-showcase-img dl {
-            width: 100%;
-        } 
-.p4-prod-showcase-img dt {
-            width: 41%;
-            float: left;
-            margin-right: 24px;
-            overflow: hidden;
-        } 
-.p4-prod-showcase-img dt img {
-            display: block;
-            width: 100%;
-            border: 1px solid #eee;
-            box-sizing: border-box;
-        } 
-.p4-prod-showcase-img dd {
-            overflow: hidden;
-        } 
-.p4-prod-showcase-img dd span {
-            display: block;
-            height: 44px;
-            font-size: 14px;
-            font-weight: bold;
-            line-height: 44px;
-        } 
-.p4-prod-showcase-img dd span a {
-            display: block;
-            color: #333;
-            max-width: 80%;
-            white-space: nowrap;
-            text-overflow: ellipsis;
-            overflow: hidden;
-        } 
-.p4-prod-showcase-img-t1 {
-            /*height: 96px;*/
-            margin-bottom: 20px;
-            overflow: hidden;
-        } 
-.p4-prod-showcase-img dd em {
-            display: block;
-            width: 106px;
-            height: 24px;
-            background: #bddf33;
-            line-height: 24px;
-            text-align: center;
-        } 
-.p4-prod-showcase-img dd em a {
-            color: #fff;
-            display: block;
-            text-transform: none;
-        }
-        .p4-prod-showcase-img dl:hover span a{ color:#bddf33;}
-        .p4-prod-showcase-img dl:hover dd em{   background: #bddf33;}
-        .p4-prod-showcase-dd {
-            height: 12px;
-            position: absolute;
-            right: 0;
-            bottom: 0;
-        } 
-.p4-prod-showcase-dd li {
-            width: 12px;
-            height: 12px;
-            background: #e3e3e3;
-            border-radius: 100%;
-            float: left;
-            margin-right: 11px;
-            text-indent: -999px;
-            cursor: pointer;
-        } 
-.p4-prod-showcase-dd .cur {
-            background: #bddf33;
-        }
-    
-
-        .p4-prod-list-content-1 {
-            overflow: hidden;
-        } 
-.p4-prod-list-content-1-con {
-            border-bottom: 1px solid #eee;
-            margin-bottom: 48px;
-            overflow: hidden;
-        } 
-.p4-prod-list-content-1-con li {
-            width: 30%;
-            float: left;
-            padding: 0 0 38px 0;
-            margin-right: 5%;
-        } 
-.p4-prod-list-content-1-con li img {
-            display: block;
-            width: 100%;
-            border: 1px solid #eee;
-            box-sizing: border-box;
-        } 
-.p4-prod-list-content-1-con li a {
-            text-decoration: none;
-        } 
-.p4-prod-list-content-1-con span {
-            display: block;
-            height: 36px;
-            font-weight: bold;
-            line-height: 36px;
-            margin-top: 10px;
-            max-width: 80%;
-            white-space: nowrap;
-            text-overflow: ellipsis;
-            overflow: hidden;
-            text-align: center
-        } 
-.p4-prod-list-content-1-con span a {
-            color: #333;
-        } 
-.p4-prod-list-content-1-con p {
-            height: 48px;
-            color: #666;
-            line-height: 24px;
-            margin-bottom: 14px;
-            text-transform: none;
-            overflow: hidden
-        } 
-.p4-prod-list-content-1-con em {
-            display: block;
-            width: 106px;
-            height: 24px;
-            line-height:24px;
-            background: #bddf33;
-            text-align: center;
-            color: #fff;
-        } 
-.p4-prod-list-content-1-con em a {
-            display: block;
-            color: #fff;
-        } 
-.p4-prod-list-content-1-con li:hover {
-            text-decoration: none;
-        } 
-.p4-prod-list-content-1-con li:hover span a {
-            color: #bddf33;
-        } 
-.p4-prod-list-content-1-con li:hover em {
-            background: #bddf33;
-        }
-        /*.p4-page{text-align:center;}*/
-        /*.laypageskin_yahei .laypage_curr{background-color:#AF0000;}*/
-        /*.laypageskin_yahei a, .laypageskin_yahei span{background-color: #f1eff0;}*/
-    
-
-        .p4-left-nav-2 .sidenavcur a {
+        .p1-info-list-title-4 .sidenavcur a {
             color:#bddf33;
-        }
-        
-        .p4-left-nav-2 {
-            background: #f1f1f1;
-            margin-bottom: 38px;
-            overflow: hidden;
-        }
-        
-        .p4-left-nav-2-con {
-            overflow: hidden;
-        }
-        
-        .p4-left-nav-2 h4 {
-            height: 48px;
-            background: #ebebeb;
-            line-height: 48px;
-            border-top: 1px solid #f1f1f1;
-            border-bottom: 1px solid #eee;
-            overflow: hidden;
-        }
-        
-        .p4-left-nav-2 h4 a {
-            color: #333;
-            display: block;
-            background: url(images/VISkins-p4.png) no-repeat 190px -139px;
-            padding: 0 24px;
-            border-bottom: 1px solid #eee;
-            max-width: 75%;
-            white-space: nowrap;
-            text-overflow: ellipsis;
-            overflow: hidden;
-        }
-        
-        .p4-left-nav-2 h4 a:hover,
-        .p4-left-nav-2 h4.sidenavcur a {
-            text-decoration: none;
-            color: #bddf33;
-            background-position: 185px -56px;
         } 
-        .p4-left-nav-2 dt {
-            width: 82.5%;
-            height: 34px;
-            line-height: 34px;
-            margin: 0 auto;
-        }
-        
-        .p4-left-nav-2 dt a {
-            display: block;
-            text-decoration: none;
-            padding-left: 16px;
-            color: #333;
-            background: url(images/VISkins-p4.png) no-repeat -4px -327px;
-            max-width: 80%;
-            white-space: nowrap;
-            text-overflow: ellipsis;
-            overflow: hidden;
-        }
-        
-        .p4-left-nav-2 dt a:hover,
-        .p4-left-nav-2 dt.sidenavcur a {
-            color: #bddf33;
-            background-position:-4px -242px;
-        }
-        
-        .p4-left-nav-2 dd {
-            padding-bottom: 10px;
-        }
-        
-        .p4-left-nav-2 p {
-            padding-left:50px;
+.p1-info-list-title-4 {
+            height: 54px;
+            line-height: 40px;
+        } 
+.p1-info-list-title-4 li {
+            width: 18.77%;
+            height: 40px;
+            background: #f0f0f0;
+            float: left;
             font-size: 14px;
-            line-height: 30px;
+            font-weight: bold;
+            margin: 0 0.3% 20px 0;
+            text-align: center;
+        } 
+.p1-info-list-title-4 li a {
+            display: block;
         }
-        
-        .p4-left-nav-2 p a:hover,.p4-left-nav-2 p.sidenavcur a {
-            color: #bddf33;
+        /*.p1-info-list-title-4 li:nth-child(4){margin: 0;}*/ 
+.p1-info-list-title-4 li:hover,
+        .p1-info-list-title-4 li.sidenavcur {
+            background: #bddf33;
+            position: relative;
+            color: #fff;
+        } 
+.p1-info-list-title-4 li:hover:before,
+        .p1-info-list-title-4 li.sidenavcur:before {
+            content: "";
+            position: absolute;
+            left: 50%;
+            margin-left: -3px;
+            bottom: 0;
+            width: 0;
+            height: 0;
+            border-left: solid 6px transparent;
+            border-right: solid 6px transparent;
+            border-bottom: solid 6px #fff;
+        } 
+.p1-info-list-title-4 li:hover a,
+        .p1-info-list-title-4 li.sidenavcur a {
+            color: #fff;
         }
-    
-
-        .p4-contact-1{overflow: hidden;}
-        .p4-contact-1-con{border: 1px solid #eee;padding:10px 20px 20px 20px; }
-        .p4-contact-1-con p{font-size: 20px;line-height: 42px; color:#bddf33;}
-        .p4-contact-1-con li{line-height: 24px; color: #666; padding-left: 22px; margin-bottom: 10px; background: url(images/VISkins-p4.png) no-repeat;}
-        .p4-contact-1-con .p4-contact-1-t1{ background-position:-977px 8px;}
-        .p4-contact-1-con .p4-contact-1-t2{ background-position:-977px -90px;}
-        .p4-contact-1-con .p4-contact-1-t3{ background-position:-977px -180px;}
-        .p4-contact-1-con .p4-contact-1-t4{ background-position:-977px -277px;}
     
 
 

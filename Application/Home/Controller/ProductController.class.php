@@ -10,4 +10,8 @@ class ProductController extends CommonController
     {
     	$this->display();
     }
+    public function zengzhi()
+    {
+    	$this->display();
+    }
 }
