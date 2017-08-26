@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>产品管理</title>
+    <link rel="shortcut icon" href="favicon.ico"> <link href="__PUBLIC__/css/bootstrap.min.css" rel="stylesheet">
+    <link href="__PUBLIC__/css/font-awesome.min.css" rel="stylesheet">
+    <link href="__PUBLIC__/css/animate.min.css" rel="stylesheet">
+    <link href="__PUBLIC__/css/style.min.css" rel="stylesheet">
+    <link href="__PUBLIC__/css/fileupload/jquery.fileupload-ui.css" rel="stylesheet">
+    <link href="__PUBLIC__/css/fileupload/jquery.fileupload.css" rel="stylesheet">
+    <style type="text/css">
+    #album-list{ padding: 20px 0px 20px  0%;}
+    #album-list li{float: left; width: 20%;text-align: center;border:1px solid #ccc;max-height: 200px;overflow: hidden;margin-right: 10px;border-radius: 5px;padding:10px;}
+    #album-list li img{width: 100%;max-height: 150px;}
+    #album-list li p{ padding: 10px 0px;}
+    em{color: red};
+
+    </style>
+</head>
+<body class="gray-bg">
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title" >
+                        <h5>{$action}产品
+                    </div>
+                    <div class="ibox-content">
+                        <form method="post" class="form-horizontal" id="masterForm" action="?" enctype="multipart/form-data" >
+                        <input type="hidden" name="id" value='{$list.id}'></input>
+                        <input type="hidden" id="imgpath" name="imgpath" value=""></input>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label"><em>*</em>产品名称</label>
+                                <div class="col-sm-4">
+                                    <input type="text" placeholder="请填入产品名字"   name="name" class="form-control"   value="{$list.name}">
+                                </div>
+                            </div>
+                        <div class="hr-line-dashed"></div>
+                            <div class="form-group append">
+                                <label class="col-sm-2 control-label"><em>*</em>产品所属类别</label>
+                                <div class="col-sm-4">
+                                    <select  class="form-control m-b"  name="cid">
+                                        <option value="">请选择</option>
+                                        <foreach name="cate" item="vo">
+                                            <option value="{$vo.category_id}">{:str_repeat('&nbsp',$vo['level']*4)}{$vo.category_name}</option>
+                                        </foreach>
+                                    </select>
+                                </div>
+                            </div>
+                          <div class="hr-line-dashed"></div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">是否推荐</label>
+                                <div class="col-sm-4">
+                                    <label class="radio-inline">
+                                        <input type="radio" name="recommend" id="inlineRadio1" value="0" >否
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="recommend" id="inlineRadio2" value="1">是
+                                    </label>
+                                </div>
+                            </div>
+                          <div class="hr-line-dashed"></div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label"><em>*</em>应用场景</label>
+                                <div class="col-sm-4">
+                                    <input type="text" placeholder="填写应用场景"   name="used" class="form-control"   value="{$list.used}">
+                                </div>
+                            </div>
+                        <div class="hr-line-dashed"></div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label"><em>*</em>产品特点</label>
+                                <div class="col-sm-4">
+                                    <textarea name="point"   style="height:100px;width:350px">{$list.point}</textarea>
+                                </div>
+                            </div>
+                            <div class="hr-line-dashed">
+                            </div>
+                            <!-- 图片添加 -->
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">图片</label>
+                                <div class="row fileupload-buttonbar" style="padding-left:15px;">
+                                    <div class="thumbnail col-sm-6">
+                                        <img id="weixin_show" style="height:180px;margin-top:10px;margin-bottom:8px;" src="{$list.imgpath}" data-holder-rendered="true">
+                                        <div class="progress progress-striped active" role="progressbar" aria-valuemin="10" aria-valuemax="100" aria-valuenow="0">
+                                            <div id="weixin_progress" class="progress-bar progress-bar-success" style="width:0%;">
+                                            </div>
+                                        </div>
+                                        <div class="caption" align="center">
+                                            <span id="weixin_upload" class="btn btn-primary fileinput-button">
+                                            <span>选择上传</span>
+                                            <input type="file" id="weixin_image" name="weixin_image" multiple>
+                                            </span>
+                                            <a id="weixin_cancle" href="javascript:void(0)" class="btn btn-warning" role="button" onclick="cancleUpload(this)" style="display:none">删除</a>
+                                        </div>
+                                    </div>
+                                </div>            
+
+
+                        <div class="hr-line-dashed"></div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">产品详情</label>
+                                <div class="col-sm-10">
+                                    <textarea name="detail" id="detail" cols="30" rows="10" style="height:300px">{$list.detail}</textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-4 col-sm-offset-2">
+                                    <button class="btn btn-primary" type="submit">保存内容</button>
+                                </div>
+                            </div>
+                        <div class="hr-line-dashed"></div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="__PUBLIC__/js/jquery.min.js"></script>
+    <script src="__PUBLIC__/js/bootstrap.min.js"></script>
+    <script src="__PUBLIC__/js/content.min.js"></script>
+    <script src="__PUBLIC__/js/plugins/layer/layer.js"></script>
+    <script src="__PUBLIC__/js/ueditor/ueditor.config.js"></script>
+    <script src="__PUBLIC__/js/ueditor/ueditor.all.js"></script>
+    <script src="__PUBLIC__/js/fileupload/jquery.ui.widget.js"></script>
+    <script src="__PUBLIC__/js/fileupload/jquery.fileupload.js"></script>
+    <script src="__PUBLIC__/js/fileupload/jquery.iframe-transport.js"></script>
+    <script type="text/javascript">
+        UEDITOR_CONFIG.allowDivTransToP = false;
+        UEDITOR_CONFIG.maximumWords= 1000000000
+        var ue = UE.getEditor('detail');
+    </script>
+    <script type="text/javascript">
+        $(function(){
+            $('select[name="cid"]').val('{$list.cid}');
+            $('[name="recommend"]').val(['{$list.recommend}']);
+                 //JS获取上传文件的绝对路径
+          $("#weixin_image").fileupload({  
+            url: '__CONTROLLER__/uploadImg',  
+            sequentialUploads: true  
+            }).bind('fileuploadprogress', function (e, data) {  
+                var progress = parseInt(data.loaded / data.total * 100, 10);  
+                $("#weixin_progress").css('width',progress + '%');  
+                $("#weixin_progress").html(progress + '%');  
+            }).bind('fileuploaddone', function (e, data) {  
+                console.log(data.result)
+                $('#imgpath').val(data.result);
+                $("#weixin_show").attr("src",data.result);  
+                $("#weixin_upload").css({display:"none"});  
+                $("#weixin_cancle").css({display:""});  
+            }); 
+        })
+        function cancleUpload(obj){
+            //console.log()
+            var path=$('#weixin_show').attr('src');
+            console.log(path);
+            $.post("{:U('/Admin/Product/delimg')}",{path:path},function(data){
+                if(data==1){
+                    layer.msg('删除成功');
+                    $('#weixin_show').attr('src',"{$list.order_pic}");
+                    $("#weixin_upload").css({display:""});  
+                    $("#weixin_cancle").css({display:"none"}); 
+                    $('#imgpath').val('');
+                }else{
+                    layer.msg('删除失败,请重试');
+                }
+            })
+        } 
+
+    </script>
+</body>
+</html>

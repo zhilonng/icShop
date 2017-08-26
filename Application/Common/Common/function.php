@@ -11,22 +11,6 @@ function get_thumb($org,$spec='sma')
     $arr=pathinfo($org);
     return $arr['dirname'].'/'.$arr['filename'].'_'.$spec.'.'.'jpg';
 }
-// function getTree($list,$pid=0,$level=0)
-// {
-//     static $arr=array();
-//     if(is_null($list)){
-//         $arr=array();
-//         return $arr;
-//     }
-//     foreach($list as $v){
-//         if($v['pid']==$pid){
-//             $v['level']=$level;
-//             $arr[]=$v;
-//             getTree($list,$v['id'],$level+1);
-//         }
-//     }
-//     return $arr;
-// }
 function get_parents($list,$id)
 {
     static $tree=array();

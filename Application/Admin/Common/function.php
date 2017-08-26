@@ -5,6 +5,7 @@
  * @param integer $pid  [父级id]
  * @param [type] 
  */
+
 function node_merge($node,$access = null, $pid =0){
 	$arr = array();
 	foreach($node as $val){

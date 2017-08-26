@@ -1,301 +1,75 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-<head>
-<meta charset="utf-8">
-<meta name="Robots" contect="none">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=yes"/>
-<link rel="stylesheet" type="text/css" href="__ADMIN__/css/style.css" />
-<link rel="stylesheet" type="text/css" href="__VENDORS__/webuploader/webuploader.css">
-<style>
-    #thelist{overflow:hidden;}
-    .btns{clear:both;}
-    .recom label{margin-right:20px;}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>类别管理</title>
+    <link rel="shortcut icon" href="favicon.ico"> <link href="__PUBLIC__/css/bootstrap.min.css" rel="stylesheet">
+    <link href="__PUBLIC__/css/font-awesome.min.css" rel="stylesheet">
+    <link href="__PUBLIC__/css/animate.min.css" rel="stylesheet">
+    <link href="__PUBLIC__/css/style.min.css" rel="stylesheet">
+    <style type="text/css">
+    #album-list{ padding: 20px 0px 20px  0%;}
+    #album-list li{float: left; width: 20%;text-align: center;border:1px solid #ccc;max-height: 200px;overflow: hidden;margin-right: 10px;border-radius: 5px;padding:10px;}
+    #album-list li img{width: 100%;max-height: 150px;}
+    #album-list li p{ padding: 10px 0px;}
+    em{color: red};
 
-    .file-item{float:left; margin-right:10px; cursor:pointer;}
-    .file-item img{width:100px; height:100px;}
-
-    #bigImg{width:300px; height:300px;}
-</style>
-<script type="text/javascript" src="__VENDORS__/jquery/js/jquery.js"></script>
-<script src="__COMMON__/js/lamson.js" id="LamSonJs" lang="zh-cn" data-controller="__CONTROLLER__" data-public="__PUBLIC__" data-urlmodel="{$Think.config.url_model}"></script>
-<!--<script src="__COMMON__/js/lamson.js" id="LamSonJs" lang="zh-cn" data-controller="__CONTROLLER__" data-public="__PUBLIC__" data-urlmodel="{$Think.config.url_model}"></script>-->
-<script type="text/javascript" src="__VENDORS__/webuploader/webuploader.js"></script>
+    </style>
 </head>
-<body>
-<i class="hide"><a href="{:U('index')}" target="mainWin">商品列表</a> >> {$acttxt
-    }商品</i>
-<form method="post" id="masterForm" action="?" enctype="multipart/form-data">
-<table cellspacing="1" class="tableForm" id="opnTab">
-	<caption>
-        <b>商品相册</b>
-        <b>主要信息</b>
-        <b>详细介绍</b>
-        <b>商品属性</b>
-    </caption>
-</table>
-    <div id="opnTabList">
-        <table cellspacing="1" class="tableForm">
-            <tbody>
-            <tr>
-                <td>
-                    <img src="__ADMIN__/images/thumbview.gif" id="bigImg">
-                    <div id="uploader" class="wu-example">
-                        <!--用来存放文件信息-->
-                        <div id="thelist" class="uploader-list"></div>
-                        <br>
-                        <div class="btns">
-                            <div id="picker">选择文件</div>
-                            <button id="ctlBtn" class="btn btn-default" type="button">开始上传</button>
-                        </div>
+<body class="gray-bg">
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title" >
+                        <h5>{$action}类别
                     </div>
-                </td>
-            </tr>
-            </tbody>
-        </table>
+                    <div class="ibox-content">
+                        <form method="post" class="form-horizontal" id="masterForm" action="?" enctype="multipart/form-data" >
+                        <input type="hidden" name="category_id" value='{$list.category_id}'></input>
+                            <div class="form-group append">
+                                <label class="col-sm-2 control-label"><em>*</em>所属类别</label>
+                                <div class="col-sm-4">
+                                    <select  class="form-control m-b" onchange="return checkcolor(this)" id="pid" name="category_pid">
+                                        <if condition="empty($list['category_id']) eq true">
+                                        <option value="">请选择</option>
+                                        </if>
+                                        <option value="0">顶级分类</option>
+                                        <foreach name="cate" item="vo">
+                                            <option value="{$vo.category_id}">{:str_repeat('&nbsp',$vo['level']*4)}{$vo.category_name}</option>
+                                        </foreach>
+                                    </select>
+                                </div>
+                            </div>
+                          <div class="hr-line-dashed"></div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label"><em>*</em>类别名称</label>
+                                <div class="col-sm-4">
+                                    <input type="text" placeholder="请填入类别名字"   name="category_name" class="form-control"   value="{$list.category_name}">
+                                </div>
+                            </div>
 
-        <table cellspacing="1" class="tableForm">
-            <tbody>
-            <tr>
-                <th><em>*</em>商品名称</th>
-                <td><input  type="text" name="goods_name"  value="{$data.goods_name}" datatype="Require"/></td>
-            </tr>
-            <tr>
-                <th><em>*</em>所属分类</i></th>
-                <td id="catebox">
-                    <select name="cat_id" id="cat_id" datatype="Require">
-                        <option value="">请选择</option>
-                        <option value="0">顶级分类</option>
-                        <foreach name="lists" item="v">
-                            <option value="{$v.id}">{:str_repeat('&nbsp;',"$v[level]"*5).$v['cat_name']}</option>
-                        </foreach>
-
-                    </select>
-                </td>
-            </tr>
-            <tr>
-                <th><em>*</em>商品库存</th>
-                <td><input type="text" name="goods_number" datatype="Require"  value="{$data.sort_order}"/></td>
-            </tr>
-            <tr>
-                <th><em>*</em>市场价格</th>
-                <td><input type="text" name="market_price" datatype="Require"  value="{$data.market_price}"/></td>
-            </tr>
-            <tr>
-                <th><em>*</em>本店价格</th>
-                <td><input type="text" name="shop_price" datatype="Require"  value="{$data.shop_price}"/></td>
-            </tr>
-            <tr class="lamFileWrapper lamFileThumbWrapper">
-                <th>缩略图<i>最佳宽高比1：1</i><i>建议宽度为300像素</i><i>最大不能超1Mb</i></th>
-                <td>
-                    <div class="lamFileBox" thumb="0"><input type="text" class="lamThumbTxt" readonly />
-                        <button class="lamBtnView" type="button">浏览...</button>
-                        <input type="file" name="goods_img" class="lamUpload"  />
-                        <input type="hidden" name="_goods_img" value="" data-pkval="" />
+                        <div class="hr-line-dashed"></div>
+                            <div class="form-group">
+                                <div class="col-sm-4 col-sm-offset-2">
+                                    <button class="btn btn-primary" type="submit">保存内容</button>
+                                </div>
+                            </div>
+                        </form>
                     </div>
-                    <img class="lamThumbImg" del="1" thumb="0" style="width:200px;height:200px;" src="/Public/Uploads/Goods/{$data.goods_img}" />
-                </td>
-            </tr>
-            <tr>
-                <th>摘要<i>请不要超出251个字符</i></th>
-                <td><textarea name="goods_brief" id="goods_brief" onkeyup="char_cnt(this)" onblur="char_cnt(this)" style="width:60%; height:150px;">{$data.goods_brief}</textarea><br />您已经输入了<span id="goods_brief_charcnt" class="cRed">0</span>个字符</td>
-            </tr>
-            <tr>
-                <th>加入推荐</th>
-                <td class="recom" >
-                    <foreach name="Think.config.RECOM" item="v">
-                        <label><input type="checkbox" name="{$key}" value="1"> {$v}</label>
-                    </foreach>
-                </td>
-            </tr>
-
-            </tbody>
-        </table>
-
-        <table cellspacing="1" class="tableForm">
-            <tbody>
-            <tr>
-                <td class="editorPbox"><script id="editorBox" name="goods_desc" type="text/plain"></script></td>
-            </tr>
-            </tbody>
-        </table>
-
-        <table cellspacing="1" class="tableForm">
-            <tbody>
-            <tr>
-                <th>商品内容</th>
-                <td><select name="goods_type" onchange="get_attr(this,'{$data['goods_id']}')" id="goods_type">
-                    <option value="">请选择商品类型</option>
-                    <foreach name="gtdata" item="gt">
-                        <option value="{$gt.cat_id}">{$gt.cat_name}</option></foreach>
-                </select></td>
-            </tr>
-            </tbody>
-            <tbody id="attrBox">
-
-            </tbody>
-        </table>
-
-
+                </div>
+            </div>
+        </div>
     </div>
-<p class="btnBox"><button id="sbm" type="submit">提 交</button><button id="rst" type="reset" class="btnSec" onClick="location.reload()">重 置</button><a href="{:U('index')}" class="btnThd">取消{$acttxt}</a></p>
-    <input type="hidden" name="goods_id" value="" />
-    <input type="hidden" name="_rootpath" value="__UP_GOODS__"><!-- 图片的统一存储路径 -->
-    <input type="hidden" name="photo" id="photo" value="" />
-</form>
-<js href="__VENDORS__/ueditor/ueditor.config.js,__VENDORS__/ueditor/ueditor.all.min.js,__ADMIN__/js/webadmin.js" />
-<script>
-    $('#goods_type' ).val({$data['goods_type']});
-    $('#goods_type').change();
-    $('input[name="is_best"]').val([{$data['is_best']}]);
-    $('input[name="is_new"]').val([{$data['is_new']}]);
-    $('input[name="is_hot"]').val([{$data['is_hot']}]);
-            //console.log($('input[name="{$key}"]'));
-    //初始化百度编辑器
-    $('#cat_id').val({$data['cat_id']});
-editor = UE.getEditor('editorBox');
-function get_attr(obj,goods_id){
-    $.get("{:U('Attribute/getAttr')}",{cat_id:obj.value,goods_id:goods_id},function(data){
-        $('#attrBox' ).html(data);
-       /* <?php foreach ($gadata as $k=>$v) :?>
-        <?php $attr_v=explode("\n",$v[attr_values]);?>
-        $('input[name="attr_value[{$k}]"]' ).val("{$v[attr_value]}");
-        $('#attr_value' ).val({$v[$attr_v][attr_value]})
-        <?php endforeach ;?>*/
-    });
-}
-function copy_row(obj){
-    var $tr=$(obj ).parents('tr');
-    if(obj.innerHTML=='[+]'){
-        var $clone=$tr.clone();
-        $clone.find('a' ).html('[-]');
-        $tr.after($clone);
-    }else{
-        $tr.remove();
-    }
-}
-    //点击小图查看大图代码
-function show_big(obj)
-{
-    $('#bigImg').attr('src', obj.src);
-}
-    //webuploader
-$(function(){
-    var $list = $('#thelist'),
-            $btn = $('#ctlBtn'),
-            state = 'pending',
-
-    // 优化retina, 在retina下这个值是2
-            ratio = window.devicePixelRatio || 1,
-    // 缩略图大小
-            thumbnailWidth = 300 * ratio,
-            thumbnailHeight = 300 * ratio;
-
-    var uploader = WebUploader.create({
-
-        // swf文件路径
-        swf: '__VENDORS__/webuploader/Uploader.swf',
-
-        // 文件接收服务端。
-        server: "{:U('mulUpload')}",
-
-        // 选择文件的按钮。可选。
-        // 内部根据当前运行是创建，可能是input元素，也可能是flash.
-        pick: '#picker',
-
-        // 不压缩image, 默认如果是jpeg，文件上传前会压缩一把再上传！
-        resize: false
-    });
-
-    // 当有文件被添加进队列的时候
-    uploader.on( 'fileQueued', function( file ) {
-        $list.append( '<div id="' + file.id + '" class="item">' +
-         '<h4 class="info">' + file.name + '</h4>' +
-         '<p class="state">等待上传...</p>' +
-         '</div>' );
-
-
-        var $li = $(
-                    '<div id="' + file.id + '" class="file-item thumbnail">' +
-                    '<img  onclick="show_big(this)">' +
-                    //'<div class="info">' + file.name + '</div>' +
-                    '</div>'
-                ),
-                $img = $li.find('img');
-
-        $list.append( $li );
-
-        // 创建缩略图
-        uploader.makeThumb( file, function( error, src ) {
-            if ( error ) {
-                $img.replaceWith('<span>不能预览</span>');
-                return;
-            }
-
-            $img.attr( 'src', src );
-        }, thumbnailWidth, thumbnailHeight );
-    });
-
-    // 文件上传过程中创建进度条实时显示。
-    uploader.on( 'uploadProgress', function( file, percentage ) {
-        var $li = $( '#'+file.id ),
-                $percent = $li.find('.progress .progress-bar');
-
-        // 避免重复创建
-        if ( !$percent.length ) {
-            $percent = $('<div class="progress progress-striped active">' +
-                         '<div class="progress-bar" role="progressbar" style="width: 0%">' +
-                         '</div>' +
-                         '</div>').appendTo( $li ).find('.progress-bar');
-        }
-
-        $li.find('p.state').text('上传中');
-
-        $percent.css( 'width', percentage * 100 + '%' );
-    });
-
-    // 单文件上传成功时的回调函数
-    uploader.on( 'uploadSuccess', function( file, response ) {
-        //console.log(response);
-        //alert(response._raw);
-        $('#photo').val( $('#photo').val()  + ',' + response._raw );
-        $( '#'+file.id ).find('p.state').text('已上传');
-    });
-
-    // 单文件上传失败时的回调函数
-    uploader.on( 'uploadError', function( file, response ) {
-        $( '#'+file.id ).find('p.state').text('上传出错');
-    });
-
-    // 队列完成后的回调函数
-    uploader.on( 'uploadComplete', function( file, response ) {
-        $( '#'+file.id ).find('.progress').fadeOut();
-    });
-
-    uploader.on( 'all', function( type ) {
-        if ( type === 'startUpload' ) {
-            state = 'uploading';
-        } else if ( type === 'stopUpload' ) {
-            state = 'paused';
-        } else if ( type === 'uploadFinished' ) {
-            state = 'done';
-        }
-
-        if ( state === 'uploading' ) {
-            $btn.text('暂停上传');
-        } else {
-            $btn.text('开始上传');
-        }
-    });
-
-    // 上传按钮的点击事件
-    $btn.on( 'click', function() {
-        if ( state === 'uploading' ) {
-            uploader.stop();
-        } else {
-            uploader.upload();
-        }
-    });
-});
-</script>
+    <script src="__PUBLIC__/js/jquery.min.js"></script>
+    <script src="__PUBLIC__/js/bootstrap.min.js"></script>
+    <script src="__PUBLIC__/js/content.min.js"></script>
+    <script src="__PUBLIC__/js/plugins/layer/layer.js"></script>
+    <script src="__PUBLIC__/js/plugins/layer/laydate/laydate.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            $('select[name="category_pid"]').val('{$list.category_pid}')
+        })
+    </script>
 </body>
 </html>

@@ -1563,7 +1563,7 @@
             }
     
             this.ext = ext;
-            this.lastModifiedDate = file.lastModifiedDate ||
+            this.lastModifiedDate = file.lastModified ||
                     (new Date()).toLocaleString();
         }
     
@@ -3682,7 +3682,7 @@
                     id: file.id,
                     name: file.name,
                     type: file.type,
-                    lastModifiedDate: file.lastModifiedDate,
+                    lastModifiedDate: file.lastModified,
                     size: file.size
                 });
     
@@ -3922,7 +3922,7 @@
     
             uploader.on( 'beforeFileQueued', function( file ) {
                 var hash = file.__hash || (file.__hash = hashString( file.name +
-                        file.size + file.lastModifiedDate ));
+                        file.size + file.lastModified ));
     
                 // 已经重复了
                 if ( mapping[ hash ] ) {

@@ -6,30 +6,6 @@ class IndexController extends CommonController {
         $this->display();
     }
     public function welcome(){
-    	// 总订单数
-    	$this->Order = M('Order')->count();
-
-        //今日订单数量
-        $a=strtotime(date('Y-m-d'));
-        $b=time();
-        $where['order_addtime']=array('between',array($a,$b));
-        $count1=M('Order')->where($where)->count();
-                //今日返单新增返单数量
-        //$where['redo_addtime']=array('between',array($a,$b));
-        //$count2=M('Redo')->where($where)->count();
-        //$this->todayCount=$count1+$count2;
-        $this->todayCount=$count1;
-
-    	//  今日出货数
-        $where['product_addtime']=array('between',array($a,$b));
-    	$this->todayProduct=M('Product')->where($where)->count();
-
-        //今日销售新增数量
-        $where['sale_addtime']=array('between',array($a,$b));
-        $this->todaysale=M('Sale')->where($where)->count();
-    	// // 总用户数
-    	// $this->userCount = M('user')->count();
-
     	$data = array(
 			'操作系统' => PHP_OS,
 			'运行环境' => $_SERVER["SERVER_SOFTWARE"],
