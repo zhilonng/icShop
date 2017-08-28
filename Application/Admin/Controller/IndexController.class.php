@@ -18,6 +18,10 @@ class IndexController extends CommonController {
 			'剩余空间' => round((@disk_free_space(".") / (1024*1024)), 2).'M',
 		);
 		$this->assign('data', $data);
+		$this->order=M('Product')->count();
+		$this->todayAnli=M('Anli')->where(array('art_cate'=>1))->count();
+		$this->todayNews=M('Anli')->where(array('art_cate'=>2))->count();
+
     	$this->display();
     }
 }

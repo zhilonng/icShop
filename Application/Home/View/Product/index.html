@@ -132,22 +132,12 @@
         
         <div class="p4-prod-list-content-1-con">
             <ul>
-                
-                    <li><a href="/products/VOCFeiQiChuLiZhuangZhi.html" title="VOC废气处理装置"><img alt="VOC废气处理装置" src="/resource/images/b122fa90ecd441f19d8d3a4b24e80e03_3.jpg" title="VOC废气处理装置"></a><span><a href="/products/VOCFeiQiChuLiZhuangZhi.html" title="VOC废气处理装置">VOC废气处理装置</a></span>
+                <foreach name="data" item="vo">
+                    <li><a href="{:U('Product/detail',array('id'=>$vo['id']))}" title="{$vo.name}"><img alt="{$vo.name}" src="{$vo.imgpath}" title="{$vo.name}"></a><span><a href="{:U('Product/detail',array('id'=>$vo['id']))}" title="{$vo.name}">{$vo.name}</a></span>
                     </li>
-                    
-                
-                
-                    <li><a href="/products/HuoXingTanXiFuNongSuoCuiHuaR.html" title="锅炉系统节能装置"><img alt="锅炉系统节能装置" src="/resource/images/b122fa90ecd441f19d8d3a4b24e80e03_41.jpg" title="锅炉系统节能装置"></a><span><a href="/products/HuoXingTanXiFuNongSuoCuiHuaR.html" title="锅炉系统节能装置">锅炉系统节能装置</a></span>
-                    </li>
-                    
-                
-                
-                    <li style="margin-right:0"><a href="/products/ShiFaJingDianChu.html" title="粉尘处理装置"><img alt="粉尘处理装置" src="/resource/images/b122fa90ecd441f19d8d3a4b24e80e03_23.jpg" title="粉尘处理装置"></a><span><a href="/products/ShiFaJingDianChu.html" title="粉尘处理装置">粉尘处理装置</a></span>
-                    </li>
+                </foreach>
+                <li class="clearlist"></li>
 
-                    <li class="clearlist"></li>
-                
             </ul>
             
         </div>
@@ -190,128 +180,22 @@ window.location.href =base+'product/index' + '_' + space + '.html'
     <div class="blk-xs fr"> 
      <div class="blk">
     <div class="p4-left-nav-2">
-        <h3 class="p4-titlel-2"><span>迦南环保产品中心</span></h3>
+        <h3 class="p4-titlel-2"><span>诺亚环保产品中心</span></h3>
         <div class="p4-left-nav-2-con" navvicefocus=""> 
-            
-                <h4><a href="/product/VOC.html" title="VOC废气处理装置">VOC废气处理装置</a></h4>
+            <foreach name="list[0]" item="id1">
+                <h4><a href="{:U('Product/cate',array('cid'=>$cate[$id1]['category_id']))}" title="{$cate[$id1]['category_name']}">{$cate[$id1]['category_name']}</a></h4>
                 <dl>
-                    
-                        <dt><a href="/product/NongSuoCuiHuaRan.html" title="浓缩催化燃烧">浓缩催化燃烧</a></dt>
+                    <foreach name="list[$id1]" item="id2">
+                        <dt><a href="{:U('Product/cate',array('cid'=>$cate[$id2]['category_id']))}" title="{$cate[$id2]['category_name']}">{$cate[$id2]['category_name']}</a></dt>
                         <dd>
-                            
+                          <foreach name="list[$id2]" item="id3">
+                            <p><a href="{:U('Product/cate',array('cid'=>$cate[$id3]['category_id']))}" title="{$cate[$id3]['category_name']}">{$cate[$id3]['category_name']}</a></p>
+                          </foreach>
                         </dd>
-                    
-                    
-                        <dt><a href="/product/ShuangGuangYuanGuangDian.html" title="双光源光电">双光源光电</a></dt>
-                        <dd>
-                            
-                        </dd>
+                    </foreach>
                     
                 </dl>
-
-             
-            
-                <h4><a href="/product/ChuChen.html" title="粉尘处理装置">粉尘处理装置</a></h4>
-                <dl>
-                    
-                        <dt><a href="/product/ShiShiJingDian.html" title="湿式静电">湿式静电</a></dt>
-                        <dd>
-                            
-                        </dd>
-                    
-                    
-                        <dt><a href="/product/GaoWenBuDai.html" title="高温布袋">高温布袋</a></dt>
-                        <dd>
-                            
-                        </dd>
-                    
-                </dl>
-
-             
-            
-                <h4><a href="/product/JieNenZiXunFu.html" title="节能咨询服务">节能咨询服务</a></h4>
-                <dl>
-                    
-                </dl>
-
-             
-            
-                <h4><a href="/product/GuoLuXiTongJie.html" title="锅炉系统节能">锅炉系统节能</a></h4>
-                <dl>
-                    
-                        <dt><a href="/product/DiDanDiChenXi.html" title="低氮低尘系统">低氮低尘系统</a></dt>
-                        <dd>
-                            
-                        </dd>
-                    
-                    
-                        <dt><a href="/product/BaoWenJiRanCeng.html" title="保温及燃层涂层">保温及燃层涂层</a></dt>
-                        <dd>
-                            
-                        </dd>
-                    
-                    
-                        <dt><a href="/product/LingNingShuiHuiShou.html" title="冷凝水回收">冷凝水回收</a></dt>
-                        <dd>
-                            
-                        </dd>
-                    
-                    
-                        <dt><a href="/product/YuReHuiShou.html" title="余热回收">余热回收</a></dt>
-                        <dd>
-                            
-                        </dd>
-                    
-                    
-                        <dt><a href="/product/ZiDongKongZhi.html" title="自动控制">自动控制</a></dt>
-                        <dd>
-                            
-                        </dd>
-                    
-                    
-                        <dt><a href="/product/RanShaoXiTong.html" title="燃烧系统">燃烧系统</a></dt>
-                        <dd>
-                            
-                                <p><a href="/product/ShengWuZhiQiHua.html" title="生物质气化燃烧">生物质气化燃烧</a></p>
-                            
-                            
-                                <p><a href="/product/MeiTanQiHuaHun.html" title="煤炭气化混合燃烧">煤炭气化混合燃烧</a></p>
-                            
-                            
-                                <p><a href="/product/MeiZhaFenXuanFeng.html" title="煤渣粉旋风燃烧">煤渣粉旋风燃烧</a></p>
-                            
-                            
-                                <p><a href="/product/DiDanXuReRan.html" title="低氮（蓄热）燃烧系统">低氮（蓄热）燃烧系统</a></p>
-                            
-                        </dd>
-                    
-                    
-                        <dt><a href="/product/JianKongPingTai.html" title="监控平台">监控平台</a></dt>
-                        <dd>
-                            
-                        </dd>
-                    
-                </dl>
-
-             
-            
-                <h4><a href="/product/FeiShui.html" title="废水处理装置">废水处理装置</a></h4>
-                <dl>
-                    
-                        <dt><a href="/product/JinShuChuLiFei.html" title="金属处理废水">金属处理废水</a></dt>
-                        <dd>
-                            
-                        </dd>
-                    
-                    
-                        <dt><a href="/product/YouJiFeiShui.html" title="有机废水">有机废水</a></dt>
-                        <dd>
-                            
-                        </dd>
-                    
-                </dl>
-
-            
+            </foreach>
         </div>
     </div>
     <!-- CSS -->
@@ -332,7 +216,7 @@ window.location.href =base+'product/index' + '_' + space + '.html'
     </div>
     <!-- CSS -->
     
-</div> 
+    </div> 
     </div> 
    </div> 
   </div> 

@@ -1,6 +1,6 @@
 ﻿
 
-.topWrap{background: url(img/common/headbge.jpg) repeat-x center top;overflow:hidden;  height:223px;}
+.topWrap{background: url(../image/headbge.jpg) repeat-x center top;overflow:hidden;  height:223px;}
 .h_top{ height:31px; line-height:31px; overflow:hidden; font: 14px/35px "Microsoft Yahei";}
 .h_top span a{  display:inline-block; padding:0 21px;  font-size:14px; line-height:32px;}
 .h_top span a.dt{ padding-right:21px}
@@ -14,10 +14,10 @@
 .h_logo span img{ width:122px; height:127px; }
 .h_logo h1{ width:12px; height: 127px;  padding:0px 0 0 56px; }
 .h_logo h1 img{ width:12px; height: 127px; }
-.h_lx{ width:258px; height:79px; margin:15px -61px 0 0;background:url(img/common/tel.jpg) no-repeat 99px 17px;padding-left: 165px;  color:#343434; line-height:28px; font: 14px/35px "Microsoft Yahei"; padding-top:18px;}
+.h_lx{ width:258px; height:79px; margin:15px -61px 0 0;background:url(../images/tel.jpg) no-repeat 99px 17px;padding-left: 165px;  color:#343434; line-height:28px; font: 14px/35px "Microsoft Yahei"; padding-top:18px;}
 .h_lx  span{  color:#bddf33;; display:block; margin-left:-6px; font-weight:bold;font: 34px/33px "Microsoft Yahei"}
 .h_nav{height:60px; overflow:hidden; background:#bade29; margin-top:-17px;}
-.h_nav ul li { float:left; height:60px; overflow:hidden;  background: url(img/common/fgdh.jpg) no-repeat right center; padding:0 28px;}
+.h_nav ul li { float:left; height:60px; overflow:hidden;  background: url(../images/fgdh.jpg) no-repeat right center; padding:0 28px;}
 .h_nav ul li a{ display:inline-block; font-size: 16px; color:#343434; line-height:60px; height:60px;font-family:Microsoft YaHei;}
 .h_nav li a:hover , .h_nav .cur a { text-decoration:none; color:#fff;}
 .h_nav ul li.li_last{ background:none; margin-right: 0px;}
@@ -154,7 +154,7 @@
 .bbcontet .dh .dhadd{ width:539px;}
 .bbcontet .dh div{color:#c1bcb6; font-family:Microsoft YaHei; font-size:14px; line-height:39px;}
 
- .footer{background: url(img/index/ftbg.jpg) no-repeat center center;width: 100%; height:548px}
+ .footer{background: url(../images/ftbg.jpg) no-repeat center center;width: 100%; height:548px}
   .footer .fnav{ background:#bade29; height:60px; margin-top:488px;}
     .footer .fnav a{font-size: 16px;color: #343434;line-height: 60px;height: 60px;font-family: Microsoft YaHei; padding:0 56px;}
   .footer .fshw  .leftfooter p{ font-size: 14px;color: #fff;font-family: Microsoft YaHei;  padding-top:10px; height:42px;}
@@ -307,7 +307,7 @@
         
         .rightorder ul .btn1 {
             display: inline-block;
-            background: url(img/index/tjs.jpg) no-repeat left top;
+            background: url(../images/tjs.jpg) no-repeat left top;
             width: 142px;
             height: 44px;
             border: 0;
@@ -316,7 +316,7 @@
         
         .rightorder ul .btn2 {
             display: inline-block;
-            background: url(img/index/czs.jpg) no-repeat left top;
+            background: url(../images/czs.jpg) no-repeat left top;
             width: 142px;
             height: 44px;
             margin-left: 16px;
@@ -349,7 +349,7 @@
             width: 77px;
         } 
 .client-2 li i {
-            background: url(images/fx.png) no-repeat;
+            background: url(../images/fx.png) no-repeat;
             display: block;
             width: 30px;
             height: 27px;

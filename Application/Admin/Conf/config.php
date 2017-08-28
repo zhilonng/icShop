@@ -25,4 +25,8 @@ return array(
 
     // 伪静态设置
     'URL_HTML_SUFFIX'	=> '',
+    'ARTICLE_CATE' =>array(
+    	'1'=>'案例',
+   		'2'=>'新闻',
+    	),
 );

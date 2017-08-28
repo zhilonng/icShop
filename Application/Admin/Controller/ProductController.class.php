@@ -4,8 +4,15 @@ use Think\Controller;
 class ProductController extends Controller{
     public function index()
     {
-    	$list=M('Product')->select();
-    	//p($list);
+        $count = M('Product')->count();
+        $Page=new \Think\Page($count,1);
+       // p($Page);
+        $show=$Page->show();
+    	$list=D('Product')
+        ->relation(true)
+        ->limit($Page->firstRow.','.$Page->listRows)
+        ->select();
+        $this->page=$show;
     	$this->list=$list;
     	$this->display();
     }
@@ -38,7 +45,7 @@ class ProductController extends Controller{
     		}else{
     			$cate=M('Product');
     			$data=$cate->create();
-                p($data);
+                //p($data);
     			if($cate->add($data)){
 					$this->success('保存成功',U('Product/index'));
 					die;
@@ -52,7 +59,7 @@ class ProductController extends Controller{
     {
     	$id=I('get.id');
     	if(M('Product')->delete($id)){
-    		$this->success('删除成功',U('Category/index'));
+    		$this->success('删除成功',U('Product/index'));
     	}else{
  			$this->error('删除失败');
     	}

@@ -1,6 +1,6 @@
 ﻿
 
-.topWrap{background: url(img/common/headbge.jpg) repeat-x center top;overflow:hidden;  height:223px;}
+.topWrap{background: url(../image/headbge.jpg) repeat-x center top;overflow:hidden;  height:223px;}
 .h_top{ height:31px; line-height:31px; overflow:hidden; font: 14px/35px "Microsoft Yahei";}
 .h_top span a{  display:inline-block; padding:0 21px;  font-size:14px; line-height:32px;}
 .h_top span a.dt{ padding-right:21px}
@@ -14,10 +14,10 @@
 .h_logo span img{ width:122px; height:127px; }
 .h_logo h1{ width:12px; height: 127px;  padding:0px 0 0 56px; }
 .h_logo h1 img{ width:12px; height: 127px; }
-.h_lx{ width:258px; height:79px; margin:15px -61px 0 0;background:url(img/common/tel.jpg) no-repeat 99px 17px;padding-left: 165px;  color:#343434; line-height:28px; font: 14px/35px "Microsoft Yahei"; padding-top:18px;}
+.h_lx{ width:258px; height:79px; margin:15px -61px 0 0;background:url(../images/tel.jpg) no-repeat 99px 17px;padding-left: 165px;  color:#343434; line-height:28px; font: 14px/35px "Microsoft Yahei"; padding-top:18px;}
 .h_lx  span{  color:#bddf33;; display:block; margin-left:-6px; font-weight:bold;font: 34px/33px "Microsoft Yahei"}
 .h_nav{height:60px; overflow:hidden; background:#bade29; margin-top:-17px;}
-.h_nav ul li { float:left; height:60px; overflow:hidden;  background: url(img/common/fgdh.jpg) no-repeat right center; padding:0 28px;}
+.h_nav ul li { float:left; height:60px; overflow:hidden;  background: url(../images/fgdh.jpg) no-repeat right center; padding:0 28px;}
 .h_nav ul li a{ display:inline-block; font-size: 16px; color:#343434; line-height:60px; height:60px;font-family:Microsoft YaHei;}
 .h_nav li a:hover , .h_nav .cur a { text-decoration:none; color:#fff;}
 .h_nav ul li.li_last{ background:none; margin-right: 0px;}
@@ -73,7 +73,7 @@
             .p4-search-1-inp2 {
                 width: 36px;
                 height: 40px;
-                background: url(images/VISkins-p4.png) no-repeat -962px -620px;
+                background: url(../images/VISkins-p4.png) no-repeat -962px -620px;
                 cursor: pointer;
                 float: right;
                 border: 0;
@@ -81,7 +81,7 @@
         
 
         .p4-curmbs-1{ height: 110px; line-height: 110px; overflow: hidden;}
-        .p4-curmbs-1 dt{float: left; padding-left:28px; color: #1e1e1e; background: url(images/VISkins-p4.png) no-repeat 0 40px; width:70px;}
+        .p4-curmbs-1 dt{float: left; padding-left:28px; color: #1e1e1e; background: url(../images/VISkins-p4.png) no-repeat 0 40px; width:70px;}
         .p4-curmbs-1 dd{ color: #999; }
         .p4-curmbs-1 a{color: #999;padding:0 6px;display: inline-block;}
         .p4-curmbs-1 a:hover, .p4-curmbs-1 .cur{color:#bddf33;}
@@ -548,7 +548,7 @@
             width: 77px;
         } 
 .client-2 li i {
-            background: url(images/fx.png) no-repeat;
+            background: url(../images/fx.png) no-repeat;
             display: block;
             width: 30px;
             height: 27px;

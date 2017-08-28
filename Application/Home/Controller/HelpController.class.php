@@ -8,6 +8,7 @@ class HelpController extends CommonController
     }
     public function connect()
     {
+    	$this->list=M('Connect')->find();
         $this->display();
     }
 }

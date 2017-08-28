@@ -87,7 +87,7 @@ html {overflow-y: scroll;}
 .p-trl{padding:30px;padding-bottom:0;}
 
 /*数据更新中的样式*/
-.nodata {background:url("images/nodata.png") no-repeat 58px 20px #fff;margin: 10px 0;padding:80px 0 80px 220px;border:1px solid #eee;text-transform: capitalize;}
+.nodata {background:url("../images/nodata.png") no-repeat 58px 20px #fff;margin: 10px 0;padding:80px 0 80px 220px;border:1px solid #eee;text-transform: capitalize;}
 
 /*结束数据更新中的样式*/
 

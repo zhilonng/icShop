@@ -1,0 +1,188 @@
+<!DOCTYPE html><html lang="zh"><head data-base="/"> 
+  <meta charset="UTF-8"> 
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+  <meta name="renderer" content="webkit"> 
+  <meta http-equiv="pragma" content="no-cache">
+ <meta http-equiv="cache-control" content="no-cache,must-revalidate">
+ <meta http-equiv="expires" content="Wed, 26 Feb 1997 08:21:57 GMT">
+ <meta http-equiv="expires" content="0">
+ <title>{$data.name}-诺亚环保</title>
+<meta name="keywords" content="{$data.name}-诺亚环保">
+<meta name="description" content="广东省迦南节能环保科技有限公司致力于研发节能咨询服务,锅炉系统节能，废水处理装置，湿法静电除尘装置，VOC废气处理装置等节能环保装置，咨询热线：0760-89889777。"> 
+  <link href="__HOME__/css/reset.css" rel="stylesheet"> 
+  <link href="__HOME__/css/laypage.css" rel="stylesheet"> 
+  <link href="__HOME__/css/kind-editor-pub-reset.css" rel="stylesheet"> 
+  <script src="__HOME__/js/nsw.pc.min.js"></script> 
+  <link href="__HOME__/css/58f72aa782ceec8ec32d644c.css" rel="stylesheet">
+ <script src="__HOME__/js/template-sub-domain.js"></script></head> 
+ <body> 
+  <!--头部--> 
+<div class="topWrap"> 
+<include file="Public/header" />
+  <!--广告--> 
+  <div>
+<div class="ty-banner-1">    
+</div>
+</div> 
+  <div class="p4-search-1">
+    <div class="blk-main">
+        <div class="blk-md blk">
+            <div class="p4-search-1-inp fr">
+                <input class="p4-search-1-inp1" id="key" placeholder="请输入您要搜索的关键词" type="text">
+                <input class="p4-search-1-inp2" onclick="searchInfo();" type="button">
+            </div>
+            <p>热门搜索产品：
+                
+                    <a href="/product/ChuChen.html" onclick="searchLink(this);" title="粉尘处理装置">粉尘处理装置</a>
+                
+                
+                    <a href="/product/VOC.html" onclick="searchLink(this);" title="VOC废气处理装置">VOC废气处理装置</a>
+                
+                
+                    <a href="/product/FeiShui.html" onclick="searchLink(this);" title="废水处理装置">废水处理装置</a>
+                
+                
+                    <a href="/product/GuoLuXiTongJie.html" onclick="searchLink(this);" title="锅炉系统节能">锅炉系统节能</a>
+                
+                
+                    <a href="/product/JieNenZiXunFu.html" onclick="searchLink(this);" title="节能咨询服务">节能咨询服务</a>
+                
+            </p>
+        </div>
+        
+        <!-- CSS -->
+        
+    </div>
+</div> 
+  <!--产品详情--> 
+  <div class="blk-main clearafter"> 
+   <div class="blk-md"> 
+    <div class="p4-curmbs-1 plc" navcrumbs="">  
+    <dl>
+        <dt>当前位置：</dt>
+        <dd><a href="{:U('Index/index')}" title="首页">首页</a>
+            
+                 » <a href="{:U('Product/index')}" title="产品频道">产品频道</a>
+
+                 » <a href="{:U('Product/cate',array('cid'=>$data.cid))}" title="{$data.cate.category_name}">{$data.cate.category_name}</a>
+            
+                 » <a href="{:U('Product/detail',array('id'=>$data['id']))}" title="{$data.name}">{$data.name}</a>
+            
+        </dd>
+    </dl>
+        
+    
+</div> 
+    <div class="blk-xs fl"> 
+     <div class="blk">
+    <div class="p4-left-nav-2">
+        <h3 class="p4-titlel-2"><span>诺亚环保产品中心</span></h3>
+        <div class="p4-left-nav-2-con" navvicefocus=""> 
+            <foreach name="list[0]" item="id1">
+                <h4><a href="{:U('Product/cate',array('cid'=>$cate[$id1]['category_id']))}" title="{$cate[$id1]['category_name']}">{$cate[$id1]['category_name']}</a></h4>
+                <dl>
+                    <foreach name="list[$id1]" item="id2">
+                        <dt><a href="{:U('Product/cate',array('cid'=>$cate[$id2]['category_id']))}" title="{$cate[$id2]['category_name']}">{$cate[$id2]['category_name']}</a></dt>
+                        <dd>
+                          <foreach name="list[$id2]" item="id3">
+                            <p><a href="{:U('Product/cate',array('cid'=>$cate[$id3]['category_id']))}" title="{$cate[$id3]['category_name']}">{$cate[$id3]['category_name']}</a></p>
+                          </foreach>
+                        </dd>
+                    </foreach>
+                    
+                </dl>
+            </foreach>
+        </div>
+    </div>
+    <!-- CSS -->
+    
+</div> 
+     <div class="blk">
+    <div class="p4-contact-1">                  
+        <h3 class="p4-titlel-2"><span>联系<i shortcustomername="">诺亚环保</i></span></h3>
+        <div class="p4-contact-1-con">
+            <p phone400="">&nbsp;&nbsp;&nbsp;&nbsp;18973133298</p>
+            <ul>
+                <li class="p4-contact-1-t3"><a href="mailto:dott999@163.com">dott999@163.com</a></li>
+                <li class="p4-contact-1-t4">湖南省浏阳市高新区大安路海滨商业广场2栋301室</li>
+            </ul>
+        </div>
+    </div>    <!-- CSS -->
+    
+</div> 
+    </div> 
+    <div class="blk-sm fr"> 
+     <div class="blk prod-showcase-1">
+    <div class="t1-pro-preview fr">
+        <div class="t1-spec-preview" id="preview">
+            <span class="jqzoom">
+                <img alt="{$data.name}" jqimg="{$data.imgpath}" src="{$data.imgpath}" title="{$data.name}">
+            </span>
+        </div>
+        <!--缩图开始-->
+        <div class="t1-spec-scroll">
+            <a class="t1-prev">上一页</a>
+            <a class="t1-next">下一页</a>
+            <div class="t1-items">
+                <ul class="clearafter">
+                        <li class="t1-current"><img alt="{$data.name}" bimg="{$data.imgpath}" onmousemove="preview(this);" src="{$data.imgpath}" title="{$data.name}"></li>
+                    
+                </ul>
+            </div>
+        </div>
+        <!--缩图结束-->
+    </div>
+    <div class="p4-prod-showcase-2-txt fl">
+        <h3 class="p4-titlel-1">{$data.name}<span></span><em></em></h3>
+        <div class="endit-desc">
+            <div class="p4-prod-showcase-2-txt-1"><p>
+    <if condition="empty($data['working'] neq true)">
+      <strong>工作原理：</strong>{$data.working}
+    <else />
+      <strong>应用场景：</strong>{$data.used}
+    </if>
+</p>
+<p>
+    <if condition="empty($data['effect'] neq true)">
+    <strong>经济效应：</strong>{$data.effect}
+    <else />
+    <strong>装置特点：</strong>{$data.point}
+    </if>
+    </div>
+            
+            <strong><a href="http://wpa.qq.com/msgrd?v=3&amp;uin=184075264&amp;site=qq&amp;menu=yes" qq="" target="_blank" title="{$data.name}">立即咨询&gt;&gt;</a></strong>
+        </div>
+        <div class="p4-prod-showcase-2-pho">服务热线：<span phone400="">18973133298</span></div>
+    </div>
+
+
+
+</div> 
+     <div class="blk">
+    <div class="p4-prod-content-1"> 
+        
+          <div class="p4-titlel-1">
+                <ul>
+                   
+                    <li>产品详情</li>
+                            
+                </ul>
+            </div>
+            <div class="p4-prod-content-1-con endit-content">
+            {$data.detail|htmlspecialchars_decode=###}
+            </div>
+    </div>
+    <!-- CSS -->
+    
+    
+    
+</div> 
+     <div class="blk">
+  <!-- CSS -->
+  
+   
+</div> 
+    </div> 
+   </div> 
+  </div> 
+<include file="Public/footer" />

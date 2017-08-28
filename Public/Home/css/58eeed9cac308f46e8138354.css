@@ -1,6 +1,6 @@
 ﻿
 
-.topWrap{background: url(../images/headbge.jpg) repeat-x center top;overflow:hidden;  height:223px;}
+.topWrap{background: url(../image/headbge.jpg) repeat-x center top;overflow:hidden;  height:223px;}
 .h_top{ height:31px; line-height:31px; overflow:hidden; font: 14px/35px "Microsoft Yahei";}
 .h_top span a{  display:inline-block; padding:0 21px;  font-size:14px; line-height:32px;}
 .h_top span a.dt{ padding-right:21px}

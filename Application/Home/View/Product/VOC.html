@@ -33,10 +33,6 @@
   <div class="p4-search-1">
     <div class="blk-main">
         <div class="blk-md blk">
-            <div class="p4-search-1-inp fr">
-                <input class="p4-search-1-inp1" id="key" placeholder="请输入您要搜索的关键词" type="text">
-                <input class="p4-search-1-inp2" onclick="searchInfo();" type="button">
-            </div>
             <p>热门搜索产品：
                 
                     <a href="/product/ChuChen.html" onclick="searchLink(this);" title="粉尘处理装置">粉尘处理装置</a>
@@ -67,13 +63,11 @@
     <dl>
         <dt>当前位置：</dt>
         <dd>
-            <!--<nsw:breadcrumb symbol=" » " />-->
-            <!--<a th:href="/${basePath}" title="首页">首页</a>-->
+             <a href="{:U('Index/index')}" title="首页">首页</a>
             
-                 » <a href="/product/index.html" title="产品频道">产品频道</a>
+                 » <a href="{:U('Product/index')}" title="产品频道">产品频道</a>
             
-            
-                 » <a href="/product/VOC.html" title="VOC废气处理装置">VOC废气处理装置</a>
+                 » <a href="{:U('Product/VOC')}" title="VOC废气处理装置">VOC废气处理装置</a>
             
         </dd>
     </dl>
@@ -127,12 +121,12 @@
 </div> 
      <div class="blk">
     <div class="p4-prod-list-content-1">
-        <h3 class="p4-titlel-1">VOC废气处理装置<span></span><em></em></h3>
+        <h3 class="p4-titlel-1">{$data.cate.category_name}<span></span><em></em></h3>
         
         <div class="p4-prod-list-content-1-con">
             <ul>
                 
-                    <li><a href="/products/VOCFeiQiChuLiZhuangZhi.html" title="VOC废气处理装置"><img alt="VOC废气处理装置" src="/resource/images/b122fa90ecd441f19d8d3a4b24e80e03_3.jpg" title="VOC废气处理装置"></a><span><a href="/products/VOCFeiQiChuLiZhuangZhi.html" title="VOC废气处理装置">VOC废气处理装置</a></span>
+                    <li><a href="{:U('Product/detail',array('id'=>$data['id']))}" title="{$data.cate.category_name}"><img alt="{$data.cate.category_name}" src="{$data.imgpath}" title="{$data.cate.category_name}"></a><span><a href="{:U('Product/detail',array('id'=>$data['id']))}"title="{$data.cate.category_name}">{$data.cate.category_name}</a></span>
                        
 </li>
                     
@@ -179,128 +173,22 @@ window.location.href = base + 'product/VOC' + '_' + sapce + '.html'
     <div class="blk-xs fr"> 
      <div class="blk">
     <div class="p4-left-nav-2">
-        <h3 class="p4-titlel-2"><span>迦南环保产品中心</span></h3>
+        <h3 class="p4-titlel-2"><span>诺亚环保产品中心</span></h3>
         <div class="p4-left-nav-2-con" navvicefocus=""> 
-            
-                <h4><a href="/product/VOC.html" title="VOC废气处理装置">VOC废气处理装置</a></h4>
+            <foreach name="list[0]" item="id1">
+                <h4><a href="{:U('Product/cate',array('cid'=>$cate[$id1]['category_id']))}" title="{$cate[$id1]['category_name']}">{$cate[$id1]['category_name']}</a></h4>
                 <dl>
-                    
-                        <dt><a href="/product/NongSuoCuiHuaRan.html" title="浓缩催化燃烧">浓缩催化燃烧</a></dt>
+                    <foreach name="list[$id1]" item="id2">
+                        <dt><a href="{:U('Product/cate',array('cid'=>$cate[$id2]['category_id']))}" title="{$cate[$id2]['category_name']}">{$cate[$id2]['category_name']}</a></dt>
                         <dd>
-                            
+                          <foreach name="list[$id2]" item="id3">
+                            <p><a href="{:U('Product/cate',array('cid'=>$cate[$id3]['category_id']))}" title="{$cate[$id3]['category_name']}">{$cate[$id3]['category_name']}</a></p>
+                          </foreach>
                         </dd>
-                    
-                    
-                        <dt><a href="/product/ShuangGuangYuanGuangDian.html" title="双光源光电">双光源光电</a></dt>
-                        <dd>
-                            
-                        </dd>
+                    </foreach>
                     
                 </dl>
-
-             
-            
-                <h4><a href="/product/ChuChen.html" title="粉尘处理装置">粉尘处理装置</a></h4>
-                <dl>
-                    
-                        <dt><a href="/product/ShiShiJingDian.html" title="湿式静电">湿式静电</a></dt>
-                        <dd>
-                            
-                        </dd>
-                    
-                    
-                        <dt><a href="/product/GaoWenBuDai.html" title="高温布袋">高温布袋</a></dt>
-                        <dd>
-                            
-                        </dd>
-                    
-                </dl>
-
-             
-            
-                <h4><a href="/product/JieNenZiXunFu.html" title="节能咨询服务">节能咨询服务</a></h4>
-                <dl>
-                    
-                </dl>
-
-             
-            
-                <h4><a href="/product/GuoLuXiTongJie.html" title="锅炉系统节能">锅炉系统节能</a></h4>
-                <dl>
-                    
-                        <dt><a href="/product/DiDanDiChenXi.html" title="低氮低尘系统">低氮低尘系统</a></dt>
-                        <dd>
-                            
-                        </dd>
-                    
-                    
-                        <dt><a href="/product/BaoWenJiRanCeng.html" title="保温及燃层涂层">保温及燃层涂层</a></dt>
-                        <dd>
-                            
-                        </dd>
-                    
-                    
-                        <dt><a href="/product/LingNingShuiHuiShou.html" title="冷凝水回收">冷凝水回收</a></dt>
-                        <dd>
-                            
-                        </dd>
-                    
-                    
-                        <dt><a href="/product/YuReHuiShou.html" title="余热回收">余热回收</a></dt>
-                        <dd>
-                            
-                        </dd>
-                    
-                    
-                        <dt><a href="/product/ZiDongKongZhi.html" title="自动控制">自动控制</a></dt>
-                        <dd>
-                            
-                        </dd>
-                    
-                    
-                        <dt><a href="/product/RanShaoXiTong.html" title="燃烧系统">燃烧系统</a></dt>
-                        <dd>
-                            
-                                <p><a href="/product/ShengWuZhiQiHua.html" title="生物质气化燃烧">生物质气化燃烧</a></p>
-                            
-                            
-                                <p><a href="/product/MeiTanQiHuaHun.html" title="煤炭气化混合燃烧">煤炭气化混合燃烧</a></p>
-                            
-                            
-                                <p><a href="/product/MeiZhaFenXuanFeng.html" title="煤渣粉旋风燃烧">煤渣粉旋风燃烧</a></p>
-                            
-                            
-                                <p><a href="/product/DiDanXuReRan.html" title="低氮（蓄热）燃烧系统">低氮（蓄热）燃烧系统</a></p>
-                            
-                        </dd>
-                    
-                    
-                        <dt><a href="/product/JianKongPingTai.html" title="监控平台">监控平台</a></dt>
-                        <dd>
-                            
-                        </dd>
-                    
-                </dl>
-
-             
-            
-                <h4><a href="/product/FeiShui.html" title="废水处理装置">废水处理装置</a></h4>
-                <dl>
-                    
-                        <dt><a href="/product/JinShuChuLiFei.html" title="金属处理废水">金属处理废水</a></dt>
-                        <dd>
-                            
-                        </dd>
-                    
-                    
-                        <dt><a href="/product/YouJiFeiShui.html" title="有机废水">有机废水</a></dt>
-                        <dd>
-                            
-                        </dd>
-                    
-                </dl>
-
-            
+            </foreach>
         </div>
     </div>
     <!-- CSS -->
@@ -308,14 +196,13 @@ window.location.href = base + 'product/VOC' + '_' + sapce + '.html'
 </div> 
      <div class="blk">
     <div class="p4-contact-1">                  
-        <h3 class="p4-titlel-2"><span>联系<i shortcustomername="">迦南环保</i></span></h3>
+        <h3 class="p4-titlel-2"><span>联系<i shortcustomername="">诺亚环保</i></span></h3>
         <div class="p4-contact-1-con">
-            <p phone400="">0760-88340777</p>
+            <p phone400="">18973133298</p>
             <ul>
-                <li class="p4-contact-1-t1" contactphonenumber="">13802666418</li>
-                <li class="p4-contact-1-t2" fixedphonenum="">0760-89889777</li>
-                <li class="p4-contact-1-t3"><a contactemail="" href="mailto:184075264@qq.com">184075264@qq.com</a></li>
-                <li address="" class="p4-contact-1-t4">中山市石岐区博爱二路第一城蓝宝路3幢69号</li>
+                <li class="p4-contact-1-t2" fixedphonenum="">18973133298</li>
+                <li class="p4-contact-1-t3"><a contactemail="" href="mailto:dott999@163.com">dott999@163.com</a></li>
+                <li address="" class="p4-contact-1-t4">湖南省浏阳市高新区大安路海滨商业广场2栋301室</li>
             </ul>
         </div>
     </div>

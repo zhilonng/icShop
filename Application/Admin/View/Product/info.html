@@ -29,7 +29,7 @@
                     <div class="ibox-content">
                         <form method="post" class="form-horizontal" id="masterForm" action="?" enctype="multipart/form-data" >
                         <input type="hidden" name="id" value='{$list.id}'></input>
-                        <input type="hidden" id="imgpath" name="imgpath" value=""></input>
+                        <input type="hidden" id="imgpath" name="imgpath" value="{$list.imgpath}"></input>
 
                             <div class="form-group">
                                 <label class="col-sm-2 control-label"><em>*</em>产品名称</label>
@@ -73,6 +73,20 @@
                                 <label class="col-sm-2 control-label"><em>*</em>产品特点</label>
                                 <div class="col-sm-4">
                                     <textarea name="point"   style="height:100px;width:350px">{$list.point}</textarea>
+                                </div>
+                            </div>
+                        <div class="hr-line-dashed"></div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label"><em>*</em>工作原理</label>
+                                <div class="col-sm-4">
+                                    <textarea name="working"   style="height:100px;width:350px">{$list.working}</textarea>
+                                </div>
+                            </div>
+                        <div class="hr-line-dashed"></div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label"><em>*</em>经济效应</label>
+                                <div class="col-sm-4">
+                                    <textarea name="effect"   style="height:100px;width:350px">{$list.effect}</textarea>
                                 </div>
                             </div>
                             <div class="hr-line-dashed">

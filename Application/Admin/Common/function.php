@@ -142,22 +142,6 @@ function getAdminName($id){
 //         return date('Y-m-d').'/'.$info['img']['savename'];
 //     }
 // }
-function getTree($list,$pid=0,$level=0)
-{
-    static $arr=array();
-    if(is_null($list)){
-        $arr=array();
-        return $arr;
-    }
-    foreach($list as $v){
-        if($v['category_pid']==$pid){
-            $v['level']=$level;
-            $arr[]=$v;
-            getTree($list,$v['category_id'],$level+1);
-        }
-    }
-    return $arr;
-}
 
 function allGetTree($list,$pid=0,$level=0)
 {
