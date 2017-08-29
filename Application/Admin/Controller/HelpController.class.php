@@ -17,4 +17,26 @@ class HelpController extends CommonController
             $this->display();
         }
     }
+    public function liuyan()
+    {
+        $count = M('Liuyan')->count();
+        $Page=new \Think\Page($count,20);
+       // p($Page);
+        $show=$Page->show();
+        $list=M('Liuyan')
+        ->limit($Page->firstRow.','.$Page->listRows)
+        ->select();
+        $this->page=$show;
+        $this->list=$list;
+        $this->display();
+    }
+    public function del()
+    {
+        $id=I('get.id');
+        if(M('Liuyan')->delete($id)){
+            $this->success('删除成功',U('Help/liuyan'));
+        }else{
+            $this->error('删除失败');
+        }
+    }
 }

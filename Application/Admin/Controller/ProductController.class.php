@@ -5,7 +5,7 @@ class ProductController extends Controller{
     public function index()
     {
         $count = M('Product')->count();
-        $Page=new \Think\Page($count,1);
+        $Page=new \Think\Page($count,10);
        // p($Page);
         $show=$Page->show();
     	$list=D('Product')

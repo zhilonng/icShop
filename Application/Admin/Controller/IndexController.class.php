@@ -21,7 +21,7 @@ class IndexController extends CommonController {
 		$this->order=M('Product')->count();
 		$this->todayAnli=M('Anli')->where(array('art_cate'=>1))->count();
 		$this->todayNews=M('Anli')->where(array('art_cate'=>2))->count();
-
+		$this->liuyan=M('Liuyan')->count();
     	$this->display();
     }
 }
