@@ -1,4 +1,6 @@
-<!DOCTYPE html><html lang="zh"><head data-base="/"> 
+<!DOCTYPE html>
+<html lang="zh">
+<head data-base="/"> 
   <meta charset="UTF-8"> 
   <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
   <meta name="renderer" content="webkit"> 
@@ -6,21 +8,27 @@
  <meta http-equiv="cache-control" content="no-cache,must-revalidate">
  <meta http-equiv="expires" content="Wed, 26 Feb 1997 08:21:57 GMT">
  <meta http-equiv="expires" content="0">
- <title>{$name.category_name}-诺亚环保</title>
+ <title>粉尘处理装置,VOCs催化燃烧装置,湿法静电除尘器-诺亚环保</title>
 <meta name="keywords" content="VOC废气处理装置,粉尘处理装置,废水处理装置">
-<meta name="description" content="湖南省诺亚节能环保科技有限公司致力于研发VOC废气处理装置,粉尘处理装置,废水处理装置等节能环保设备"> 
+<meta name="description" content="广东省迦南节能环保科技有限公司致力于研发VOC废气处理装置,粉尘处理装置,废水处理装置等节能环保设备，咨询热线：0760-89889777。"> 
   <link href="__HOME__/css/reset.css" rel="stylesheet"> 
   <link href="__HOME__/css/laypage.css" rel="stylesheet"> 
   <link href="__HOME__/css/kind-editor-pub-reset.css" rel="stylesheet"> 
   <script src="__HOME__/js/nsw.pc.min.js"></script> 
-  <link href="__HOME__/css/58ef1a7982ce717cec00a3b0.css" rel="stylesheet">
- <script src="__HOME__/js/template-sub-domain.js"></script></head> 
+ <script src="__HOME__/js/template-sub-domain.js"></script>
+<link href="__HOME__/css/58ef1a7982ce717cec00a3b0.css" rel="stylesheet">
+ </head> 
  <body> 
   <!--头部--> 
   <div class="topWrap"> 
   <include file="Public/header" />
   <!--广告--> 
   <div>
+<div class="ty-banner-1">
+        <a href="/product/ChuChen.html" title="诺亚环保——阻力小、压力损耗小、能耗低装置">
+            <img alt="诺亚环保——阻力小、压力损耗小、能耗低装置" src="__HOME__/images/8b119ffbe26741fa8e0ec02d4f97da8b_69.jpg" title="迦南环保——阻力小、压力损耗小、能耗低装置" style="margin-left:-272.5px">
+        </a>
+</div>
 </div> 
   <div class="p4-search-1">
     <div class="blk-main">
@@ -28,7 +36,7 @@
             <p>热门搜索产品：
         <a href="{:U('Product/cate',array('cid'=>25))}" title="锅炉系统节能">锅炉系统节能</a><a href="{:U('Product/cate',array('cid'=>23))}" title="粉尘处理装置">粉尘处理装置</a><a href="{:U('Product/VOC')}" title="VOCs催化燃烧装置">VOCs催化燃烧装置</a>
             </p>
-        </div>        
+        </div>
         
         <!-- CSS -->
         
@@ -41,13 +49,11 @@
     <dl>
         <dt>当前位置：</dt>
         <dd>
-            <!--<nsw:breadcrumb symbol=" » " />-->
-            <!--<a th:href="/${basePath}" title="首页">首页</a>-->
+             <a href="{:U('Index/index')}" title="首页">首页</a>
             
-                 » <a href="{:U('Home/Product/index')}" title="产品频道">产品频道</a>
+                 » <a href="{:U('Product/index')}" title="产品频道">产品频道</a>
             
-            
-                 » <a href="{:U('Product/cate',array('cid'=>$name['category_id']))}" title="{$name}">{$name.category_name}</a>
+                 » <a href="{:U('Product/fenChen')}" title="粉尘处理装置">粉尘处理装置</a>
             
         </dd>
     </dl>
@@ -78,19 +84,17 @@
 </div> 
      <div class="blk">
     <div class="p4-prod-list-content-1">
-        <h3 class="p4-titlel-1">{$name.category_name}<span></span><em></em></h3>
+        <h3 class="p4-titlel-1">{$data.cate.category_name}<span></span><em></em></h3>
         
         <div class="p4-prod-list-content-1-con">
-            <if condition="empty($data) neq true">
             <ul>
-                <foreach name="data" item="vo">
-                    <li><a href="{:U('Product/detail',array('id'=>$vo['id']))}" title="{$vo.name}"><img alt="{$vo.name}" src="{$vo.imgpath}" title="{$vo.name}"></a><span><a href="{:U('Product/detail',array('id'=>$vo['id']))}" title="{$vo.name}">{$vo.name}</a></span>
-                    </li>
-                </foreach>
+                
+                    <li><a href="{:U('Product/detail',array('id'=>$data['id']))}" title="{$data.cate.category_name}"><img alt="{$data.cate.category_name}" src="{$data.imgpath}" title="{$data.cate.category_name}"></a><span><a href="{:U('Product/detail',array('id'=>$data['id']))}"title="{$data.cate.category_name}">{$data.cate.category_name}</a></span>
+                       
+</li>
+                    
+                
             </ul>
-            <else />
-                <div class="nodata">正在更新中</div>
-            </if>
             
         </div>
         <div class="p4-page"></div>
@@ -167,8 +171,8 @@ window.location.href = base + 'product/VOC' + '_' + sapce + '.html'
     </div>
     <!-- CSS -->
     
-    </div> 
+</div> 
     </div> 
    </div> 
   </div> 
-<include file="Public/footer" /> 
+<include file="Public/footer" />

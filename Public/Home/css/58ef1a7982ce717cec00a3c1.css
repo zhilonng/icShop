@@ -31,7 +31,6 @@
             text-align:center;
         }
         .ty-banner-1 img{
-            visibility: hidden;
         }
         .ty-banner-1 img.show{
             visibility: visible;

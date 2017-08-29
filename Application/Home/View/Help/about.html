@@ -23,8 +23,8 @@
   <div>
 <div class="ty-banner-1">
     
-        <a href="/helps/JiaNanGongSiJian.html" title="诺亚环保——17年专注为企业提供专业、可靠、高效的节能环保系统">
-            <img alt="诺亚环保——17年专注为企业提供专业、可靠、高效的节能环保系统" src="__HOME__/picture/8b119ffbe26741fa8e0ec02d4f97da8b_98.jpg" title="诺亚环保——17年专注为企业提供专业、可靠、高效的节能环保系统">
+        <a title="诺亚环保——17年专注为企业提供专业、可靠、高效的节能环保系统">
+            <img alt="诺亚环保——17年专注为企业提供专业、可靠、高效的节能环保系统" src="__HOME__/picture/8b119ffbe26741fa8e0ec02d4f97da8b_98.jpg" title="诺亚环保——17年专注为企业提供专业、可靠、高效的节能环保系统" style="margin-left:-272.5px">
         </a>
         
     
@@ -36,22 +36,14 @@
     <div class="blk-main">
         <div class="blk-md blk">
             <p>热门搜索产品：
-                
-                    <a href="/product/ChuChen.html" onclick="searchLink(this);" title="湿法静电除尘器">湿法静电除尘器</a>
-                
-                
-                    <a href="/product/index.html" onclick="searchLink(this);" title="节能环保设备">节能环保设备</a>
-                
-                
-                    <a href="/product/GuoLuXiTongJie.html" onclick="searchLink(this);" title="余热回收">余热回收</a>
-                
+        <a href="{:U('Product/cate',array('cid'=>25))}" title="锅炉系统节能">锅炉系统节能</a><a href="{:U('Product/cate',array('cid'=>23))}" title="粉尘处理装置">粉尘处理装置</a><a href="{:U('Product/VOC')}" title="VOCs催化燃烧装置">VOCs催化燃烧装置</a>
             </p>
-        </div>
-        
+        </div>        
         <!-- CSS -->
         
     </div>
 </div> 
+
   <!--产品详情--> 
   <div class="blk-main clearafter"> 
    <div class="blk-md"> 
@@ -60,9 +52,9 @@
         <dt>当前位置：</dt>
         <dd>
             <!--<nsw:breadcrumb symbol=" » " />-->
-            <!--<a th:href="/${basePath}" title="首页">首页</a>-->
+            <a href="{:U('Index/index')}" title="首页">首页</a>
             
-                 » <a href="/helps/JiaNanGongSiJian.html" title="迦南公司简介">迦南公司简介</a>
+                 » <a href="{:U('Help/about')}" title="迦南公司简介">迦南公司简介</a>
             
         </dd>
     </dl>
